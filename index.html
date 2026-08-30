@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>BharatYatra | Discover India</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;600;700;800&family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}html{scroll-behavior:smooth}body{font-family:"DM Sans",sans-serif;color:#fff;background:radial-gradient(circle at 50% 28%,rgba(12,74,83,.38),transparent 34%),radial-gradient(circle at 12% 60%,rgba(196,75,31,.14),transparent 28%),#050b12;min-height:100vh;overflow-x:hidden}body:before{content:"";position:fixed;inset:0;pointer-events:none;opacity:.1;background-image:radial-gradient(circle at 1px 1px,#e5b75b 1px,transparent 1px);background-size:30px 30px;mask-image:linear-gradient(to bottom,black,transparent);z-index:-1}
+.navbar{position:fixed;top:0;left:0;width:100%;height:74px;padding:0 4%;display:flex;align-items:center;justify-content:space-between;z-index:1000;background:rgba(4,10,16,.78);backdrop-filter:blur(18px);border-bottom:1px solid rgba(225,180,85,.18)}.logo{font-family:Cinzel,serif;font-size:23px;letter-spacing:2px;color:#f4e6c3;white-space:nowrap}.nav-links{display:flex;align-items:center;gap:24px;list-style:none}.nav-links a{text-decoration:none;color:rgba(255,255,255,.72);font-size:12px;font-weight:700;letter-spacing:.75px;transition:.3s}.nav-links a:hover{color:#eab75a}.login-btn{padding:9px 19px;border-radius:25px;border:1px solid rgba(234,183,90,.7);color:#f3d48c!important;background:rgba(234,183,90,.06)}
+/* HERO: each side now holds TWO stacked video frames (states/UTs), still cycling only when a video ends. padding-top trimmed 100->85 (mobile 92->78) to close the gap under the navbar */
+.hero{min-height:100vh;padding:85px 2.5% 35px;display:grid;grid-template-columns:minmax(230px,23%) minmax(450px,54%) minmax(230px,23%);align-items:center;gap:18px;position:relative}.video-column{width:100%;height:auto;position:relative;z-index:5}.video-stack{display:flex;flex-direction:column;gap:18px}.video-stack .video-card{width:100%;height:min(69vh,610px);flex:none}.video-card{position:relative;width:100%;height:100%;overflow:hidden;border-radius:24px;border:1px solid rgba(230,184,88,.34);background:#101820;box-shadow:0 25px 70px rgba(0,0,0,.48)}.video-card video{width:100%;height:100%;display:block;object-fit:cover;background:#091117;transition:transform 1s ease}.video-card:hover video{transform:scale(1.035)}.video-shade{position:absolute;inset:0;background:linear-gradient(to bottom,rgba(0,0,0,.03) 35%,rgba(0,0,0,.84) 100%);pointer-events:none}.video-content{position:absolute;left:25px;bottom:26px;z-index:3;pointer-events:none}.video-category{color:#e7b75b;font-size:10px;text-transform:uppercase;letter-spacing:2.5px;font-weight:700;margin-bottom:6px}.video-title{font-family:Cinzel,serif;font-size:24px;color:#fff}.video-progress{position:absolute;left:25px;right:25px;bottom:18px;height:2px;background:rgba(255,255,255,.18);z-index:4;overflow:hidden}.video-progress span{display:block;width:0;height:100%;background:#e5b75b}
+.hero-center{text-align:center;position:relative;z-index:10;padding:10px}.eyebrow{font-size:10px;letter-spacing:5px;color:#e5b75b;font-weight:700;margin-bottom:17px}.brand{font-family:Cinzel,serif;font-size:clamp(46px,5.3vw,82px);line-height:1;letter-spacing:2px;color:#f7f0df;text-shadow:0 8px 40px rgba(0,0,0,.5)}.ornament{width:170px;height:1px;background:linear-gradient(90deg,transparent,#e4b454,transparent);margin:22px auto}.tagline{font-family:Cinzel,serif;font-size:21px;color:#f2dfb3;letter-spacing:1px;margin-bottom:8px}.indian-tagline{font-family:Cinzel,serif;font-size:18px;color:#e8b85c;letter-spacing:.7px;margin-bottom:14px}.description{max-width:520px;margin:0 auto 25px;font-size:13px;line-height:1.75;color:rgba(255,255,255,.64)}
+.planner{margin:0 auto 18px;max-width:590px;padding:15px;border-radius:20px;background:rgba(255,255,255,.055);border:1px solid rgba(255,255,255,.13);backdrop-filter:blur(15px);box-shadow:0 20px 60px rgba(0,0,0,.25)}.planner-title{font-size:10px;color:#e5b75b;letter-spacing:2px;font-weight:700;margin-bottom:11px}.planner-fields{display:grid;grid-template-columns:1fr 1fr auto;gap:9px}.field{padding:11px 13px;border-radius:10px;background:rgba(0,0,0,.32);border:1px solid rgba(255,255,255,.1);text-align:left}.field label{display:block;font-size:8px;color:rgba(255,255,255,.48);text-transform:uppercase;letter-spacing:1px;margin-bottom:4px}.field input{width:100%;background:transparent;border:0;outline:0;color:#fff;font-size:12px}.field input::placeholder{color:rgba(255,255,255,.55)}.plan-btn{border:0;padding:0 20px;border-radius:10px;cursor:pointer;font-weight:700;font-size:11px;color:#071015;background:linear-gradient(135deg,#f2c45e,#d9782e);transition:.3s}.plan-btn:hover{transform:translateY(-2px);box-shadow:0 8px 25px rgba(225,151,51,.25)}
+.feature-window{max-width:590px;margin:0 auto;overflow:hidden;border-radius:15px;border:1px solid rgba(255,255,255,.12);background:rgba(5,18,24,.7);padding:12px 0}.feature-track{display:flex;width:max-content;animation:featureMove 30s linear infinite}.feature-item{display:flex;align-items:center;gap:10px;padding:0 23px;color:rgba(255,255,255,.74);font-family:Cinzel,serif;font-size:12px;white-space:nowrap}.feature-item:after{content:"✦";margin-left:20px;color:#e5b75b}@keyframes featureMove{from{transform:translateX(0)}to{transform:translateX(-50%)}}.ai-status{margin-top:17px;display:inline-flex;align-items:center;gap:8px;padding:8px 15px;border-radius:30px;background:rgba(36,157,141,.07);border:1px solid rgba(62,184,163,.22);font-size:9px;letter-spacing:1.5px;color:rgba(255,255,255,.65)}.status-dot{width:7px;height:7px;border-radius:50%;background:#42c7a3;box-shadow:0 0 12px #42c7a3}.scroll-hint{margin-top:10px;font-size:8px;letter-spacing:3px;color:rgba(255,255,255,.35)}
+/* NEW: culture row of carousel frames (festivals/dances/rituals/traditions/heritage) - same .video-card frame style, sits between hero and cinematic */
+.culture-row{padding:0 5% 90px}.culture-heading{text-align:center;margin-bottom:30px}.culture-grid{max-width:1250px;margin:auto;display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));gap:16px}.culture-grid .video-card{height:min(69vh,610px)}
+.cinematic{padding:95px 0 90px}.cinematic-heading{text-align:center;margin-bottom:35px;padding:0 5%}.cinematic-video{width:100%;height:clamp(320px,58vh,640px);margin:auto;border-radius:0;overflow:hidden;border:0;border-top:1px solid rgba(229,181,91,.3);border-bottom:1px solid rgba(229,181,91,.3);box-shadow:0 30px 90px rgba(0,0,0,.55);background:#091117}.cinematic-video video{width:100%;height:100%;object-fit:cover;display:block}
+.cinematic-heading small,.section-heading small,.culture-heading small{color:#e5b75b;letter-spacing:3px;font-size:10px;font-weight:700}.cinematic-heading h2,.section-heading h2,.culture-heading h2{font-family:Cinzel,serif;color:#f3e7ca;font-size:clamp(28px,4vw,48px);margin:10px 0}.cinematic-heading p,.culture-heading p{max-width:650px;margin:auto;color:rgba(255,255,255,.56);font-size:13px;line-height:1.7}
+.services,.experiences{padding:70px 6% 100px;background:linear-gradient(to bottom,transparent,rgba(8,23,31,.8))}.experiences{background:transparent;padding-top:20px}.section-heading{text-align:center;margin-bottom:40px}.section-heading h2{font-size:30px}.service-grid,.experience-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:18px}.service-card{padding:25px;min-height:180px;border-radius:18px;background:linear-gradient(145deg,rgba(255,255,255,.07),rgba(255,255,255,.025));border:1px solid rgba(255,255,255,.1);transition:.35s}.service-card:hover,.experience:hover{transform:translateY(-7px);border-color:rgba(230,181,86,.42);background:rgba(230,181,86,.06)}.service-icon{font-size:28px;margin-bottom:15px}.service-card h3{font-family:Cinzel,serif;font-size:17px;color:#f4e4bc;margin-bottom:8px}.service-card p{font-size:11px;line-height:1.7;color:rgba(255,255,255,.53)}.experience{min-height:130px;padding:22px;border-radius:18px;border:1px solid rgba(229,181,91,.14);background:linear-gradient(135deg,rgba(12,44,50,.65),rgba(255,255,255,.025));transition:.3s}.experience span{color:#e5b75b;font-size:9px;letter-spacing:2px;font-weight:700}.experience h3{margin-top:8px;font-family:Cinzel,serif;color:#f5e7c4;font-size:18px}
+.chatbot-button{position:fixed;right:25px;bottom:25px;width:64px;height:64px;border-radius:50%;border:1px solid #e8b95c;background:linear-gradient(135deg,#d67b2c,#9d3f35);color:#fff;display:flex;align-items:center;justify-content:center;font-size:27px;cursor:pointer;z-index:999;box-shadow:0 12px 40px rgba(0,0,0,.5),0 0 25px rgba(227,154,50,.15);transition:.3s}.chatbot-button:hover{transform:scale(1.08)}.chatbot{position:fixed;right:25px;bottom:102px;width:350px;height:450px;background:#0b151d;border:1px solid rgba(229,181,84,.35);border-radius:20px;z-index:998;overflow:hidden;display:none;flex-direction:column;box-shadow:0 25px 80px rgba(0,0,0,.7)}.chatbot.active{display:flex}.chat-header{padding:17px;background:linear-gradient(135deg,#153b40,#13232c);border-bottom:1px solid rgba(255,255,255,.08)}.chat-header strong{font-family:Cinzel,serif;color:#f0d18b}.chat-header small{display:block;margin-top:4px;color:rgba(255,255,255,.5);font-size:10px}.chat-messages{flex:1;padding:15px;overflow-y:auto}.message{max-width:85%;padding:10px 12px;margin-bottom:10px;border-radius:12px;font-size:11px;line-height:1.55}.message.bot{background:rgba(255,255,255,.07);color:rgba(255,255,255,.78)}.message.user{margin-left:auto;background:rgba(222,157,54,.18);border:1px solid rgba(222,157,54,.25)}.chat-input{display:flex;gap:7px;padding:12px;border-top:1px solid rgba(255,255,255,.08)}.chat-input input{flex:1;padding:11px;border-radius:9px;border:1px solid rgba(255,255,255,.1);background:#101b22;color:#fff;outline:0}.chat-input button{width:42px;border:0;border-radius:9px;background:#e5a341;color:#071015;cursor:pointer;font-weight:700}footer{padding:35px 6%;text-align:center;border-top:1px solid rgba(255,255,255,.08);color:rgba(255,255,255,.38);font-size:10px;letter-spacing:1px}
+@media(max-width:1250px){.hero{grid-template-columns:minmax(190px,22%) minmax(430px,56%) minmax(190px,22%);gap:10px;padding-left:1.5%;padding-right:1.5%}.video-stack .video-card{height:min(62vh,540px)}.nav-links{gap:16px}}
+@media(max-width:1050px){.nav-links{display:none}.hero{grid-template-columns:1fr;padding:105px 5% 60px;gap:25px}.hero-center{order:1}.video-column:first-child{order:2}.video-column:last-child{order:3}.video-column{max-width:620px;margin:auto}.video-stack .video-card{height:520px}.service-grid,.experience-grid{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:650px){.navbar{height:66px}.logo{font-size:19px}.hero{padding-top:78px}.brand{font-size:42px}.tagline{font-size:17px}.indian-tagline{font-size:15px}.description{font-size:12px}.planner-fields{grid-template-columns:1fr}.plan-btn{padding:13px}.video-stack .video-card{height:400px}.video-title{font-size:20px}.culture-grid{grid-template-columns:repeat(auto-fit,minmax(160px,1fr))}.culture-grid .video-card{height:400px}.service-grid,.experience-grid{grid-template-columns:1fr}.chatbot{width:calc(100vw - 30px);right:15px}.chatbot-button{right:18px;bottom:18px}}
+</style>
+</head>
+<body>
+<audio id="bgMusic" src="assets/music/home_page_music.mp3" loop preload="auto"></audio>
+<nav class="navbar">
+    <div class="logo">BharatYatra</div>
+    <ul class="nav-links">
+        <li><a href="destinations.html">DESTINATIONS</a></li><li><a href="hotels.html">HOTELS</a></li><li><a href="restaurants.html">RESTAURANTS</a></li><li><a href="transport.html">TRANSPORT</a></li><li><a href="states.html">STATES INFORMATION</a></li><li><a href="login.html" class="login-btn">LOGIN</a></li>
+    </ul>
+</nav>
+
+<section class="hero" id="destinations">
+    <!-- LEFT: two stacked carousels -->
+    <div class="video-column"><div class="video-stack" id="leftStack"></div></div>
+
+    <div class="hero-center">
+        <div class="eyebrow">AI-POWERED TRAVEL • DISCOVER BHARAT</div>
+        <h1 class="brand">BharatYatra</h1>
+        <div class="ornament"></div>
+        <div class="indian-tagline">“भारत केवल देखा नहीं जाता, भारत जिया जाता है।”</div>
+        <div class="planner">
+            <div class="planner-title">PLAN YOUR JOURNEY</div>
+            <div class="planner-fields">
+                <div class="field"><label>From</label><input id="source" type="text" placeholder="Mumbai"></div>
+                <div class="field"><label>Destination</label><input id="destination" type="text" placeholder="Jaipur"></div>
+                <button class="plan-btn" onclick="planJourney()">PLAN JOURNEY</button>
+            </div>
+        </div>
+
+        <div class="feature-window">
+            <div class="feature-track">
+                <div class="feature-item">🏨 Hotels & Stays</div><div class="feature-item">🚆 Smart Transport</div><div class="feature-item">🥘 Local Food</div><div class="feature-item">🗺️ Specialized Itinerary</div><div class="feature-item">🍽️ Restaurants</div><div class="feature-item">💎 Hidden Gems</div><div class="feature-item">🕐 Best Visiting Time</div><div class="feature-item">💰 Smart Budget</div><div class="feature-item">📍 Explore Nearby</div><div class="feature-item">🏛️ Culture & Heritage</div>
+                <div class="feature-item">🏨 Hotels & Stays</div><div class="feature-item">🚆 Smart Transport</div><div class="feature-item">🥘 Local Food</div><div class="feature-item">🗺️ Specialized Itinerary</div><div class="feature-item">🍽️ Restaurants</div><div class="feature-item">💎 Hidden Gems</div><div class="feature-item">🕐 Best Visiting Time</div><div class="feature-item">💰 Smart Budget</div><div class="feature-item">📍 Explore Nearby</div><div class="feature-item">🏛️ Culture & Heritage</div>
+            </div>
+        </div>
+        <div class="ai-status"><span class="status-dot"></span>BHARATYATRA TRAVEL ASSISTANT</div>
+    </div>
+
+    <!-- RIGHT: two stacked carousels -->
+    <div class="video-column"><div class="video-stack" id="rightStack"></div></div>
+</section>
+
+<section class="culture-row" id="culture">
+    <div class="culture-heading"><small>LIVING CULTURE</small><h2>Festivals, Dances, Rituals & Heritage</h2><p>India's soul lives in its celebrations — from temple rituals and folk dances to royal forts and vibrant festivals across every state.</p></div>
+    <div class="culture-grid" id="cultureGrid"></div>
+</section>
+
+<section class="cinematic" id="itinerary">
+    <div class="cinematic-heading"><small>EXPERIENCE THE JOURNEY</small><h2>India, In Every Frame</h2><p>From Himalayan landscapes and royal forts to sacred cities, tropical islands and coastal escapes — discover the many journeys that make Bharat unforgettable.</p></div>
+    <div class="cinematic-video"><video id="cinematicVideo" autoplay muted loop playsinline preload="metadata"><source src="assets/cinematic/video2.mp4" type="video/mp4"></video></div>
+</section>
+
+<section class="services">
+    <div class="section-heading"><small>Your Complete India Travel Companion</small><h2>Features of BharatYatra</h2></div>
+    <div class="service-grid">
+        <div class="service-card" id="hotels"><div class="service-icon">🏨</div><h3>Hotels & Stays</h3><p>Discover hotels, resorts, homestays, hostels and unique stays according to budget, rating and preferences.</p></div>
+        <div class="service-card" id="food"><div class="service-icon">🍽️</div><h3>Local Food & Restaurants</h3><p>From authentic street food and regional dishes to highly rated restaurants and fine dining near every destination.</p></div>
+        <div class="service-card" id="transport"><div class="service-icon">🚆</div><h3>Smart Transport</h3><p>Get intelligent recommendations for flights, trains, buses, taxis, rental vehicles and local transport.</p></div>
+        <div class="service-card" id="verification"><div class="service-icon">🔐</div><h3>User Verification</h3><p>Sign up securely using your Gmail, email and password, with one government-verified document checked to confirm every traveler's identity.</p></div>
+        <div class="service-card" id="admin-auth"><div class="service-icon">🛡️</div><h3>Admin Authentication</h3><p>Hotel, restaurant, homestay and PG owners are verified through their license and permit before they can list on BharatYatra.</p></div>
+        <div class="service-card" id="sos"><div class="service-icon">🆘</div><h3>SOS & Safety</h3><p>Get instant emergency assistance and safety alerts, designed to work reliably even in low-connectivity areas.</p></div>
+        <div class="service-card" id="qr-ticket"><div class="service-icon">🎫</div><h3>All-in-One Digital Ticket</h3><p>One single QR code and a one-time payment covers attractions, transport and more — no repeated queues or payments.</p></div>
+        <div class="service-card" id="alt-suggest"><div class="service-icon">🔄</div><h3>Smart Alternate Suggestions</h3><p>If your preferred hotel is full, get AI-suggested alternatives within 10-20 km that are still well-connected by transport.</p></div>
+        <div class="service-card" id="multilingual"><div class="service-icon">🗣️</div><h3>Multilingual Guide</h3><p>Explore history, culture and heritage explained in your own language — no need for a physical guide.</p></div>
+        <div class="service-card" id="ai-personalization"><div class="service-icon">🎯</div><h3>AI Personalization</h3><p>Get personalized recommendations based on your budget, source, destination and travel interests.</p></div>
+        <div class="service-card" id="boost-economy"><div class="service-icon">🧺</div><h3>Boost Local Economy</h3><p>Discover and support low-footfall destinations, local handicrafts and small businesses through special promotions.</p></div>
+        <div class="service-card"><div class="service-icon">🗺️</div><h3>Specialized Itinerary</h3><p>Build personalized day-by-day journeys based on time, interests, budget and destination.</p></div>
+        <div class="service-card"><div class="service-icon">🕐</div><h3>Best Visiting Time</h3><p>Understand busy timings, estimated crowd levels and suggested visiting hours for attractions.</p></div>
+        <div class="service-card"><div class="service-icon">💰</div><h3>Smart Budget Planning</h3><p>Organize your trip around your budget with intelligent suggestions for travel, stay, food and activities.</p></div>
+        <div class="service-card"><div class="service-icon">📅</div><h3>Yearly Travel Calendar</h3><p>Plan your trip by month — see the best season for each destination and the ideal time of day to visit, morning to evening.</p></div>
+        <div class="service-card"><div class="service-icon">📰</div><h3>News & Research Hub</h3><p>Stay updated with tourism department news, historical site research, GI-tagged local products and more.</p></div>
+    </div>
+</section>
+
+<section class="experiences">
+    <div class="section-heading"><small>EXPLORE INDIA BY EXPERIENCE</small><h2>One Country. Countless Journeys.</h2></div>
+    <div class="experience-grid">
+        <div class="experience"><span>01</span><h3>Himalayan Escapes</h3></div><div class="experience"><span>02</span><h3>Seashores & Beaches</h3></div><div class="experience"><span>03</span><h3>Island Adventures</h3></div><div class="experience"><span>04</span><h3>Forts & Palaces</h3></div><div class="experience"><span>05</span><h3>Temples & Heritage</h3></div><div class="experience"><span>06</span><h3>Culture & Festivals</h3></div><div class="experience"><span>07</span><h3>Wildlife & Nature</h3></div><div class="experience"><span>08</span><h3>Scared Cities & Local Life</h3></div>
+    </div>
+</section>
+
+<div class="chatbot-button" onclick="toggleChat()" aria-label="Open BharatYatra travel assistant">🙏</div>
+<div class="chatbot" id="chatbot">
+    <div class="chat-header"><strong>BharatYatra Travel Assistant</strong><small>Your intelligent companion for exploring India</small></div>
+    <div class="chat-messages" id="chatMessages"><div class="message bot">Namaste! 🙏<br><br>Tell me where you want to travel and I'll help you discover destinations, hotels, transport, food, hidden gems and personalized experiences.</div></div>
+    <div class="chat-input"><input id="chatInput" type="text" placeholder="Ask about your journey..." onkeydown="handleChat(event)"><button onclick="sendMessage()">➤</button></div>
+</div>
+<footer>BHARATYATRA • DISCOVER INDIA • EXPERIENCE BHARAT</footer>
+
+<script>
+/* ---- STATES & UNION TERRITORIES ---- */
+const leftTop=[
+ {src:"assets/states/maharashtra.mp4",category:"STATE",title:"Maharashtra"},
+ {src:"assets/states/rajasthan.mp4",category:"STATE",title:"Rajasthan"},
+ {src:"assets/states/delhi.mp4",category:"UNION TERRITORY",title:"Delhi"},
+ {src:"assets/states/uttar_pradesh.mp4",category:"STATE",title:"Uttar Pradesh"},
+ {src:"assets/states/kerala.mp4",category:"STATE",title:"Kerala"},
+ {src:"assets/states/goa.mp4",category:"STATE",title:"Goa"},
+ {src:"assets/states/punjab.mp4",category:"STATE",title:"Punjab"}
+];
+const leftBottom=[
+ {src:"assets/states/gujarat.mp4",category:"STATE",title:"Gujarat"},
+ {src:"assets/states/rajasthan.mp4",category:"STATE",title:"Rajasthan"},
+ {src:"assets/states/karnataka.mp4",category:"STATE",title:"Karnataka"},
+ {src:"assets/states/tamil_nadu.mp4",category:"STATE",title:"Tamil Nadu"},
+ {src:"assets/states/west_bengal.mp4",category:"STATE",title:"West Bengal"},
+ {src:"assets/states/odisha.mp4",category:"STATE",title:"Odisha"}
+];
+const rightTop=[
+ {src:"assets/states/uttarakhand.mp4",category:"STATE",title:"Uttarakhand"},
+ {src:"assets/states/jammu_kashmir.mp4",category:"UNION TERRITORY",title:"Jammu & Kashmir"},
+ {src:"assets/states/ladakh.mp4",category:"UNION TERRITORY",title:"Ladakh"},
+ {src:"assets/states/himachal_pradesh.mp4",category:"STATE",title:"Himachal Pradesh"},
+ {src:"assets/states/sikkim.mp4",category:"STATE",title:"Sikkim"},
+ {src:"assets/states/assam.mp4",category:"STATE",title:"Assam"},
+ {src:"assets/states/arunachal.mp4",category:"STATE",title:"Arunachal Pradesh"}
+];
+const rightBottom=[
+ {src:"assets/states/madhya_pradesh.mp4",category:"STATE",title:"Madhya Pradesh"},
+ {src:"assets/states/andhra_pradesh.mp4",category:"STATE",title:"Andhra Pradesh"},
+ {src:"assets/states/telangana.mp4",category:"STATE",title:"Telangana"},
+ {src:"assets/states/bihar.mp4",category:"STATE",title:"Bihar"},
+ {src:"assets/states/meghalaya.mp4",category:"STATE",title:"Meghalaya"},
+ {src:"assets/states/daman.mp4",category:"UNION TERRITORY",title:"Daman & Diu"}
+];
+
+/* ---- CULTURE ROW ---- */
+const festivals=[
+ {src:"assets/festivals/ganpati.mp4",category:"FESTIVAL",title:"Ganpati Festival"},
+ {src:"assets/festivals/diwali.mp4",category:"FESTIVAL",title:"Diwali"},
+ {src:"assets/festivals/holi.mp4",category:"FESTIVAL",title:"Holi"},
+ {src:"assets/festivals/durga_puja.mp4",category:"FESTIVAL",title:"Durga Puja"},
+ {src:"assets/festivals/dussehra.mp4",category:"FESTIVAL",title:"Dussehra"},
+ {src:"assets/festivals/pongal.mp4",category:"FESTIVAL",title:"Pongal"}
+];
+const dances=[
+ {src:"assets/dances/bharatanatyam.mp4",category:"DANCE",title:"Bharatanatyam"},
+ {src:"assets/dances/koli_dance.mp4",category:"DANCE",title:"Koli Dance"},
+ {src:"assets/dances/lavani.mp4",category:"DANCE",title:"Lavani"},
+ {src:"assets/dances/ghoomar.mp4",category:"DANCE",title:"Ghoomar Dance"},
+ {src:"assets/dances/pahadi.mp4",category:"DANCE",title:"Pahadi Dance"},
+ {src:"assets/dances/bhnaghra.mp4",category:"DANCE",title:"Bhanghara"},
+ {src:"assets/dances/kathakali.mp4",category:"DANCE",title:"Kathakali"}
+];
+const rituals=[
+ {src:"assets/rituals/ganga_aarti.mp4",category:"RITUAL",title:"Ganga Aarti"},
+ {src:"assets/rituals/sindur_khela.mp4",category:"RITUAL",title:"Sindur Khela"},
+ {src:"assets/rituals/kumbh_mela.mp4",category:"RITUAL",title:"Kumbh Mela"},
+ {src:"assets/rituals/rath_yatra.mp4",category:"RITUAL",title:"Rath Yatra"},
+ {src:"assets/rituals/chhath_puja.mp4",category:"RITUAL",title:"Chhath Puja"},
+ {src:"assets/rituals/pushkar_fair.mp4",category:"RITUAL",title:"Pushkar Fair"}
+];
+const Traditions=[
+ {src:"assets/tradition/navratri.mp4",category:"DANCE",title:"Garba Rass-Navratri"},
+ {src:"assets/tradition/raulane.mp4",category:"Tradition",title:"Raulane Festival"},
+ {src:"assets/tradition/Kite.mp4",category:"Tradition",title:"Kite Festival"},
+ {src:"assets/tradition/gangur.mp4",category:"Tradition",title:"Gangaur Festival"},
+ {src:"assets/tradition/vallam.mp4",category:"Tradition",title:"Vallam Kali"},
+ {src:"assets/tradition/bihu.mp4",category:"Tradition",title:"Bihu Festival"}
+];
+const heritage=[
+ {src:"assets/heritage/thanjavur.mp4",category:"HERITAGE",title:"Thanjavur Temple"},
+ {src:"assets/heritage/konark_sun_temple.mp4",category:"HERITAGE",title:"Konark Sun Temple"},
+ {src:"assets/heritage/hampi.mp4",category:"HERITAGE",title:"Hampi Ruins"},
+ {src:"assets/heritage/ajanta_caves.mp4",category:"HERITAGE",title:"Kailash Temple"},
+ {src:"assets/heritage/rameshwaram.mp4",category:"HERITAGE",title:"Rameshwaram Temple"},
+ {src:"assets/heritage/unakoti.mp4",category:"HERITAGE",title:"Unakoti,Tripura"}
+];
+
+/* Builds one carousel frame (video-card) inside a container, cycling to the next clip only after the current one ends */
+function buildVideoCard(container,videos){
+ const card=document.createElement("div");
+ card.className="video-card";
+ card.innerHTML='<video autoplay muted playsinline preload="auto"></video><div class="video-shade"></div><div class="video-content"><div class="video-category"></div><div class="video-title"></div></div><div class="video-progress"><span></span></div>';
+ container.appendChild(card);
+ const video=card.querySelector("video"),category=card.querySelector(".video-category"),title=card.querySelector(".video-title"),progress=card.querySelector(".video-progress span");
+ let index=0;
+ function load(i){const item=videos[i];video.pause();video.src=item.src;video.load();category.textContent=item.category;title.textContent=item.title;progress.style.width="0%";video.play().catch(err=>console.warn("[BharatYatra] play() blocked for",item.src,"-",err.message));}
+ video.addEventListener("error",()=>{const err=video.error;console.error("[BharatYatra] FAILED TO LOAD:",video.src,"| code:",err&&err.code,"| check the file path/name/format.");});
+ video.addEventListener("ended",()=>{index=(index+1)%videos.length;load(index)});
+ video.addEventListener("timeupdate",()=>{if(video.duration&&isFinite(video.duration))progress.style.width=(video.currentTime/video.duration*100)+"%"});
+ video.addEventListener("loadedmetadata",()=>video.play().catch(()=>{}));
+ load(0);
+}
+
+const leftStack=document.getElementById("leftStack"),rightStack=document.getElementById("rightStack"),cultureGrid=document.getElementById("cultureGrid");
+[leftTop,leftBottom].forEach(v=>buildVideoCard(leftStack,v));
+[rightTop,rightBottom].forEach(v=>buildVideoCard(rightStack,v));
+[festivals,dances,rituals,Traditions,heritage].forEach(v=>buildVideoCard(cultureGrid,v));
+
+/* Play the large cinematic video when it enters the viewport. */
+const cinematicVideo=document.getElementById("cinematicVideo");
+const observer=new IntersectionObserver(entries=>entries.forEach(entry=>entry.isIntersecting?cinematicVideo.play().catch(()=>{}):cinematicVideo.pause()),{threshold:.35});
+observer.observe(cinematicVideo);
+
+/* Continuous background music. Browsers block unmuted autoplay without a user gesture, so we try immediately on load and also retry on the first click/scroll/keypress/touch. */
+const bgMusic=document.getElementById("bgMusic");
+function startBgMusic(){bgMusic.play().catch(()=>{});}
+startBgMusic();
+["click","scroll","keydown","touchstart"].forEach(evt=>document.addEventListener(evt,startBgMusic,{once:true}));
+
+function planJourney(){
+ const source=document.getElementById("source").value.trim(),destination=document.getElementById("destination").value.trim();
+ if(!source||!destination){alert("Please enter both your source and destination.");return}
+ alert("Planning your BharatYatra...\n\n"+source+" → "+destination+"\n\nYour journey can include:\n• Smart transportation\n• Hotels & stays\n• Restaurants\n• Local food\n• Hidden gems\n• Best visiting time\n• Personalized itinerary\n• Nearby experiences");
+}
+function toggleChat(){const c=document.getElementById("chatbot");c.classList.toggle("active");if(c.classList.contains("active"))setTimeout(()=>document.getElementById("chatInput").focus(),100)}
+function handleChat(e){if(e.key==="Enter")sendMessage()}
+function sendMessage(){const input=document.getElementById("chatInput"),messages=document.getElementById("chatMessages"),text=input.value.trim();if(!text)return;const user=document.createElement("div");user.className="message user";user.textContent=text;messages.appendChild(user);input.value="";setTimeout(()=>{const bot=document.createElement("div");bot.className="message bot";bot.textContent="I'd love to help you with that! In the complete BharatYatra system, this assistant will connect to your AI travel recommendation engine for destinations, transport, hotels, food, hidden gems and itineraries.";messages.appendChild(bot);messages.scrollTop=messages.scrollHeight},600)}
+document.addEventListener("keydown",e=>{if(e.key==="Escape")document.getElementById("chatbot").classList.remove("active")});
+</script>
+</body>
+</html>
