@@ -1,0 +1,499 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Tourist Spots & Destinations in India | BharatYatra</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;600;700;800&family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+  
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: "DM Sans", sans-serif;
+      color: #fff;
+      background: radial-gradient(circle at 50% 28%, rgba(12, 74, 83, 0.38), transparent 34%),
+                  radial-gradient(circle at 12% 60%, rgba(196, 75, 31, 0.14), transparent 28%),
+                  #050b12;
+      min-height: 100vh;
+      overflow-x: hidden;
+    }
+    body:before {
+      content: "";
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      opacity: 0.1;
+      background-image: radial-gradient(circle at 1px 1px, #e5b75b 1px, transparent 1px);
+      background-size: 30px 30px;
+      mask-image: linear-gradient(to bottom, black, transparent);
+      z-index: -1;
+    }
+
+    /* ---- Navbar ---- */
+    .navbar {
+      position: fixed;
+      top: 0; left: 0; width: 100%;
+      height: 74px;
+      padding: 0 4%;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      z-index: 1000;
+      background: rgba(4, 10, 16, 0.78);
+      backdrop-filter: blur(18px);
+      border-bottom: 1px solid rgba(225, 180, 85, 0.18);
+    }
+    .logo {
+      font-family: Cinzel, serif;
+      font-size: 23px;
+      letter-spacing: 2px;
+      color: #f4e6c3;
+      white-space: nowrap;
+    }
+    .nav-links { display: flex; align-items: center; gap: 24px; list-style: none; }
+    .nav-links a {
+      text-decoration: none;
+      color: rgba(255, 255, 255, 0.72);
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 0.75px;
+      transition: 0.3s;
+    }
+    .nav-links a:hover, .nav-links a.active { color: #eab75a; }
+    .login-btn {
+      padding: 9px 19px;
+      border-radius: 25px;
+      border: 1px solid rgba(234, 183, 90, 0.7);
+      color: #f3d48c !important;
+      background: rgba(234, 183, 90, 0.06);
+    }
+
+    /* ---- Hero Section ---- */
+    .dest-hero {
+      position: relative;
+      height: 65vh;
+      min-height: 440px;
+      margin-top: 74px;
+      overflow: hidden;
+      background: #0b1119;
+    }
+    .dest-hero-img {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+    .dest-hero-overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to bottom, rgba(5,11,18,0.3) 0%, rgba(5,11,18,0.65) 60%, rgba(5,11,18,0.98) 100%);
+    }
+    .dest-hero-content {
+      position: relative;
+      z-index: 2;
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 0 5%;
+    }
+    .dest-hero-content h1 {
+      font-family: Cinzel, serif;
+      font-weight: 800;
+      font-size: clamp(32px, 5.2vw, 68px);
+      color: #fff;
+      text-shadow: 0 10px 40px rgba(0,0,0,0.7);
+      letter-spacing: 1.5px;
+      line-height: 1.15;
+    }
+    .dest-hero-content p {
+      margin-top: 14px;
+      font-family: Cinzel, serif;
+      font-size: clamp(13px, 1.7vw, 18px);
+      color: #e8b85c;
+      letter-spacing: 1.2px;
+    }
+
+    /* ---- Zones Section (Incredible India Single-Line Row Style) ---- */
+    .zones-section {
+      max-width: 1400px;
+      margin: 45px auto 80px;
+      padding: 0 4%;
+    }
+    .section-title {
+      text-align: center;
+      margin-bottom: 25px;
+    }
+    .section-title small {
+      color: #e5b75b;
+      font-size: 11px;
+      letter-spacing: 3px;
+      font-weight: 700;
+      display: block;
+      margin-bottom: 6px;
+    }
+    .section-title h3 {
+      font-family: Cinzel, serif;
+      font-size: 28px;
+      color: #f3e7ca;
+    }
+
+    /* ---- Filter & Search Bar Controls ---- */
+    .filter-controls-bar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 15px;
+      margin-bottom: 30px;
+      background: rgba(11, 21, 29, 0.6);
+      border: 1px solid rgba(230, 184, 88, 0.2);
+      padding: 12px 20px;
+      border-radius: 16px;
+      backdrop-filter: blur(10px);
+    }
+    .filter-pills {
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+    }
+    .filter-pill {
+      background: rgba(230, 184, 88, 0.05);
+      border: 1px solid rgba(230, 184, 88, 0.3);
+      color: #f2dfb3;
+      padding: 6px 16px;
+      border-radius: 20px;
+      font-family: Cinzel, serif;
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 0.8px;
+      cursor: pointer;
+      transition: 0.25s ease;
+    }
+    .filter-pill:hover, .filter-pill.active {
+      background: #e5b75b;
+      color: #050b12;
+      border-color: #e5b75b;
+      box-shadow: 0 0 15px rgba(229, 183, 91, 0.35);
+    }
+
+    .state-search-box {
+      display: flex;
+      align-items: center;
+      background: rgba(5, 11, 18, 0.9);
+      border: 1px solid rgba(230, 184, 88, 0.35);
+      border-radius: 20px;
+      padding: 6px 16px;
+      min-width: 260px;
+    }
+    .state-search-box input {
+      background: transparent;
+      border: none;
+      outline: none;
+      color: #fff;
+      font-family: inherit;
+      font-size: 12px;
+      width: 100%;
+    }
+    .state-search-box input::placeholder {
+      color: rgba(255, 255, 255, 0.4);
+    }
+
+    /* Horizontal single-line scrolling row container */
+    .zones-row {
+      display: flex;
+      gap: 20px;
+      overflow-x: auto;
+      padding-bottom: 15px;
+      scrollbar-width: thin;
+      scrollbar-color: rgba(230, 184, 88, 0.4) transparent;
+    }
+    .zones-row::-webkit-scrollbar {
+      height: 6px;
+    }
+    .zones-row::-webkit-scrollbar-thumb {
+      background: rgba(230, 184, 88, 0.4);
+      border-radius: 6px;
+    }
+
+    .zone-card {
+      flex: 0 0 210px;
+      background: rgba(255, 255, 255, 0.02);
+      border: 1px solid rgba(230, 184, 88, 0.2);
+      border-radius: 16px;
+      padding: 22px 15px;
+      text-align: center;
+      transition: 0.3s ease;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+    .zone-card:hover {
+      transform: translateY(-5px);
+      border-color: #e5b75b;
+      background: rgba(230, 184, 88, 0.04);
+      box-shadow: 0 10px 30px rgba(229, 183, 91, 0.12);
+    }
+
+    .zone-map-img {
+      width: 75px;
+      height: 85px;
+      object-fit: contain;
+      margin-bottom: 12px;
+      filter: drop-shadow(0 0 8px rgba(229, 183, 91, 0.25));
+      transition: transform 0.3s ease;
+    }
+    .zone-card:hover .zone-map-img { transform: scale(1.08); }
+
+    .zone-title {
+      font-family: Cinzel, serif;
+      font-size: 15px;
+      color: #f3e7ca;
+      margin-bottom: 14px;
+      font-weight: 700;
+      letter-spacing: 0.8px;
+      border-bottom: 1px solid rgba(230, 184, 88, 0.2);
+      width: 100%;
+      padding-bottom: 8px;
+    }
+
+    .zone-links-list {
+      list-style: none;
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      gap: 7px;
+      max-height: 260px;
+      overflow-y: auto;
+      padding-right: 2px;
+    }
+    .zone-links-list::-webkit-scrollbar {
+      width: 3px;
+    }
+    .zone-links-list::-webkit-scrollbar-thumb {
+      background: rgba(230, 184, 88, 0.3);
+      border-radius: 3px;
+    }
+
+    .zone-links-list a {
+      text-decoration: none;
+      color: rgba(255, 255, 255, 0.72);
+      font-size: 12px;
+      transition: 0.2s;
+      display: block;
+      padding: 3px 0;
+    }
+    .zone-links-list a:hover {
+      color: #e5b75b;
+      padding-left: 4px;
+    }
+
+    .music-toggle {
+      position: fixed; left: 25px; bottom: 25px;
+      width: 52px; height: 52px; border-radius: 50%;
+      border: 1px solid #e8b95c;
+      background: rgba(16, 24, 32, 0.85); backdrop-filter: blur(10px);
+      color: #f3d48c; display: flex; align-items: center; justify-content: center;
+      font-size: 20px; cursor: pointer; z-index: 999;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.45); transition: 0.3s;
+    }
+    .music-toggle:hover { transform: scale(1.08); }
+    footer {
+      padding: 35px 6%; text-align: center;
+      border-top: 1px solid rgba(255, 255, 255, 0.08);
+      color: rgba(255, 255, 255, 0.38); font-size: 10px; letter-spacing: 1px;
+    }
+  </style>
+</head>
+<body>
+
+  
+
+  <!-- Navbar -->
+  <nav class="navbar">
+    <div class="logo">BharatYatra</div>
+    <ul class="nav-links">
+      <li><a href="index.html">Home Page</a></li>
+      <li><a href="crafts.html">Crafts</a></li>
+      <li><a href="gi_tag.html">GI Tag Products</a></li>
+      <li><a href="calendar.html">Calendar</a></li>
+      <li><a href="unesco_sites.html">UNESCO Sites</a></li>
+      <li><a href="destinations.html" class="active">Tourist Spots</a></li>
+      <li><a href="login.html" class="login-btn">LOGIN</a></li>
+    </ul>
+  </nav>
+
+  <!-- Hero Section -->
+  <section class="dest-hero">
+    <img class="dest-hero-img" src="assets/image/destinations_hero_banner.png" alt="Tourist Spots in India" onerror="this.src='https://images.unsplash.com/photo-1524492412937-b28074a5d7da?auto=format&fit=crop&w=1600&q=80'">
+    <div class="dest-hero-overlay"></div>
+    <div class="dest-hero-content">
+      <h1>Tourist Spots</h1>
+      <p>Explore Iconic Landmarks, Scenic Escapes & Spiritual Sanctuaries Across India</p>
+    </div>
+  </section>
+
+  <!-- Zones Section (Incredible India Single-Line Row Style) -->
+  <section class="zones-section">
+    <div class="section-title">
+      <small>EXPLORE BY REGIONS</small>
+      <h3>States and UTs by Zones</h3>
+    </div>
+
+    <!-- Filter Bar & Search Controls -->
+    <div class="filter-controls-bar">
+      <div class="filter-pills">
+        <button class="filter-pill active" onclick="filterType('all', this)">All Regions</button>
+        <button class="filter-pill" onclick="filterType('state', this)">States Only</button>
+        <button class="filter-pill" onclick="filterType('ut', this)">Union Territories</button>
+      </div>
+      <div class="state-search-box">
+        <input type="text" id="stateSearchInput" placeholder="Search state or UT..." oninput="handleStateSearch(this.value)">
+      </div>
+    </div>
+
+    <div class="zones-row" id="zonesRow">
+      <!-- Populated dynamically via JS -->
+    </div>
+  </section>
+
+  <div class="music-toggle" id="musicToggle" onclick="toggleMusic()" aria-label="Toggle background music">🔊</div>
+  <footer>BHARATYATRA • DISCOVER INDIA • EXPERIENCE BHARAT</footer>
+
+  <script>
+    const INDIA_ZONES = [
+      {
+        name: "North",
+        mapImg: "assets/image/state_zone/north.jpg",
+        items: [
+          { name: "Chandigarh", type: "ut", url: "ut/chandigarh.html" },
+          { name: "Delhi", type: "ut", url: "ut/delhi.html" },
+          { name: "Haryana", type: "state", url: "states/haryana.html" },
+          { name: "Himachal Pradesh", type: "state", url: "states/himachal-pradesh.html" },
+          { name: "Jammu and Kashmir", type: "ut", url: "ut/jammu-and-kashmir.html" },
+          { name: "Ladakh", type: "ut", url: "ut/ladakh.html" },
+          { name: "Punjab", type: "state", url: "states/punjab.html" },
+          { name: "Rajasthan", type: "state", url: "states/rajasthan.html" },
+          { name: "Uttar Pradesh", type: "state", url: "states/uttar-pradesh.html" },
+          { name: "Uttarakhand", type: "state", url: "states/uttarakhand.html" }
+        ]
+      },
+      {
+        name: "North East",
+        mapImg: "assets/image/state_zone/northeast.jpg",
+        items: [
+          { name: "Arunachal Pradesh", type: "state", url: "states/arunachal-pradesh.html" },
+          { name: "Assam", type: "state", url: "states/assam.html" },
+          { name: "Manipur", type: "state", url: "states/manipur.html" },
+          { name: "Meghalaya", type: "state", url: "states/meghalaya.html" },
+          { name: "Mizoram", type: "state", url: "states/mizoram.html" },
+          { name: "Nagaland", type: "state", url: "states/nagaland.html" },
+          { name: "Sikkim", type: "state", url: "states/sikkim.html" },
+          { name: "Tripura", type: "state", url: "states/tripura.html" }
+        ]
+      },
+      {
+        name: "East",
+        mapImg: "assets/image/state_zone/east.jpg",
+        items: [
+          { name: "Andaman and Nicobar Islands", type: "ut", url: "ut/andaman-and-nicobar-islands.html" },
+          { name: "Bihar", type: "state", url: "states/bihar.html" },
+          { name: "Jharkhand", type: "state", url: "states/jharkhand.html" },
+          { name: "Odisha", type: "state", url: "states/odisha.html" },
+          { name: "West Bengal", type: "state", url: "states/west-bengal.html" }
+        ]
+      },
+      {
+        name: "Central",
+        mapImg: "assets/image/state_zone/central.jpg",
+        items: [
+          { name: "Chhattisgarh", type: "state", url: "states/chhattisgarh.html" },
+          { name: "Madhya Pradesh", type: "state", url: "states/madhya-pradesh.html" }
+        ]
+      },
+      {
+        name: "West",
+        mapImg: "assets/image/state_zone/west.jpg",
+        items: [
+          { name: "Dadra and Nagar Haveli and Daman and Diu", type: "ut", url: "ut/dadra-and-nagar-haveli-and-daman-and-diu.html" },
+          { name: "Goa", type: "state", url: "states/goa.html" },
+          { name: "Gujarat", type: "state", url: "states/gujarat.html" },
+          { name: "Maharashtra", type: "state", url: "states/maharashtra.html" }
+        ]
+      },
+      {
+        name: "South",
+        mapImg: "assets/image/state_zone/south.jpg",
+        items: [
+          { name: "Andhra Pradesh", type: "state", url: "states/andhra-pradesh.html" },
+          { name: "Karnataka", type: "state", url: "states/karnataka.html" },
+          { name: "Kerala", type: "state", url: "states/kerala.html" },
+          { name: "Lakshadweep", type: "ut", url: "ut/lakshadweep.html" },
+          { name: "Puducherry", type: "ut", url: "ut/puducherry.html" },
+          { name: "Tamil Nadu", type: "state", url: "states/tamil-nadu.html" },
+          { name: "Telangana", type: "state", url: "states/telangana.html" }
+        ]
+      }
+    ];
+
+    let activeFilter = 'all';
+    let searchQuery = '';
+
+    function renderZones() {
+      const zonesRow = document.getElementById("zonesRow");
+      zonesRow.innerHTML = "";
+
+      INDIA_ZONES.forEach(zone => {
+        const filteredItems = zone.items.filter(item => {
+          const matchesType = (activeFilter === 'all' || item.type === activeFilter);
+          const matchesSearch = item.name.toLowerCase().includes(searchQuery.toLowerCase());
+          return matchesType && matchesSearch;
+        });
+
+        // Hide zone card entirely if no items match search/filter criteria
+        if (filteredItems.length === 0) return;
+
+        const card = document.createElement("div");
+        card.className = "zone-card";
+        
+        let linksHtml = "";
+        filteredItems.forEach(item => {
+          linksHtml += `<li><a href="${item.url}">${item.name}</a></li>`;
+        });
+
+        card.innerHTML = `
+          <img class="zone-map-img" src="${zone.mapImg}" alt="${zone.name} Zone Map" onerror="this.src='https://api.iconify.design/lucide:map-pin.svg?color=%23e5b75b'">
+          <div class="zone-title">${zone.name}</div>
+          <ul class="zone-links-list">
+            ${linksHtml}
+          </ul>
+        `;
+        zonesRow.appendChild(card);
+      });
+    }
+
+    function filterType(type, btn) {
+      activeFilter = type;
+      document.querySelectorAll(".filter-pill").forEach(p => p.classList.remove("active"));
+      btn.classList.add("active");
+      renderZones();
+    }
+
+    function handleStateSearch(query) {
+      searchQuery = query.trim();
+      renderZones();
+    }
+
+    // Initial render call
+    renderZones();
+
+    
+  </script>
+</body>
+</html>

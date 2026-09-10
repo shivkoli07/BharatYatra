@@ -1,0 +1,1426 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>UNESCO World Heritage Sites in India | BharatYatra</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;600;700;800&family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+  
+  <!-- Leaflet CSS for Live Interactive Map -->
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin=""/>
+
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: "DM Sans", sans-serif;
+      color: #fff;
+      background: radial-gradient(circle at 50% 28%, rgba(12, 74, 83, 0.38), transparent 34%),
+                  radial-gradient(circle at 12% 60%, rgba(196, 75, 31, 0.14), transparent 28%),
+                  #050b12;
+      min-height: 100vh;
+      overflow-x: hidden;
+    }
+    body:before {
+      content: "";
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      opacity: 0.1;
+      background-image: radial-gradient(circle at 1px 1px, #e5b75b 1px, transparent 1px);
+      background-size: 30px 30px;
+      mask-image: linear-gradient(to bottom, black, transparent);
+      z-index: -1;
+    }
+
+    /* ---- Navbar ---- */
+    .navbar {
+      position: fixed;
+      top: 0; left: 0; width: 100%;
+      height: 74px;
+      padding: 0 4%;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      z-index: 1000;
+      background: rgba(4, 10, 16, 0.78);
+      backdrop-filter: blur(18px);
+      border-bottom: 1px solid rgba(225, 180, 85, 0.18);
+    }
+    .logo {
+      font-family: Cinzel, serif;
+      font-size: 23px;
+      letter-spacing: 2px;
+      color: #f4e6c3;
+      white-space: nowrap;
+    }
+    .nav-links { display: flex; align-items: center; gap: 24px; list-style: none; }
+    .nav-links a {
+      text-decoration: none;
+      color: rgba(255, 255, 255, 0.72);
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 0.75px;
+      transition: 0.3s;
+    }
+    .nav-links a:hover, .nav-links a.active { color: #eab75a; }
+    .login-btn {
+      padding: 9px 19px;
+      border-radius: 25px;
+      border: 1px solid rgba(234, 183, 90, 0.7);
+      color: #f3d48c !important;
+      background: rgba(234, 183, 90, 0.06);
+    }
+
+    /* ---- Hero Section ---- */
+    .unesco-hero {
+      position: relative;
+      height: 75vh;
+      min-height: 500px;
+      margin-top: 74px;
+      overflow: hidden;
+      background: #0b1119;
+    }
+    .unesco-hero-img {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+    .unesco-hero-overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to bottom, rgba(5,11,18,0.3) 0%, rgba(5,11,18,0.65) 60%, rgba(5,11,18,0.98) 100%);
+    }
+    .unesco-hero-content {
+      position: relative;
+      z-index: 2;
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 0 5%;
+    }
+    .unesco-hero-content h1 {
+      font-family: Cinzel, serif;
+      font-weight: 800;
+      font-size: clamp(34px, 5.5vw, 76px);
+      color: #fff;
+      text-shadow: 0 10px 40px rgba(0,0,0,0.7);
+      letter-spacing: 1.5px;
+      line-height: 1.15;
+    }
+    .unesco-hero-content p {
+      margin-top: 14px;
+      font-family: Cinzel, serif;
+      font-size: clamp(14px, 1.8vw, 20px);
+      color: #e8b85c;
+      letter-spacing: 1.2px;
+    }
+
+    /* ---- Map Container Section ---- */
+    .map-section {
+      max-width: 1300px;
+      margin: 40px auto;
+      padding: 0 4%;
+    }
+    .section-title {
+      text-align: center;
+      margin-bottom: 24px;
+    }
+    .section-title small {
+      color: #e5b75b;
+      font-size: 11px;
+      letter-spacing: 3px;
+      font-weight: 700;
+      display: block;
+      margin-bottom: 6px;
+    }
+    .section-title h3 {
+      font-family: Cinzel, serif;
+      font-size: 28px;
+      color: #f3e7ca;
+    }
+
+    .map-controls-bar {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      align-items: center;
+      gap: 15px;
+      margin-bottom: 20px;
+    }
+    .filter-pills {
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+    }
+    .filter-pill {
+      padding: 8px 18px;
+      border-radius: 25px;
+      border: 1px solid rgba(230, 184, 88, 0.3);
+      background: rgba(230, 184, 88, 0.06);
+      color: #f2dfb3;
+      font-family: Cinzel, serif;
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 1px;
+      cursor: pointer;
+      transition: 0.25s;
+    }
+    .filter-pill:hover, .filter-pill.active {
+      background: #e5b75b;
+      color: #071015;
+      font-weight: 700;
+      box-shadow: 0 0 15px rgba(229, 183, 91, 0.35);
+    }
+
+    .map-wrapper {
+      height: 600px;
+      width: 100%;
+      border-radius: 20px;
+      overflow: hidden;
+      border: 1px solid rgba(230, 184, 88, 0.3);
+      box-shadow: 0 20px 60px rgba(0,0,0,0.6);
+      position: relative;
+    }
+    #unescoMap {
+      width: 100%;
+      height: 100%;
+      background: #091016;
+    }
+
+    /* Inverts OSM tiles into dark mode style */
+    .leaflet-tile-pane {
+      filter: brightness(0.4) invert(1) contrast(3) hue-rotate(200deg) saturate(0.2) brightness(0.6);
+    }
+
+    /* Custom Leaflet Map Styling */
+    .custom-marker {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: linear-gradient(135deg, #e5b75b, #b37e22);
+      border: 2px solid #fff;
+      border-radius: 50%;
+      box-shadow: 0 0 12px rgba(229, 183, 91, 0.8);
+      color: #000;
+      font-size: 12px;
+      font-weight: bold;
+      cursor: pointer;
+      transition: transform 0.2s ease;
+    }
+    .custom-marker:hover {
+      transform: scale(1.25);
+    }
+    .leaflet-popup-content-wrapper {
+      background: #0b151d !important;
+      border: 1px solid rgba(229, 181, 84, 0.45) !important;
+      border-radius: 12px !important;
+      color: #fff !important;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.7) !important;
+    }
+    .leaflet-popup-tip {
+      background: #0b151d !important;
+      border: 1px solid rgba(229, 181, 84, 0.45) !important;
+    }
+
+    /* ---- Heritage Sites Grid Showcase ---- */
+    .sites-grid-section {
+      max-width: 1300px;
+      margin: 40px auto 80px;
+      padding: 0 4%;
+    }
+    .sites-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(290px, 1fr));
+      gap: 24px;
+    }
+    .site-card {
+      background: rgba(255, 255, 255, 0.03);
+      border: 1px solid rgba(230, 184, 88, 0.22);
+      border-radius: 16px;
+      overflow: hidden;
+      cursor: pointer;
+      transition: 0.3s ease;
+      display: flex;
+      flex-direction: column;
+    }
+    .site-card:hover {
+      transform: translateY(-6px);
+      border-color: #e5b75b;
+      box-shadow: 0 15px 35px rgba(229, 183, 91, 0.18);
+    }
+    .site-card-img-wrap {
+      height: 180px;
+      width: 100%;
+      position: relative;
+      overflow: hidden;
+    }
+    .site-card-img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.4s ease;
+    }
+    .site-card:hover .site-card-img {
+      transform: scale(1.05);
+    }
+    .site-year-badge {
+      position: absolute;
+      top: 12px;
+      right: 12px;
+      background: rgba(4, 10, 16, 0.85);
+      border: 1px solid rgba(229, 183, 91, 0.5);
+      color: #f2dfb3;
+      font-size: 10px;
+      font-weight: 700;
+      padding: 3px 8px;
+      border-radius: 10px;
+      letter-spacing: 0.5px;
+    }
+    .site-card-body {
+      padding: 16px;
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+    .site-card-title {
+      font-family: Cinzel, serif;
+      font-size: 16px;
+      color: #f3e7ca;
+      margin-bottom: 6px;
+    }
+    .site-card-loc {
+      font-size: 12px;
+      color: #e5b75b;
+      margin-bottom: 10px;
+    }
+    .site-card-desc {
+      font-size: 12px;
+      line-height: 1.5;
+      color: rgba(255,255,255,0.65);
+    }
+
+    /* ---- UNESCO Detailed Modal ---- */
+    .modal-backdrop {
+      position: fixed;
+      inset: 0;
+      background: rgba(3, 7, 12, 0.85);
+      backdrop-filter: blur(14px);
+      display: none;
+      align-items: center;
+      justify-content: center;
+      z-index: 2000;
+      padding: 20px;
+      opacity: 0;
+      transition: opacity 0.3s ease;
+    }
+    .modal-backdrop.active {
+      display: flex;
+      opacity: 1;
+    }
+    .modal-card {
+      background: #0b151d;
+      border: 1px solid rgba(229, 181, 84, 0.45);
+      border-radius: 20px;
+      max-width: 680px;
+      width: 100%;
+      max-height: 90vh;
+      overflow-y: auto;
+      box-shadow: 0 25px 80px rgba(0,0,0,0.85), 0 0 30px rgba(229, 183, 91, 0.2);
+      position: relative;
+      transform: scale(0.95);
+      transition: transform 0.3s ease;
+    }
+    .modal-backdrop.active .modal-card {
+      transform: scale(1);
+    }
+    .modal-close-btn {
+      position: absolute;
+      top: 15px;
+      right: 15px;
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+      background: rgba(0,0,0,0.6);
+      border: 1px solid rgba(255,255,255,0.3);
+      color: #fff;
+      font-size: 18px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      z-index: 10;
+      transition: 0.2s;
+    }
+    .modal-close-btn:hover {
+      background: #e5b75b;
+      color: #000;
+    }
+    .modal-img {
+      width: 100%;
+      height: 290px;
+      object-fit: cover;
+      display: block;
+      background: #141e28;
+    }
+    .modal-content {
+      padding: 24px 28px;
+    }
+    .modal-header-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      margin-bottom: 8px;
+    }
+    .modal-title {
+      font-family: Cinzel, serif;
+      font-size: 24px;
+      color: #f3e7ca;
+    }
+    .modal-badge {
+      padding: 4px 12px;
+      border-radius: 12px;
+      background: rgba(229, 183, 91, 0.15);
+      border: 1px solid rgba(229, 183, 91, 0.4);
+      color: #e5b75b;
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 1px;
+      white-space: nowrap;
+    }
+
+    .modal-meta-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 12px;
+      margin: 18px 0;
+      background: rgba(255, 255, 255, 0.02);
+      border: 1px solid rgba(230, 184, 88, 0.15);
+      border-radius: 12px;
+      padding: 14px;
+    }
+    .meta-item strong {
+      display: block;
+      font-size: 10px;
+      color: #e5b75b;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      margin-bottom: 2px;
+    }
+    .meta-item span {
+      font-size: 12px;
+      color: #f4e4bc;
+    }
+
+    .modal-desc-block h4 {
+      font-family: Cinzel, serif;
+      font-size: 14px;
+      color: #e5b75b;
+      margin-bottom: 6px;
+    }
+    .modal-desc-block p {
+      font-size: 13px;
+      line-height: 1.65;
+      color: rgba(255,255,255,0.78);
+      margin-bottom: 14px;
+    }
+    .modal-map-btn {
+      width: 100%;
+      padding: 12px;
+      background: linear-gradient(135deg, #d67b2c, #9d3f35);
+      color: #fff;
+      border: 0;
+      border-radius: 10px;
+      font-weight: 700;
+      font-size: 12px;
+      cursor: pointer;
+      letter-spacing: .5px;
+      transition: .3s;
+      margin-top: 10px;
+    }
+    .modal-map-btn:hover { opacity: .9; }
+
+    /* ---- Floating UI Components (Music + Chatbot) ---- */
+    .chatbot-button {
+      position: fixed; right: 25px; bottom: 25px;
+      width: 64px; height: 64px; border-radius: 50%;
+      border: 1px solid #e8b95c;
+      background: linear-gradient(135deg, #d67b2c, #9d3f35);
+      color: #fff; display: flex; align-items: center; justify-content: center;
+      font-size: 27px; cursor: pointer; z-index: 999;
+      box-shadow: 0 12px 40px rgba(0, 0, 0, 0.5), 0 0 25px rgba(227, 154, 50, 0.15);
+      transition: 0.3s;
+    }
+    .chatbot-button:hover { transform: scale(1.08); }
+    .chatbot {
+      position: fixed; right: 25px; bottom: 102px;
+      width: 350px; height: 450px;
+      background: #0b151d;
+      border: 1px solid rgba(229, 181, 84, 0.35);
+      border-radius: 20px; z-index: 998;
+      overflow: hidden; display: none; flex-direction: column;
+      box-shadow: 0 25px 80px rgba(0, 0, 0, 0.7);
+    }
+    .chatbot.active { display: flex; }
+    .chat-header {
+      padding: 17px;
+      background: linear-gradient(135deg, #153b40, #13232c);
+      border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+    }
+    .chat-header strong { font-family: Cinzel, serif; color: #f0d18b; }
+    .chat-header small { display: block; margin-top: 4px; color: rgba(255, 255, 255, 0.5); font-size: 10px; }
+    .chat-messages { flex: 1; padding: 15px; overflow-y: auto; }
+    .message { max-width: 85%; padding: 10px 12px; margin-bottom: 10px; border-radius: 12px; font-size: 11px; line-height: 1.55; }
+    .message.bot { background: rgba(255, 255, 255, 0.07); color: rgba(255, 255, 255, 0.78); }
+    .message.user { margin-left: auto; background: rgba(222, 157, 54, 0.18); border: 1px solid rgba(222, 157, 54, 0.25); }
+    .chat-input { display: flex; gap: 7px; padding: 12px; border-top: 1px solid rgba(255, 255, 255, 0.08); }
+    .chat-input input { flex: 1; padding: 11px; border-radius: 9px; border: 1px solid rgba(255, 255, 255, 0.1); background: #101b22; color: #fff; outline: 0; }
+    .chat-input button { width: 42px; border: 0; border-radius: 9px; background: #e5a341; color: #071015; cursor: pointer; font-weight: 700; }
+    .music-toggle {
+      position: fixed; left: 25px; bottom: 25px;
+      width: 52px; height: 52px; border-radius: 50%;
+      border: 1px solid #e8b95c;
+      background: rgba(16, 24, 32, 0.85); backdrop-filter: blur(10px);
+      color: #f3d48c; display: flex; align-items: center; justify-content: center;
+      font-size: 20px; cursor: pointer; z-index: 999;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.45); transition: 0.3s;
+    }
+    .music-toggle:hover { transform: scale(1.08); }
+    footer {
+      padding: 35px 6%; text-align: center;
+      border-top: 1px solid rgba(255, 255, 255, 0.08);
+      color: rgba(255, 255, 255, 0.38); font-size: 10px; letter-spacing: 1px;
+    }
+
+    @media (max-width: 768px) {
+      .modal-meta-grid { grid-template-columns: 1fr; }
+      .map-wrapper { height: 450px; }
+    }
+  </style>
+</head>
+<body>
+
+
+  <!-- Navbar -->
+  <nav class="navbar">
+    <div class="logo">BharatYatra</div>
+    <ul class="nav-links">
+      <li><a href="index.html">Home Page</a></li>
+      <li><a href="crafts.html">Crafts</a></li>
+      <li><a href="gi_tag.html">GI Tag Products</a></li>
+      <li><a href="calendar.html">Calendar</a></li>
+      <li><a href="destinations.html">Tourist Spots</a></li>
+      <li><a href="login.html" class="login-btn">LOGIN</a></li>
+    </ul>
+  </nav>
+
+  <!-- Hero Banner -->
+  <section class="unesco-hero">
+    <img class="unesco-hero-img" src="assets/image/unesco_hero_banner.png" alt="UNESCO Sites in India" onerror="this.src='https://images.unsplash.com/photo-1564507592333-c60657eea523?auto=format&fit=crop&w=1600&q=80'">
+    <div class="unesco-hero-overlay"></div>
+    <div class="unesco-hero-content">
+      <h1>UNESCO Sites in India</h1>
+      <p>Timeless Architecture, Monumental Marvels & Sacred Natural Heritage</p>
+    </div>
+  </section>
+
+  <!-- Live Map Section -->
+  <section class="map-section">
+    <div class="section-title">
+      <small>EXPLORE ON THE MAP</small>
+      <h3>Interactive Heritage Map</h3>
+    </div>
+
+    <div class="map-controls-bar">
+      <div class="filter-pills">
+        <button class="filter-pill active" onclick="filterMapCategory('all')">All Sites (42+)</button>
+        <button class="filter-pill" onclick="filterMapCategory('Cultural')">Cultural</button>
+        <button class="filter-pill" onclick="filterMapCategory('Natural')">Natural</button>
+        <button class="filter-pill" onclick="filterMapCategory('Mixed')">Mixed</button>
+      </div>
+      <div style="font-size: 12px; color: rgba(255,255,255,0.6);">
+        💡 Click on any marker on the map or site card below for detailed history
+      </div>
+    </div>
+
+    <div class="map-wrapper">
+      <div id="unescoMap"></div>
+    </div>
+  </section>
+
+  <!-- Sites Directory Section -->
+  <section class="sites-grid-section">
+    <div class="section-title">
+      <small>HERITAGE CATALOG</small>
+      <h3>Monumental Treasures of India</h3>
+    </div>
+    <div class="sites-grid" id="sitesGrid"></div>
+  </section>
+
+  <!-- UNESCO Detailed Modal -->
+  <div class="modal-backdrop" id="unescoModal" onclick="closeModal(event)">
+    <div class="modal-card">
+      <button class="modal-close-btn" onclick="closeModal(event, true)">✕</button>
+      <img id="modalImg" class="modal-img" src="" alt="UNESCO Site">
+      <div class="modal-content">
+        <div class="modal-header-row">
+          <h3 class="modal-title" id="modalTitle"></h3>
+          <span class="modal-badge" id="modalYear"></span>
+        </div>
+        
+        <div class="modal-meta-grid">
+          <div class="meta-item">
+            <strong>Location</strong>
+            <span id="modalLocation"></span>
+          </div>
+          <div class="meta-item">
+            <strong>Time Period</strong>
+            <span id="modalPeriod"></span>
+          </div>
+          <div class="meta-item">
+            <strong>Built By / Origin</strong>
+            <span id="modalBuilder"></span>
+          </div>
+          <div class="meta-item">
+            <strong>Heritage Category</strong>
+            <span id="modalCategory"></span>
+          </div>
+        </div>
+
+        <div class="modal-desc-block">
+          <h4>Historical Overview & Importance</h4>
+          <p id="modalImportance"></p>
+          <h4>Architectural & Cultural Value</h4>
+          <p id="modalDesc"></p>
+        </div>
+        <button class="modal-map-btn" onclick="openGoogleMaps()">Open Exact Location on Google Maps ➔</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Floating Chatbot and Music Controls -->
+  <div class="chatbot-button" onclick="toggleChat()" aria-label="Open travel assistant">🤖</div>
+  <div class="chatbot" id="chatbot">
+    <div class="chat-header">
+      <strong>BharatYatra Travel Assistant</strong>
+      <small>Ask about UNESCO World Heritage sites in India</small>
+    </div>
+    <div class="chat-messages" id="chatMessages">
+      <div class="message bot">Namaste! 🙏<br><br>Ask me about any UNESCO World Heritage Site in India, its builders, era, or location!</div>
+    </div>
+    <div class="chat-input">
+      <input id="chatInput" type="text" placeholder="Ask about a UNESCO site..." onkeydown="handleChat(event)">
+      <button onclick="sendMessage()">➤</button>
+    </div>
+  </div>
+  <div class="music-toggle" id="musicToggle" onclick="toggleMusic()" aria-label="Toggle background music">🔊</div>
+
+  <footer>BHARATYATRA • DISCOVER INDIA • EXPERIENCE BHARAT</footer>
+
+  <!-- Leaflet Map JS -->
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
+
+  <script>
+      // Complete Roster of UNESCO World Heritage Sites in India
+    const unescoSites = [
+      // --- Cultural Sites ---
+      {
+        id: "taj-mahal",
+        name: "Taj Mahal",
+        lat: 27.1751, lng: 78.0421,
+        location: "Agra, Uttar Pradesh",
+        year: "1983",
+        period: "1631 – 1648 CE (17th Century)",
+        builder: "Mughal Emperor Shah Jahan",
+        category: "Cultural",
+        img: "assets/unesco/taj_mahal.png",
+        fallback: "https://images.unsplash.com/photo-1564507592333-c60657eea523?auto=format&fit=crop&w=800&q=80",
+        importance: "An immense mausoleum of white marble, considered the jewel of Muslim art in India and one of the universally admired masterpieces of the world's heritage.",
+        desc: "Constructed in memory of Mumtaz Mahal using ivory-white marble inlaid with semi-precious stones (pietra dura), showcasing the zenith of Indo-Islamic Mughal architecture."
+      },
+      {
+        id: "ajanta-caves",
+        name: "Ajanta Caves",
+        lat: 20.5519, lng: 75.7033,
+        location: "Aurangabad (Chhatrapati Sambhajinagar), Maharashtra",
+        year: "1983",
+        period: "2nd Century BCE – 6th Century CE",
+        builder: "Satavahana & Vakataka Dynasties (Harishena)",
+        category: "Cultural",
+        img: "assets/unesco/ajanta_caves.png",
+        fallback: "https://images.unsplash.com/photo-1609358905581-e5382c46279e?auto=format&fit=crop&w=800&q=80",
+        importance: "The first Buddhist cave monuments containing masterpieces of classical Buddhist religious art and expressive fresco wall murals.",
+        desc: "30 rock-cut cave temples featuring ancient murals depicting Jataka tales, defining the golden age of classical Indian painting."
+      },
+      {
+        id: "ellora-caves",
+        name: "Ellora Caves",
+        lat: 20.0268, lng: 75.1780,
+        location: "Aurangabad (Chhatrapati Sambhajinagar), Maharashtra",
+        year: "1983",
+        period: "600 – 1000 CE",
+        builder: "Rashtrakuta & Yadava Dynasties (Krishna I)",
+        category: "Cultural",
+        img: "assets/unesco/ellora_caves.png",
+        fallback: "https://images.unsplash.com/photo-1582510003544-4d00b7f74220?auto=format&fit=crop&w=800&q=80",
+        importance: "An uninterrupted sequence of 34 monasteries and temples illustrating religious harmony among Buddhism, Hinduism, and Jainism.",
+        desc: "Home to the monolithic Kailasa Temple (Cave 16), the largest single monolithic rock excavation in the world, carved top-down from a single rock cliff."
+      },
+      {
+        id: "agra-fort",
+        name: "Agra Fort",
+        lat: 27.1795, lng: 78.0211,
+        location: "Agra, Uttar Pradesh",
+        year: "1983",
+        period: "1565 – 1573 CE",
+        builder: "Mughal Emperor Akbar",
+        category: "Cultural",
+        img: "assets/unesco/agra_fort.png",
+        fallback: "https://images.unsplash.com/photo-1590050752117-238cb0fb12b1?auto=format&fit=crop&w=800&q=80",
+        importance: "A powerful red sandstone fortress city that served as the imperial seat of the Mughal Dynasty.",
+        desc: "Encloses impressive palaces like the Jahangiri Mahal, Khas Mahal, Diwan-i-Khas, and the Pearl Mosque."
+      },
+      {
+        id: "sun-temple-konark",
+        name: "Sun Temple, Konârak",
+        lat: 19.8876, lng: 86.0945,
+        location: "Puri, Odisha",
+        year: "1984",
+        period: "1250 CE (13th Century)",
+        builder: "King Narasimhadeva I (Eastern Ganga Dynasty)",
+        category: "Cultural",
+        img: "assets/unesco/konark_sun_temple.png",
+        fallback: "https://images.unsplash.com/photo-1590050752117-238cb0fb12b1?auto=format&fit=crop&w=800&q=80",
+        importance: "Conceived as a colossal chariot for the Sun God Surya, complete with 24 carved stone sundial wheels and 7 galloping horses.",
+        desc: "A crowning milestone of Kalinga temple architecture, renowned for its intricate geometric stone carvings and astronomical alignment."
+      },
+      {
+        id: "mahabalipuram",
+        name: "Group of Monuments at Mahabalipuram",
+        lat: 12.6269, lng: 80.1927,
+        location: "Chengalpattu, Tamil Nadu",
+        year: "1984",
+        period: "7th – 8th Century CE",
+        builder: "Pallava Kings (Mahendravarman I & Narasimhavarman I)",
+        category: "Cultural",
+        img: "assets/unesco/mahabalipuram.png",
+        fallback: "https://images.unsplash.com/photo-1582510003544-4d00b7f74220?auto=format&fit=crop&w=800&q=80",
+        importance: "Sanctuaries carved out of rock along the Coromandel coast, including rathas (chariots), mandapas (caves), and the Shore Temple.",
+        desc: "Features the monumental open-air rock bas-relief 'Descent of the Ganges' (Arjuna's Penance), measuring 27m by 9m."
+      },
+      {
+        id: "group-at-hampi",
+        name: "Group of Monuments at Hampi",
+        lat: 15.3350, lng: 76.4600,
+        location: "Vijayanagara, Karnataka",
+        year: "1986",
+        period: "14th – 16th Century CE",
+        builder: "Vijayanagara Empire",
+        category: "Cultural",
+        img: "assets/unesco/hampi.png",
+        fallback: "https://images.unsplash.com/photo-1600100397608-f010f443b2f5?auto=format&fit=crop&w=800&q=80",
+        importance: "The grand capital of the Vijayanagara Empire, described by medieval travelers as one of the richest cities in the world.",
+        desc: "Features over 1,600 surviving monuments across 4,100 hectares, including the iconic Stone Chariot at the Vittala Temple and musical pillared halls."
+      },
+      {
+        id: "khajuraho",
+        name: "Khajuraho Group of Monuments",
+        lat: 24.8318, lng: 79.9199,
+        location: "Chhatarpur, Madhya Pradesh",
+        year: "1986",
+        period: "950 – 1050 CE",
+        builder: "Chandela Dynasty",
+        category: "Cultural",
+        img: "assets/unesco/khajuraho.png",
+        fallback: "https://images.unsplash.com/photo-1606293926075-69a00dbfde81?auto=format&fit=crop&w=800&q=80",
+        importance: "Celebrated for their Nagara-style architectural symbolism and expressive sculptures balancing sacred and human motifs.",
+        desc: "Preserves Hindu and Jain temples including Kandariya Mahadeva Temple, representing the height of sculptural art in medieval India."
+      },
+      {
+        id: "fatehpur-sikri",
+        name: "Fatehpur Sikri",
+        lat: 27.0945, lng: 77.6679,
+        location: "Agra, Uttar Pradesh",
+        year: "1986",
+        period: "1571 – 1585 CE",
+        builder: "Mughal Emperor Akbar",
+        category: "Cultural",
+        img: "assets/unesco/fatehpur_sikri.png",
+        fallback: "https://images.unsplash.com/photo-1564507592333-c60657eea523?auto=format&fit=crop&w=800&q=80",
+        importance: "The short-lived imperial capital of Akbar showcasing a harmonious blend of Hindu, Persian, and Islamic architecture.",
+        desc: "Home to the towering Buland Darwaza (Gate of Magnificence), Jama Masjid, Tomb of Salim Chishti, and the Panch Mahal."
+      },
+      {
+        id: "elephanta-caves",
+        name: "Elephanta Caves",
+        lat: 18.9633, lng: 72.9315,
+        location: "Mumbai Harbour, Maharashtra",
+        year: "1987",
+        period: "5th – 8th Century CE",
+        builder: "Kalachuri & Rashtrakuta Dynasties",
+        category: "Cultural",
+        img: "assets/unesco/elephanta_caves.png",
+        fallback: "https://images.unsplash.com/photo-1582510003544-4d00b7f74220?auto=format&fit=crop&w=800&q=80",
+        importance: "A collection of rock art linked to the cult of Shiva on Gharapuri Island in the Arabian Sea.",
+        desc: "Houses the colossal 6-meter-high Trimurti Sadashiva sculpture representing the creator, preserver, and destroyer aspects of divinity."
+      },
+      {
+        id: "pattadakal",
+        name: "Group of Monuments at Pattadakal",
+        lat: 15.9490, lng: 75.8160,
+        location: "Bagalkot, Karnataka",
+        year: "1987",
+        period: "7th – 8th Century CE",
+        builder: "Chalukya Dynasty",
+        category: "Cultural",
+        img: "assets/unesco/pattadakal.png",
+        fallback: "https://images.unsplash.com/photo-1600100397608-f010f443b2f5?auto=format&fit=crop&w=800&q=80",
+        importance: "Illustrates the fusion of northern (Nagara) and southern (Dravidian) architectural traditions under the Chalukyas.",
+        desc: "Includes 9 Hindu temples and 1 Jain sanctuary, with the Virupaksha Temple being the most celebrated masterpiece."
+      },
+      {
+        id: "chola-temples",
+        name: "Great Living Chola Temples",
+        lat: 10.7828, lng: 79.1318,
+        location: "Thanjavur, Gangaikonda Cholapuram & Darasuram, Tamil Nadu",
+        year: "1987 (Extended 2004)",
+        period: "11th – 12th Century CE",
+        builder: "Rajaraja I & Rajendra I (Chola Empire)",
+        category: "Cultural",
+        img: "assets/unesco/chola_temple.png",
+        fallback: "https://images.unsplash.com/photo-1582510003544-4d00b7f74220?auto=format&fit=crop&w=800&q=80",
+        importance: "Living testimonies to the architectural and bronze casting brilliance of the maritime Chola Empire.",
+        desc: "The towering Brihadisvara vimana rises 66 meters, topped by an 80-tonne monolithic granite dome built without mortar."
+      },
+      {
+        id: "sanchi-stupa",
+        name: "Buddhist Monuments at Sanchi",
+        lat: 23.4793, lng: 77.7397,
+        location: "Raisen, Madhya Pradesh",
+        year: "1989",
+        period: "3rd Century BCE – 12th Century CE",
+        builder: "Emperor Ashoka (Maurya Empire) & Sunga/Satavahana",
+        category: "Cultural",
+        img: "assets/unesco/sanchi_stupa.png",
+        fallback: "https://images.unsplash.com/photo-1609358905581-e5382c46279e?auto=format&fit=crop&w=800&q=80",
+        importance: "The oldest stone structure in India, commissioned by Emperor Ashoka over the relics of Gautama Buddha.",
+        desc: "Renowned for its four intricately carved ornamental gateways (toranas) depicting the life and past incarnations of the Buddha."
+      },
+      {
+        id: "humayun-tomb",
+        name: "Humayun's Tomb",
+        lat: 28.5933, lng: 77.2507,
+        location: "New Delhi",
+        year: "1993",
+        period: "1565 – 1572 CE",
+        builder: "Empress Bega Begum / Architect Mirak Mirza Ghiyas",
+        category: "Cultural",
+        img: "assets/unesco/humayun_tomb.png",
+        fallback: "https://images.unsplash.com/photo-1564507592333-c60657eea523?auto=format&fit=crop&w=800&q=80",
+        importance: "The first garden-tomb on the Indian subcontinent, which inspired major architectural innovations leading up to the Taj Mahal.",
+        desc: "Introduced the Charbagh (quadrilateral garden) layout and monumental double dome engineering to Mughal India."
+      },
+      {
+        id: "qutb-minar",
+        name: "Qutb Minar and its Monuments",
+        lat: 28.5244, lng: 77.1855,
+        location: "New Delhi",
+        year: "1993",
+        period: "1192 – 1220 CE",
+        builder: "Qutb-ud-din Aibak & Iltutmish (Delhi Sultanate)",
+        category: "Cultural",
+        img: "assets/unesco/qutb_minar.png",
+        fallback: "https://images.unsplash.com/photo-1590050752117-238cb0fb12b1?auto=format&fit=crop&w=800&q=80",
+        importance: "A 72.5-meter-high red sandstone victory minaret, representing early Indo-Islamic architectural style.",
+        desc: "Surrounded by the Quwwat-ul-Islam Mosque and the 4th-century rust-resistant Iron Pillar of Chandragupta II."
+      },
+      {
+        id: "mountain-railways",
+        name: "Mountain Railways of India",
+        lat: 27.0410, lng: 88.2663,
+        location: "Darjeeling (WB), Nilgiri (TN) & Kalka-Shimla (HP)",
+        year: "1999 (Extended 2005, 2008)",
+        period: "1881 – 1908 CE",
+        builder: "British Indian Railway Engineers",
+        category: "Cultural",
+        img: "assets/unesco/mountain_railways.png",
+        fallback: "https://images.unsplash.com/photo-1534177616072-ef7dc120449d?auto=format&fit=crop&w=800&q=80",
+        importance: "Outstanding examples of hill passenger railways establishing rail transport across rugged mountainous terrains.",
+        desc: "Comprises the Darjeeling Himalayan Railway, Nilgiri Mountain Railway (rack and pinion), and Kalka-Shimla Railway."
+      },
+      {
+        id: "mahabodhi-temple",
+        name: "Mahabodhi Temple Complex at Bodh Gaya",
+        lat: 24.6959, lng: 84.9914,
+        location: "Gaya, Bihar",
+        year: "2002",
+        period: "3rd Century BCE – 6th Century CE",
+        builder: "Emperor Ashoka & Gupta Dynasty",
+        category: "Cultural",
+        img: "assets/unesco/mahabodhi_temple.png",
+        fallback: "https://images.unsplash.com/photo-1609358905581-e5382c46279e?auto=format&fit=crop&w=800&q=80",
+        importance: "One of the four holy sites related to the life of the Lord Buddha, marking the exact spot where he attained supreme enlightenment.",
+        desc: "Includes the 50-meter grand temple, the Diamond Throne (Vajrasana), and the sacred descendants of the original Bodhi Tree."
+      },
+      {
+        id: "bhimbetka",
+        name: "Rock Shelters of Bhimbetka",
+        lat: 22.9372, lng: 77.6128,
+        location: "Raisen, Madhya Pradesh",
+        year: "2003",
+        period: "Upper Paleolithic to Mesolithic (Up to 100,000 years)",
+        builder: "Prehistoric Hunter-Gatherer Humans",
+        category: "Cultural",
+        img: "assets/unesco/bhimbetka.png",
+        fallback: "https://images.unsplash.com/photo-1582510003544-4d00b7f74220?auto=format&fit=crop&w=800&q=80",
+        importance: "Rock shelters displaying prehistoric cave paintings illustrating human life from the Stone Age to historic times.",
+        desc: "Over 750 rock shelters spanning 10 km, containing paintings executed in mineral red and white pigments."
+      },
+      {
+        id: "chhatrapati-shivaji-terminus",
+        name: "Chhatrapati Shivaji Maharaj Terminus (CST)",
+        lat: 18.9398, lng: 72.8355,
+        location: "Mumbai, Maharashtra",
+        year: "2004",
+        period: "1878 – 1888 CE",
+        builder: "Architect F. W. Stevens",
+        category: "Cultural",
+        img: "assets/unesco/cst_mumbai.png",
+        fallback: "https://images.unsplash.com/photo-1564507592333-c60657eea523?auto=format&fit=crop&w=800&q=80",
+        importance: "An outstanding example of Victorian Gothic Revival architecture blended with traditional Indian architectural elements.",
+        desc: "Features stone domes, turrets, pointed arches, and eccentric ground plans with ornate wood, iron, and brass work."
+      },
+      {
+        id: "champaner-pavagadh",
+        name: "Champaner-Pavagadh Archaeological Park",
+        lat: 22.4854, lng: 73.5383,
+        location: "Panchmahal, Gujarat",
+        year: "2004",
+        period: "8th – 16th Century CE",
+        builder: "Chavda, Chauhan & Gujarat Sultanate (Mahmud Begada)",
+        category: "Cultural",
+        img: "assets/unesco/champaner.png",
+        fallback: "https://images.unsplash.com/photo-1590050752117-238cb0fb12b1?auto=format&fit=crop&w=800&q=80",
+        importance: "An unexcavated prehistoric and medieval city showing transitions from Hindu-Jain to Islamic regional architecture.",
+        desc: "Features water retention stepwells, fortifications, the Jama Masjid, and the sacred Kalika Mata Temple atop Pavagadh Hill."
+      },
+      {
+        id: "red-fort",
+        name: "Red Fort Complex",
+        lat: 28.6562, lng: 77.2410,
+        location: "Old Delhi, Delhi",
+        year: "2007",
+        period: "1639 – 1648 CE",
+        builder: "Mughal Emperor Shah Jahan",
+        category: "Cultural",
+        img: "assets/unesco/red_fort.png",
+        fallback: "https://images.unsplash.com/photo-1564507592333-c60657eea523?auto=format&fit=crop&w=800&q=80",
+        importance: "The palace fort of Shahjahanabad representing the zenith of Mughal creativity and symbol of Indian sovereign democracy.",
+        desc: "Enclosed by 2.41 km of red sandstone defensive walls, housing the Diwan-i-Aam, Diwan-i-Khas, and Nahr-i-Bihisht stream."
+      },
+      {
+        id: "jantar-mantar-jaipur",
+        name: "The Jantar Mantar, Jaipur",
+        lat: 26.9248, lng: 75.8246,
+        location: "Jaipur, Rajasthan",
+        year: "2010",
+        period: "1727 – 1734 CE",
+        builder: "Maharaja Sawai Jai Singh II",
+        category: "Cultural",
+        img: "assets/unesco/jantar_mantar.png",
+        fallback: "https://images.unsplash.com/photo-1590050752117-238cb0fb12b1?auto=format&fit=crop&w=800&q=80",
+        importance: "The most significant and best-preserved collection of historic astronomical masonry instruments in India.",
+        desc: "Includes the world's largest stone sundial (Vrihat Samrat Yantra) capable of measuring local solar time to an accuracy of 2 seconds."
+      },
+      {
+        id: "hill-forts-rajasthan",
+        name: "Hill Forts of Rajasthan",
+        lat: 24.8879, lng: 74.6269,
+        location: "Chittorgarh, Kumbhalgarh, Ranthambore, Gagron, Amer & Jaisalmer, Rajasthan",
+        year: "2013",
+        period: "7th – 18th Century CE",
+        builder: "Rajput Rulers",
+        category: "Cultural",
+        img: "assets/unesco/hill_forts_rajasthan.png",
+        fallback: "https://images.unsplash.com/photo-1600100397608-f010f443b2f5?auto=format&fit=crop&w=800&q=80",
+        importance: "A series of 6 majestic hill forts illustrating the defense strategy, water harvesting, and chivalric culture of the Rajputs.",
+        desc: "Includes the 36-km wall of Kumbhalgarh (second longest wall in the world) and the living desert fort of Jaisalmer."
+      },
+      {
+        id: "rani-ki-vav",
+        name: "Rani-ki-Vav (The Queen's Stepwell)",
+        lat: 23.8589, lng: 72.1017,
+        location: "Patan, Gujarat",
+        year: "2014",
+        period: "1063 CE (11th Century)",
+        builder: "Queen Udayamati (Chaulukya / Solanki Dynasty)",
+        category: "Cultural",
+        img: "assets/unesco/rani_ki_vav.png",
+        fallback: "https://images.unsplash.com/photo-1590050752117-238cb0fb12b1?auto=format&fit=crop&w=800&q=80",
+        importance: "Designed as an inverted underground temple highlighting the sacred sanctity of water with seven subterranean levels of stone sculptures.",
+        desc: "Features more than 500 principal sculptures and over 1,000 minor religious and mythological carvings dedicated to Lord Vishnu."
+      },
+      {
+        id: "nalanda-mahavihara",
+        name: "Archaeological Site of Nalanda Mahavihara",
+        lat: 25.1357, lng: 85.4439,
+        location: "Nalanda, Bihar",
+        year: "2016",
+        period: "5th Century BCE – 12th Century CE",
+        builder: "Kumaragupta I (Gupta Empire) & Harshavardhana/Pala Kings",
+        category: "Cultural",
+        img: "assets/unesco/nalanda.png",
+        fallback: "https://images.unsplash.com/photo-1609358905581-e5382c46279e?auto=format&fit=crop&w=800&q=80",
+        importance: "The ancient world's most renowned residential university and monastic centre of higher Buddhist learning.",
+        desc: "Encompasses stupas, shrines, viharas (residential halls), and educational buildings where scholars like Xuanzang studied."
+      },
+      {
+        id: "le-corbusier",
+        name: "The Architectural Work of Le Corbusier (Capitol Complex)",
+        lat: 30.7588, lng: 76.8041,
+        location: "Chandigarh",
+        year: "2016",
+        period: "1951 – 1965 CE",
+        builder: "Architect Le Corbusier",
+        category: "Cultural",
+        img: "assets/unesco/chandigarh_capitol.png",
+        fallback: "https://images.unsplash.com/photo-1564507592333-c60657eea523?auto=format&fit=crop&w=800&q=80",
+        importance: "A monumental contribution to the Modern Movement in architecture and urban planning in post-independence India.",
+        desc: "Includes the Secretariat, High Court, Legislative Assembly buildings, and the iconic Open Hand Monument."
+      },
+      {
+        id: "ahmedabad",
+        name: "Historic City of Ahmadabad",
+        lat: 23.0225, lng: 72.5714,
+        location: "Ahmedabad, Gujarat",
+        year: "2017",
+        period: "1411 CE onwards",
+        builder: "Sultan Ahmad Shah I (Gujarat Sultanate)",
+        category: "Cultural",
+        img: "assets/unesco/ahmedabad.png",
+        fallback: "https://images.unsplash.com/photo-1590050752117-238cb0fb12b1?auto=format&fit=crop&w=800&q=80",
+        importance: "India's first UNESCO World Heritage City, famous for its historic gated residential pols and bird feeders (chabutras).",
+        desc: "Presents a blend of Sultanate architecture, timber housing clusters, stepwells, and Indo-Islamic mosques."
+      },
+      {
+        id: "victorian-gothic-art-deco-mumbai",
+        name: "Victorian Gothic and Art Deco Ensembles of Mumbai",
+        lat: 18.9298, lng: 72.8311,
+        location: "Mumbai, Maharashtra",
+        year: "2018",
+        period: "19th – 20th Century CE",
+        builder: "Sir George Gilbert Scott / Bombay Architects",
+        category: "Cultural",
+        img: "assets/unesco/mumbai_art_deco.png",
+        fallback: "https://images.unsplash.com/photo-1564507592333-c60657eea523?auto=format&fit=crop&w=800&q=80",
+        importance: "A set of public buildings in Victorian Neo-Gothic style facing the Arabian Sea alongside the world's second largest concentration of Art Deco buildings.",
+        desc: "Spans the Bombay High Court, Rajabai Clock Tower, University of Mumbai, and Marine Drive residential promenades."
+      },
+      {
+        id: "jaipur-city",
+        name: "Jaipur City, Rajasthan",
+        lat: 26.9124, lng: 75.7873,
+        location: "Jaipur, Rajasthan",
+        year: "2019",
+        period: "1727 CE",
+        builder: "Sawai Jai Singh II / Vidyadhar Bhattacharya",
+        category: "Cultural",
+        img: "assets/unesco/jaipur_city.png",
+        fallback: "https://images.unsplash.com/photo-1600100397608-f010f443b2f5?auto=format&fit=crop&w=800&q=80",
+        importance: "The 'Pink City', designed on a Vedic grid plan (Prastara) synthesizing ancient Hindu and contemporary Western city planning.",
+        desc: "Characterized by terracotta-pink facades, iconic colonnaded bazaars, Hawa Mahal, and the City Palace complex."
+      },
+      {
+        id: "kakatiya-rudreshwara-ramappa",
+        name: "Kakatiya Rudreshwara (Ramappa) Temple",
+        lat: 18.2580, lng: 79.9430,
+        location: "Mulugu, Telangana",
+        year: "2021",
+        period: "1213 CE",
+        builder: "General Recharla Rudra (Kakatiya King Ganapati Deva)",
+        category: "Cultural",
+        img: "assets/unesco/ramappa_temple.png",
+        fallback: "https://images.unsplash.com/photo-1582510003544-4d00b7f74220?auto=format&fit=crop&w=800&q=80",
+        importance: "Dedicated to Shiva, known for its floating lightweight porous bricks and sandbox foundation engineering that withstands earthquakes.",
+        desc: "Carved from reddish sandstone and basalt with exquisite bracket figures of dancing damsels (madanakas)."
+      },
+      {
+        id: "dholavira",
+        name: "Dholavira: a Harappan City",
+        lat: 23.8864, lng: 70.2132,
+        location: "Kutch, Gujarat",
+        year: "2021",
+        period: "3000 – 1500 BCE (Bronze Age)",
+        builder: "Indus Valley (Harappan) Civilization",
+        category: "Cultural",
+        img: "assets/unesco/dholavira.png",
+        fallback: "https://images.unsplash.com/photo-1590050752117-238cb0fb12b1?auto=format&fit=crop&w=800&q=80",
+        importance: "One of the most remarkable urban settlements of the Indus Valley Civilization, renowned for sophisticated water engineering.",
+        desc: "Features fortified stone citadels, ceremonial grounds, step-reservoirs cut into rock, and a 10-character signboard inscription."
+      },
+      {
+        id: "santniketan",
+        name: "Santiniketan",
+        lat: 23.6784, lng: 87.6917,
+        location: "Birbhum, West Bengal",
+        year: "2023",
+        period: "1901 CE",
+        builder: "Nobel Laureate Rabindranath Tagore / Maharshi Debendranath",
+        category: "Cultural",
+        img: "assets/unesco/santiniketan.png",
+        fallback: "https://images.unsplash.com/photo-1533174072545-7a4b6ad7a6c3?auto=format&fit=crop&w=800&q=80",
+        importance: "An open-air university and residential school based on pan-Asian modernism, humanism, and harmony with nature (Visva-Bharati).",
+        desc: "Preserves open-air classrooms, murals by Nandalal Bose and Benode Behari Mukherjee, and the prayer hall Upasana Griha."
+      },
+      {
+        id: "hoysala-ensembles",
+        name: "Sacred Ensembles of the Hoysalas",
+        lat: 13.2162, lng: 75.9936,
+        location: "Belur, Halebidu & Somanathapura, Karnataka",
+        year: "2023",
+        period: "12th – 13th Century CE",
+        builder: "Hoysala Empire (King Vishnuvardhana & Narasimha III)",
+        category: "Cultural",
+        img: "assets/unesco/hoysala_temples.png",
+        fallback: "https://images.unsplash.com/photo-1600100397608-f010f443b2f5?auto=format&fit=crop&w=800&q=80",
+        importance: "Masterpieces of soapstone (chloritic schist) architecture characterized by star-shaped (stellate) plans and miniature relief friezes.",
+        desc: "Encompasses the Chennakeshava Temple at Belur, Hoysaleshwara Temple at Halebidu, and Keshava Temple at Somanathapura."
+      },
+      {
+        id: "moidams-assam",
+        name: "Moidams – the Mound-Burial System of the Ahom Dynasty",
+        lat: 26.9610, lng: 94.8870,
+        location: "Charaideo, Assam",
+        year: "2024",
+        period: "13th – 18th Century CE",
+        builder: "Ahom Dynasty (Founded by Chaolung Sukaphaa)",
+        category: "Cultural",
+        img: "assets/unesco/moidams.png",
+        fallback: "https://images.unsplash.com/photo-1534177616072-ef7dc120449d?auto=format&fit=crop&w=800&q=80",
+        importance: "The sacred royal burial mounds of the Ahom kings and queens, often revered as the 'Pyramids of Assam'.",
+        desc: "Features 90 vaulted earthen mounds containing funerary vaults, timber-brick structures, and preserved royal relics."
+      },
+
+      // --- Natural Sites ---
+      {
+        id: "kaziranga",
+        name: "Kaziranga National Park",
+        lat: 26.5775, lng: 93.1711,
+        location: "Golaghat & Nagaon, Assam",
+        year: "1985",
+        period: "Established 1905",
+        builder: "Protected National Biosphere",
+        category: "Natural",
+        img: "assets/unesco/kaziranga.png",
+        fallback: "https://images.unsplash.com/photo-1534177616072-ef7dc120449d?auto=format&fit=crop&w=800&q=80",
+        importance: "Contains the world's largest population of the great Indian one-horned rhinoceros alongside tigers, elephants, and wild buffaloes.",
+        desc: "An undisturbed floodplain wilderness along the Brahmaputra River featuring elephant grass, tropical moist forests, and wetlands."
+      },
+      {
+        id: "manas",
+        name: "Manas Wildlife Sanctuary",
+        lat: 26.6594, lng: 91.0011,
+        location: "Baksa & Chirang, Assam",
+        year: "1985",
+        period: "Biosphere Reserve",
+        builder: "Protected National Biosphere",
+        category: "Natural",
+        img: "assets/unesco/manas.png",
+        fallback: "https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=800&q=80",
+        importance: "A biodiversity hotspot in the Himalayan foothills harboring rare species like the pygmy hog, golden langur, and hispid hare.",
+        desc: "Contiguous with the Royal Manas National Park in Bhutan, forming an essential transboundary wildlife corridor."
+      },
+      {
+        id: "keoladeo",
+        name: "Keoladeo National Park (Bharatpur)",
+        lat: 27.1590, lng: 77.5218,
+        location: "Bharatpur, Rajasthan",
+        year: "1985",
+        period: "Constructed 1850 onwards",
+        builder: "Maharaja of Bharatpur / Wetland Sanctuary",
+        category: "Natural",
+        img: "assets/unesco/keoladeo.png",
+        fallback: "https://images.unsplash.com/photo-1514222788835-3a1a1d5b32f8?auto=format&fit=crop&w=800&q=80",
+        importance: "A human-made wetland sanctuary and premier wintering ground for millions of aquatic migratory birds.",
+        desc: "Host to over 370 bird species, historically including the critically endangered Siberian crane."
+      },
+      {
+        id: "sundarbans",
+        name: "Sundarbans National Park",
+        lat: 21.9497, lng: 88.9007,
+        location: "South 24 Parganas, West Bengal",
+        year: "1987",
+        period: "Deltaic Tidal Formation",
+        builder: "Protected Mangrove Biosphere",
+        category: "Natural",
+        img: "assets/unesco/sundarbans.png",
+        fallback: "https://images.unsplash.com/photo-1544735716-392fe2489ffa?auto=format&fit=crop&w=800&q=80",
+        importance: "The largest contiguous mangrove ecosystem on Earth, home to the swimming Royal Bengal Tiger.",
+        desc: "A complex network of tidal waterways and mudflats sustaining saltwater crocodiles, Ganges river dolphins, and diverse mangrove flora."
+      },
+      {
+        id: "nanda-devi-valley-of-flowers",
+        name: "Nanda Devi and Valley of Flowers National Parks",
+        lat: 30.7280, lng: 79.6053,
+        location: "Chamoli, Uttarakhand",
+        year: "1988 (Extended 2005)",
+        period: "High-Altitude Glacial Wilderness",
+        builder: "Protected Himalayan Wilderness",
+        category: "Natural",
+        img: "assets/unesco/valley_of_flowers.png",
+        fallback: "https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?auto=format&fit=crop&w=800&q=80",
+        importance: "Renowned for its meadows of endemic alpine flowers and the rugged glacial sanctuary of Nanda Devi peak (7,816 m).",
+        desc: "Home to rare and endangered animals including the snow leopard, Himalayan musk deer, and blue sheep."
+      },
+      {
+        id: "western-ghats",
+        name: "Western Ghats",
+        lat: 10.1632, lng: 77.0600,
+        location: "Maharashtra, Goa, Karnataka, Kerala, Tamil Nadu",
+        year: "2012",
+        period: "Geological Mountain Range",
+        builder: "Protected Evolutionary Hotspot",
+        category: "Natural",
+        img: "assets/unesco/western_ghats.png",
+        fallback: "https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=800&q=80",
+        importance: "One of the world's eight 'hottest hotspots' of biological diversity, mediating the Indian monsoon weather system.",
+        desc: "Comprises 39 individual protected reserves harboring over 300 globally threatened flora and fauna species."
+      },
+      {
+        id: "great-himalayan-national-park",
+        name: "Great Himalayan National Park Conservation Area",
+        lat: 31.8764, lng: 77.5855,
+        location: "Kullu, Himachal Pradesh",
+        year: "2014",
+        period: "High Altitude Alpine Zone",
+        builder: "Protected Himalayan Reserve",
+        category: "Natural",
+        img: "assets/unesco/great_himalayan.png",
+        fallback: "https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?auto=format&fit=crop&w=800&q=80",
+        importance: "Characterized by high alpine peaks, alpine meadows, and riverine forests protecting the catchment of the Indus River tributaries.",
+        desc: "Part of the Himalaya biodiversity hotspot protecting 25 forest types and the vulnerable Western Tragopan pheasant."
+      },
+
+      // --- Mixed Sites ---
+      {
+        id: "khangchendzonga",
+        name: "Khangchendzonga National Park",
+        lat: 27.6706, lng: 88.1884,
+        location: "North & West Sikkim",
+        year: "2016",
+        period: "Sacred Buddhist Landscape",
+        builder: "Protected Sacred Himalayan Biosphere",
+        category: "Mixed",
+        img: "assets/unesco/khangchendzonga.png",
+        fallback: "https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?auto=format&fit=crop&w=800&q=80",
+        importance: "India's first 'Mixed Heritage' UNESCO site combining high biodiversity with deep sacred Buddhist Beyul traditions.",
+        desc: "Encompasses Mount Khangchendzonga (the world's third highest peak at 8,586 m), glaciers, sacred lakes, and snow leopards."
+      }
+
+    ];
+
+    // Initialize Map with Leaflet
+    const map = L.map('unescoMap', {
+      center: [22.8, 80.5],
+      zoom: 5,
+      minZoom: 4,
+      maxZoom: 10
+    });
+
+    // Clean OpenStreetMap Base
+    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+      attribution: '&copy; BharatYatra | India',
+      maxZoom: 18
+    }).addTo(map);
+
+    // Official Survey of India Boundary Overlay (Incorporates Complete J&K, Ladakh & Arunachal)
+    fetch('https://raw.githubusercontent.com/datameet/maps/master/Country/india-composite.geojson')
+      .then(res => res.json())
+      .then(geoData => {
+        L.geoJSON(geoData, {
+          style: {
+            color: '#e5b75b',
+            weight: 2.2,
+            opacity: 0.9,
+            fillColor: '#e5b75b',
+            fillOpacity: 0.04
+          }
+        }).addTo(map);
+      })
+      .catch(() => {
+        // Direct backup GeoJSON layer
+        fetch('https://gist.githubusercontent.com/curran/13d30eab0f01e13407da8b6250a1a8e1/raw/99249767660c1dca4ac3e4ef2396fae05ba7e52a/india.geojson')
+          .then(r => r.json())
+          .then(d => {
+            L.geoJSON(d, {
+              style: { color: '#e5b75b', weight: 2, opacity: 0.85, fillOpacity: 0.04 }
+            }).addTo(map);
+          }).catch(() => {});
+      });
+
+    let currentCategory = 'all';
+    let markersLayer = L.layerGroup().addTo(map);
+    let currentSelectedSite = null;
+
+    // Render Markers on Map & Grid Cards
+    function renderSites() {
+      markersLayer.clearLayers();
+      const grid = document.getElementById("sitesGrid");
+      grid.innerHTML = "";
+
+      const filtered = unescoSites.filter(site => currentCategory === 'all' || site.category === currentCategory);
+
+      filtered.forEach(site => {
+        // Map Marker
+        const customIcon = L.divIcon({
+          className: 'custom-marker',
+          html: '🏛️',
+          iconSize: [28, 28],
+          iconAnchor: [14, 14]
+        });
+
+        const marker = L.marker([site.lat, site.lng], { icon: customIcon });
+        marker.bindPopup(`
+          <div style="font-family: 'DM Sans', sans-serif; text-align: center; padding: 4px;">
+            <strong style="font-family: Cinzel, serif; color: #f3e7ca; font-size: 14px;">${site.name}</strong><br>
+            <span style="color: #e5b75b; font-size: 11px;">${site.location}</span><br>
+            <button onclick="openSiteModal('${site.id}')" style="margin-top: 8px; padding: 4px 10px; background: #e5b75b; border: 0; border-radius: 6px; font-weight: 700; cursor: pointer; font-size: 11px;">View Full Details</button>
+          </div>
+        `);
+        markersLayer.addLayer(marker);
+
+        // Grid Card
+        const card = document.createElement("div");
+        card.className = "site-card";
+        card.onclick = () => openSiteModal(site.id);
+        card.innerHTML = `
+          <div class="site-card-img-wrap">
+            <img class="site-card-img" src="${site.img}" alt="${site.name}" onerror="this.src='${site.fallback}'">
+            <span class="site-year-badge">Inscribed ${site.year}</span>
+          </div>
+          <div class="site-card-body">
+            <div>
+              <h4 class="site-card-title">${site.name}</h4>
+              <div class="site-card-loc">📍 ${site.location}</div>
+              <p class="site-card-desc">${site.importance}</p>
+            </div>
+          </div>
+        `;
+        grid.appendChild(card);
+      });
+    }
+
+    function filterMapCategory(cat) {
+      currentCategory = cat;
+      document.querySelectorAll(".filter-pill").forEach(pill => {
+        pill.classList.toggle("active", pill.textContent.toLowerCase().includes(cat.toLowerCase()));
+      });
+      renderSites();
+    }
+
+    // Modal Details Logic
+    function openSiteModal(siteId) {
+      const site = unescoSites.find(s => s.id === siteId);
+      if (!site) return;
+
+      currentSelectedSite = site;
+
+      const img = document.getElementById("modalImg");
+      img.src = site.img;
+      img.onerror = () => { img.src = site.fallback; };
+
+      document.getElementById("modalTitle").textContent = site.name;
+      document.getElementById("modalYear").textContent = `UNESCO: ${site.year}`;
+      document.getElementById("modalLocation").textContent = site.location;
+      document.getElementById("modalPeriod").textContent = site.period;
+      document.getElementById("modalBuilder").textContent = site.builder;
+      document.getElementById("modalCategory").textContent = `${site.category} Heritage`;
+      document.getElementById("modalImportance").textContent = site.importance;
+      document.getElementById("modalDesc").textContent = site.desc;
+
+      document.getElementById("unescoModal").classList.add("active");
+    }
+
+    function openGoogleMaps() {
+      if (!currentSelectedSite) return;
+      let searchQuery = encodeURIComponent(currentSelectedSite.name + " " + currentSelectedSite.location + " India");
+      window.open("https://www.google.com/maps/search/?api=1&query=" + searchQuery, "_blank");
+    }
+
+    function closeModal(e, force = false) {
+      if (force || e.target.id === "unescoModal") {
+        document.getElementById("unescoModal").classList.remove("active");
+      }
+    }
+
+    // Initialize View
+    renderSites();
+
+    /* ---- Background Music Persistence ---- */
+    const bgMusic = document.getElementById("bgMusic");
+    const savedTime = sessionStorage.getItem("bgMusicTime");
+    const savedMuted = sessionStorage.getItem("bgMusicMuted");
+    if (savedTime) bgMusic.currentTime = parseFloat(savedTime);
+    if (savedMuted !== null) {
+      bgMusic.muted = savedMuted === "true";
+      document.getElementById("musicToggle").textContent = bgMusic.muted ? "🔇" : "🔊";
+    }
+    let musicStarted = false;
+    function tryStartMusic() {
+      bgMusic.play().then(() => {
+        musicStarted = true;
+        document.getElementById("musicToggle").textContent = bgMusic.muted ? "🔇" : "🔊";
+      }).catch(() => {});
+    }
+    tryStartMusic();
+    ["click", "keydown", "touchstart", "scroll"].forEach(evt =>
+      document.addEventListener(evt, function once() {
+        if (!musicStarted) tryStartMusic();
+      }, { once: true })
+    );
+    function toggleMusic() {
+      if (!musicStarted) { tryStartMusic(); return; }
+      bgMusic.muted = !bgMusic.muted;
+      document.getElementById("musicToggle").textContent = bgMusic.muted ? "🔇" : "🔊";
+    }
+    window.addEventListener("beforeunload", () => {
+      sessionStorage.setItem("bgMusicTime", bgMusic.currentTime);
+      sessionStorage.setItem("bgMusicMuted", bgMusic.muted);
+    });
+
+    /* ---- Chatbot Logic ---- */
+    function toggleChat() {
+      const c = document.getElementById("chatbot");
+      c.classList.toggle("active");
+      if (c.classList.contains("active")) setTimeout(() => document.getElementById("chatInput").focus(), 100);
+    }
+    function handleChat(e) { if (e.key === "Enter") sendMessage(); }
+    function sendMessage() {
+      const input = document.getElementById("chatInput"),
+            messages = document.getElementById("chatMessages"),
+            text = input.value.trim();
+      if (!text) return;
+      const user = document.createElement("div");
+      user.className = "message user";
+      user.textContent = text;
+      messages.appendChild(user);
+      input.value = "";
+      setTimeout(() => {
+        const bot = document.createElement("div");
+        bot.className = "message bot";
+        bot.textContent = "India is home to 42+ UNESCO World Heritage Sites! Click any interactive marker on the map to explore their historical significance.";
+        messages.appendChild(bot);
+        messages.scrollTop = messages.scrollHeight;
+      }, 500);
+    }
+  </script>
+</body>
+</html>

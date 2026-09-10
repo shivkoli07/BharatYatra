@@ -3,27 +3,324 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>BharatYatra | Discover India</title>
+<title data-i18n="page_title">BharatYatra | Discover India</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;600;700;800&family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@700;900&family=Cinzel:wght@500;600;700;800&family=DM+Sans:wght@400;500;600;700&family=Yatra+One&family=Rozha+One&family=Special+Elite&display=swap" rel="stylesheet">
 <style>
 *{margin:0;padding:0;box-sizing:border-box}html{scroll-behavior:smooth}body{font-family:"DM Sans",sans-serif;color:#fff;background:radial-gradient(circle at 50% 28%,rgba(12,74,83,.38),transparent 34%),radial-gradient(circle at 12% 60%,rgba(196,75,31,.14),transparent 28%),#050b12;min-height:100vh;overflow-x:hidden}body:before{content:"";position:fixed;inset:0;pointer-events:none;opacity:.1;background-image:radial-gradient(circle at 1px 1px,#e5b75b 1px,transparent 1px);background-size:30px 30px;mask-image:linear-gradient(to bottom,black,transparent);z-index:-1}
 .navbar{position:fixed;top:0;left:0;width:100%;height:74px;padding:0 4%;display:flex;align-items:center;justify-content:space-between;z-index:1000;background:rgba(4,10,16,.78);backdrop-filter:blur(18px);border-bottom:1px solid rgba(225,180,85,.18)}.logo{font-family:Cinzel,serif;font-size:23px;letter-spacing:2px;color:#f4e6c3;white-space:nowrap}.nav-links{display:flex;align-items:center;gap:24px;list-style:none}.nav-links a{text-decoration:none;color:rgba(255,255,255,.72);font-size:12px;font-weight:700;letter-spacing:.75px;transition:.3s}.nav-links a:hover{color:#eab75a}.login-btn{padding:9px 19px;border-radius:25px;border:1px solid rgba(234,183,90,.7);color:#f3d48c!important;background:rgba(234,183,90,.06)}
-/* HERO: each side now holds TWO stacked video frames (states/UTs), still cycling only when a video ends. padding-top trimmed 100->85 (mobile 92->78) to close the gap under the navbar */
-.hero{min-height:100vh;padding:85px 2.5% 35px;display:grid;grid-template-columns:minmax(230px,23%) minmax(450px,54%) minmax(230px,23%);align-items:center;gap:18px;position:relative}.video-column{width:100%;height:auto;position:relative;z-index:5}.video-stack{display:flex;flex-direction:column;gap:18px}.video-stack .video-card{width:100%;height:min(69vh,610px);flex:none}.video-card{position:relative;width:100%;height:100%;overflow:hidden;border-radius:24px;border:1px solid rgba(230,184,88,.34);background:#101820;box-shadow:0 25px 70px rgba(0,0,0,.48)}.video-card video{width:100%;height:100%;display:block;object-fit:cover;background:#091117;transition:transform 1s ease}.video-card:hover video{transform:scale(1.035)}.video-shade{position:absolute;inset:0;background:linear-gradient(to bottom,rgba(0,0,0,.03) 35%,rgba(0,0,0,.84) 100%);pointer-events:none}.video-content{position:absolute;left:25px;bottom:26px;z-index:3;pointer-events:none}.video-category{color:#e7b75b;font-size:10px;text-transform:uppercase;letter-spacing:2.5px;font-weight:700;margin-bottom:6px}.video-title{font-family:Cinzel,serif;font-size:24px;color:#fff}.video-progress{position:absolute;left:25px;right:25px;bottom:18px;height:2px;background:rgba(255,255,255,.18);z-index:4;overflow:hidden}.video-progress span{display:block;width:0;height:100%;background:#e5b75b}
-.hero-center{text-align:center;position:relative;z-index:10;padding:10px}.eyebrow{font-size:10px;letter-spacing:5px;color:#e5b75b;font-weight:700;margin-bottom:17px}.brand{font-family:Cinzel,serif;font-size:clamp(46px,5.3vw,82px);line-height:1;letter-spacing:2px;color:#f7f0df;text-shadow:0 8px 40px rgba(0,0,0,.5)}.ornament{width:170px;height:1px;background:linear-gradient(90deg,transparent,#e4b454,transparent);margin:22px auto}.tagline{font-family:Cinzel,serif;font-size:21px;color:#f2dfb3;letter-spacing:1px;margin-bottom:8px}.indian-tagline{font-family:Cinzel,serif;font-size:18px;color:#e8b85c;letter-spacing:.7px;margin-bottom:14px}.description{max-width:520px;margin:0 auto 25px;font-size:13px;line-height:1.75;color:rgba(255,255,255,.64)}
-.planner{margin:0 auto 18px;max-width:590px;padding:15px;border-radius:20px;background:rgba(255,255,255,.055);border:1px solid rgba(255,255,255,.13);backdrop-filter:blur(15px);box-shadow:0 20px 60px rgba(0,0,0,.25)}.planner-title{font-size:10px;color:#e5b75b;letter-spacing:2px;font-weight:700;margin-bottom:11px}.planner-fields{display:grid;grid-template-columns:1fr 1fr auto;gap:9px}.field{padding:11px 13px;border-radius:10px;background:rgba(0,0,0,.32);border:1px solid rgba(255,255,255,.1);text-align:left}.field label{display:block;font-size:8px;color:rgba(255,255,255,.48);text-transform:uppercase;letter-spacing:1px;margin-bottom:4px}.field input{width:100%;background:transparent;border:0;outline:0;color:#fff;font-size:12px}.field input::placeholder{color:rgba(255,255,255,.55)}.plan-btn{border:0;padding:0 20px;border-radius:10px;cursor:pointer;font-weight:700;font-size:11px;color:#071015;background:linear-gradient(135deg,#f2c45e,#d9782e);transition:.3s}.plan-btn:hover{transform:translateY(-2px);box-shadow:0 8px 25px rgba(225,151,51,.25)}
-.feature-window{max-width:590px;margin:0 auto;overflow:hidden;border-radius:15px;border:1px solid rgba(255,255,255,.12);background:rgba(5,18,24,.7);padding:12px 0}.feature-track{display:flex;width:max-content;animation:featureMove 30s linear infinite}.feature-item{display:flex;align-items:center;gap:10px;padding:0 23px;color:rgba(255,255,255,.74);font-family:Cinzel,serif;font-size:12px;white-space:nowrap}.feature-item:after{content:"✦";margin-left:20px;color:#e5b75b}@keyframes featureMove{from{transform:translateX(0)}to{transform:translateX(-50%)}}.ai-status{margin-top:17px;display:inline-flex;align-items:center;gap:8px;padding:8px 15px;border-radius:30px;background:rgba(36,157,141,.07);border:1px solid rgba(62,184,163,.22);font-size:9px;letter-spacing:1.5px;color:rgba(255,255,255,.65)}.status-dot{width:7px;height:7px;border-radius:50%;background:#42c7a3;box-shadow:0 0 12px #42c7a3}.scroll-hint{margin-top:10px;font-size:8px;letter-spacing:3px;color:rgba(255,255,255,.35)}
-/* NEW: culture row of carousel frames (festivals/dances/rituals/traditions/heritage) - same .video-card frame style, sits between hero and cinematic */
+
+/* LANGUAGE SELECTOR STYLING */
+.lang-selector select{padding:6px 12px;border-radius:20px;border:1px solid rgba(234,183,90,.7);color:#f3d48c;background:rgba(5,18,24,.9);font-family:"DM Sans",sans-serif;font-size:11px;font-weight:700;outline:none;cursor:pointer;transition:.3s}
+.lang-selector select option{background:#0b151d;color:#fff}
+.lang-selector select:hover{border-color:#eab75a}
+
+/* HERO LAYOUT */
+.hero{min-height:100vh;padding:82px 2.5% 25px;display:grid;grid-template-columns:minmax(230px,23%) minmax(450px,54%) minmax(230px,23%);align-items:start;gap:18px;position:relative}
+.video-column{width:100%;height:auto;position:relative;z-index:5}.video-stack{display:flex;flex-direction:column;gap:18px}.video-stack .video-card{width:100%;height:min(69vh,610px);flex:none}.video-card{position:relative;width:100%;height:100%;overflow:hidden;border-radius:24px;border:1px solid rgba(230,184,88,.34);background:#101820;box-shadow:0 25px 70px rgba(0,0,0,.48)}.video-card video{width:100%;height:100%;display:block;object-fit:cover;background:#091117;transition:transform 1s ease}.video-card:hover video{transform:scale(1.035)}.video-shade{position:absolute;inset:0;background:linear-gradient(to bottom,rgba(0,0,0,.03) 35%,rgba(0,0,0,.84) 100%);pointer-events:none}.video-content{position:absolute;left:25px;bottom:26px;z-index:3;pointer-events:none}.video-category{color:#e7b75b;font-size:10px;text-transform:uppercase;letter-spacing:2.5px;font-weight:700;margin-bottom:6px}.video-title{font-family:Cinzel,serif;font-size:24px;color:#fff}.video-progress{position:absolute;left:25px;right:25px;bottom:18px;height:2px;background:rgba(255,255,255,.18);z-index:4;overflow:hidden}.video-progress span{display:block;width:0;height:100%;background:#e5b75b}
+
+/* CENTER HERO */
+.hero-center{text-align:center;position:relative;z-index:10;padding:6px 10px 0;display:flex;flex-direction:column;align-items:center}
+.eyebrow{font-size:10px;letter-spacing:5px;color:#e5b75b;font-weight:700;margin-bottom:6px}
+.brand{font-family:Cinzel,serif;font-size:clamp(38px,4.5vw,68px);line-height:1;letter-spacing:2px;color:#f7f0df;text-shadow:0 8px 40px rgba(0,0,0,.5)}
+.ornament{width:150px;height:1px;background:linear-gradient(90deg,transparent,#e4b454,transparent);margin:10px auto}
+.indian-tagline{font-family:Cinzel,serif;font-size:14.5px;color:#e8b85c;letter-spacing:.7px;margin-bottom:12px}
+
+/* UNIQUE FEATURES RUNNING BANNER */
+.feature-window{width:100%;max-width:590px;margin:0 auto 12px;overflow:hidden;border-radius:14px;border:1px solid rgba(230,184,88,.28);background:rgba(5,18,24,.75);backdrop-filter:blur(12px);padding:8px 0;box-shadow:0 12px 35px rgba(0,0,0,.3)}
+.feature-track{display:flex;width:max-content;animation:featureMove 28s linear infinite}
+.feature-item{display:flex;align-items:center;gap:8px;padding:0 20px;color:rgba(255,255,255,.8);font-family:Cinzel,serif;font-size:10.5px;letter-spacing:.5px;white-space:nowrap}
+.feature-item:after{content:"✦";margin-left:18px;color:#e5b75b}
+@keyframes featureMove{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+
+/* ===================================================
+   BHARATYATRA HERITAGE BOOK — CLEAN VERSION
+=================================================== */
+
+.book-section {
+    width: 100%;
+    max-width: 540px;
+    margin: 0 auto 14px;
+    perspective: 1600px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.book-container {
+    width: 100%;
+    max-width: 500px;
+    height: 340px;
+    position: relative;
+    border-radius: 14px;
+
+    /* REMOVE ALL DARK CENTER/EDGE EFFECTS */
+    border: 0 !important;
+    outline: 0 !important;
+    box-shadow: 0 18px 40px rgba(0,0,0,.30) !important;
+
+    transition: transform .8s cubic-bezier(.2,.85,.3,1.1);
+    transform-style: preserve-3d;
+    overflow: visible;
+}
+
+
+/* =========================
+   BOOK COVER
+========================= */
+
+.book-cover {
+    position: absolute;
+    inset: 0;
+
+    width: 100%;
+    height: 100%;
+
+    border-radius: 14px;
+
+    /* IMPORTANT — remove ridge border */
+    border: none !important;
+    outline: none !important;
+
+    /* Remove dark inset shadow */
+    box-shadow: none !important;
+
+    overflow: hidden;
+
+    z-index: 10;
+
+    transition:
+        transform .85s cubic-bezier(.4,0,.2,1),
+        opacity .6s ease;
+
+    transform-origin: left center;
+
+    background: transparent;
+}
+
+.book-cover img {
+    display: block;
+    width: 102%;
+    height: 102%;
+    max-width: none;
+    object-fit: cover;
+
+    /* Move enlarged image slightly left/up */
+    transform: translate(-1%, -1%);
+
+    border: none !important;
+    outline: none !important;
+    box-shadow: none !important;
+    border-radius: 14px;
+
+    /* Prevent image rendering seam */
+    backface-visibility: hidden;
+}
+
+.book-cover.opened {
+    transform: rotateY(-140deg);
+    opacity: 0;
+    pointer-events: none;
+}
+
+
+/* =========================
+   COVER TITLE
+========================= */
+
+.cover-overlay-title {
+    position: absolute;
+    bottom: 20px;
+    left: 0;
+    right: 0;
+
+    text-align: center;
+
+    background: linear-gradient(
+        to top,
+        rgba(15,5,2,.85),
+        transparent
+    );
+
+    padding: 20px 10px 10px;
+}
+
+
+/* =========================
+   BOOK PAGES
+========================= */
+
+.book-page {
+    position: absolute;
+    inset: 0;
+
+    width: 100%;
+    height: 100%;
+
+    border-radius: 12px;
+
+    background: #f5e5c3;
+
+    background-image:
+        radial-gradient(
+            #e3cb96 15%,
+            transparent 16%
+        ),
+        radial-gradient(
+            #d6bc8b 15%,
+            transparent 16%
+        );
+
+    background-size: 24px 24px;
+    background-position: 0 0, 12px 12px;
+
+    /* Remove page dark edge */
+    border: 1px solid #b5894b !important;
+
+    box-shadow:
+        inset 0 0 20px rgba(105,71,26,.18),
+        3px 5px 15px rgba(0,0,0,.20) !important;
+
+    color: #2b180a;
+
+    padding: 16px 20px;
+
+    display: none;
+    flex-direction: column;
+    justify-content: space-between;
+
+    overflow: hidden;
+
+    animation: pageTurnAnim .6s ease forwards;
+}
+
+
+/* =========================
+   REMOVE ANY CENTER SEAM
+========================= */
+
+.book-container::before,
+.book-container::after,
+.book-cover::before,
+.book-cover::after,
+.book-page::before,
+.book-page::after {
+    content: none !important;
+    display: none !important;
+    border: none !important;
+    box-shadow: none !important;
+}
+
+
+/* =========================
+   BOOK CONTROLS
+========================= */
+
+.book-controls {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    margin-top: 10px;
+    width: 100%;
+}
+
+.book-btn {
+    padding: 7px 20px;
+    border-radius: 20px;
+    border: 1px solid #d4af37;
+
+    background: linear-gradient(
+        135deg,
+        #c47c23,
+        #78350b
+    );
+
+    color: #fff;
+
+    font-family: Cinzel, serif;
+    font-size: 10.5px;
+    font-weight: 700;
+
+    letter-spacing: 1px;
+
+    cursor: pointer;
+
+    box-shadow:
+        0 8px 22px rgba(0,0,0,.35);
+
+    transition: .25s;
+}
+/* Royal Manuscript Paper Page */
+.book-page{position:absolute;inset:0;border-radius:12px;background:#f5e5c3;background-image:radial-gradient(#e3cb96 15%, transparent 16%), radial-gradient(#d6bc8b 15%, transparent 16%);background-size:24px 24px;background-position:0 0, 12px 12px;border:2px solid #b5894b;box-shadow:inset 0 0 50px rgba(105, 71, 26, 0.5), 6px 10px 30px rgba(0,0,0,.65);color:#2b180a;padding:16px 20px;display:none;flex-direction:column;justify-content:space-between;overflow:hidden;animation:pageTurnAnim .6s ease forwards}
+.book-page.active{display:flex}
+@keyframes pageTurnAnim{0%{transform:rotateY(-35deg);opacity:0}100%{transform:rotateY(0deg);opacity:1}}
+
+.page-ornament-frame{position:absolute;inset:8px;border:2px solid #6b4317;border-radius:8px;pointer-events:none}
+.page-ornament-frame:before{content:"";position:absolute;inset:3px;border:1px dashed #8b5b29}
+.page-header-small{text-align:center;font-family:Cinzel,serif;font-size:9px;color:#704419;letter-spacing:2px;font-weight:700;border-bottom:1px solid rgba(112,68,25,.3);padding-bottom:3px;margin-bottom:5px}
+.page-body{flex:1;overflow-y:auto;padding:2px 4px;font-size:11px;line-height:1.5}
+.page-footer-num{display:flex;justify-content:space-between;align-items:center;font-family:'Special Elite', cursive, serif;font-size:9.5px;color:#5a3715;border-top:1px solid rgba(112,68,25,.25);padding-top:3px;margin-top:3px}
+
+/* Page Specific Styles */
+.index-list{list-style:none;padding:2px 6px}
+.index-item{display:flex;justify-content:space-between;align-items:baseline;padding:3px 0;font-family:'Special Elite', cursive, monospace;font-size:10.5px;font-weight:600;color:#2e1808;border-bottom:1px dotted rgba(74,42,12,.4);cursor:pointer;transition:.2s}
+.index-item:hover{color:#9e321b;padding-left:4px}
+
+/* Preamble Page */
+.preamble-frame{border:3px double #5c340c;padding:8px;text-align:center;background:rgba(255,248,235,.75);border-radius:6px;height:100%;overflow-y:auto}
+.preamble-title{font-family:Cinzel,serif;font-size:12.5px;font-weight:800;color:#3d1c03;letter-spacing:1px;margin-bottom:4px}
+.preamble-text{font-family:'Cinzel', serif;font-size:9px;line-height:1.4;color:#241103;text-align:justify;text-align-last:center}
+
+/* National Anthem / Song Hindi Typography */
+.hindi-poem-box{text-align:center;font-family:'Yatra One', 'Rozha One', serif;line-height:1.35;color:#2e1505;height:100%;overflow-y:auto;padding:0 5px}
+.hindi-poem-box h3{font-size:15px;color:#85220c;margin-bottom:2px;letter-spacing:1px}
+.hindi-poem-box small{font-size:9.5px;color:#5c3513;display:block;margin-bottom:4px;font-family:Cinzel,serif}
+.hindi-poem-box p{font-size:10px;margin-bottom:5px;color:#291204;white-space:pre-line}
+
+/* Tourism Insight Pages */
+.topic-card{display:flex;flex-direction:column;gap:5px;text-align:left}
+.topic-title{font-family:Cinzel,serif;font-size:13px;color:#7a220a;font-weight:700}
+.topic-meta{font-size:9.5px;color:#613812;font-style:italic;font-weight:600}
+.topic-desc{font-size:10px;color:#261305;line-height:1.5}
+.topic-bullets{margin-left:12px;font-size:9.5px;color:#331a08}
+.topic-bullets li{margin-bottom:2px}
+
+/* ===================================================
+   LARGER TRENDING SPOTS CAROUSEL (2 AT A TIME + MANUAL SCROLL)
+=================================================== */
+.trending-container{width:100%;max-width:590px;margin:0 auto;position:relative}
+.trending-header{display:flex;align-items:center;justify-content:space-between;margin-bottom:6px;padding:0 4px}
+.trending-header span{font-size:9px;letter-spacing:2px;color:#e5b75b;font-weight:700;text-transform:uppercase}
+.trending-nav-btns{display:flex;gap:6px}
+.nav-arrow-btn{width:24px;height:24px;border-radius:50%;background:rgba(229,183,91,0.15);border:1px solid rgba(229,183,91,0.4);color:#f3d48c;font-size:11px;display:flex;align-items:center;justify-content:center;cursor:pointer;transition:.2s}
+.nav-arrow-btn:hover{background:#e5b75b;color:#000}
+
+.slider-wrapper{overflow:hidden;border-radius:16px;border:1px solid rgba(255,255,255,.12);background:rgba(0,0,0,.35);padding:8px;box-shadow:0 18px 45px rgba(0,0,0,.4)}
+.slider-track{display:flex;gap:12px;transition:transform .6s cubic-bezier(0.25, 1, 0.5, 1)}
+.spot-card{flex:0 0 calc(50% - 6px);position:relative;height:210px;border-radius:14px;overflow:hidden;border:1px solid rgba(230,184,88,.3);background:#09121a;box-shadow:0 10px 25px rgba(0,0,0,.5);transition:transform .3s ease}
+.spot-card:hover{transform:translateY(-4px);border-color:#e5b75b}
+.spot-card img{width:100%;height:100%;object-fit:cover;display:block}
+.spot-overlay{position:absolute;inset:0;background:linear-gradient(to top,rgba(4,10,16,.95) 0%,rgba(4,10,16,.15) 55%,transparent 100%)}
+.spot-badge{position:absolute;top:8px;left:8px;padding:3px 8px;border-radius:8px;background:rgba(229,183,91,.25);border:1px solid rgba(229,183,91,.6);color:#f4e4bc;font-size:8px;font-weight:700;letter-spacing:.5px}
+.spot-info{position:absolute;bottom:10px;left:10px;right:10px;z-index:2;text-align:left}
+.spot-info h4{font-family:Cinzel,serif;font-size:14px;color:#fff;line-height:1.2;margin-bottom:3px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.spot-info p{font-size:10.5px;color:#e5b75b;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+
+.ai-status{margin-top:12px;display:inline-flex;align-items:center;gap:8px;padding:6px 14px;border-radius:30px;background:rgba(36,157,141,.07);border:1px solid rgba(62,184,163,.22);font-size:8.5px;letter-spacing:1.5px;color:rgba(255,255,255,.65)}
+.status-dot{width:7px;height:7px;border-radius:50%;background:#42c7a3;box-shadow:0 0 12px #42c7a3}
+
+/* CULTURE & REST OF PAGE */
 .culture-row{padding:0 5% 90px}.culture-heading{text-align:center;margin-bottom:30px}.culture-grid{max-width:1250px;margin:auto;display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));gap:16px}.culture-grid .video-card{height:min(69vh,610px)}
 .cinematic{padding:95px 0 90px}.cinematic-heading{text-align:center;margin-bottom:35px;padding:0 5%}.cinematic-video{width:100%;height:clamp(320px,58vh,640px);margin:auto;border-radius:0;overflow:hidden;border:0;border-top:1px solid rgba(229,181,91,.3);border-bottom:1px solid rgba(229,181,91,.3);box-shadow:0 30px 90px rgba(0,0,0,.55);background:#091117}.cinematic-video video{width:100%;height:100%;object-fit:cover;display:block}
 .cinematic-heading small,.section-heading small,.culture-heading small{color:#e5b75b;letter-spacing:3px;font-size:10px;font-weight:700}.cinematic-heading h2,.section-heading h2,.culture-heading h2{font-family:Cinzel,serif;color:#f3e7ca;font-size:clamp(28px,4vw,48px);margin:10px 0}.cinematic-heading p,.culture-heading p{max-width:650px;margin:auto;color:rgba(255,255,255,.56);font-size:13px;line-height:1.7}
 .services,.experiences{padding:70px 6% 100px;background:linear-gradient(to bottom,transparent,rgba(8,23,31,.8))}.experiences{background:transparent;padding-top:20px}.section-heading{text-align:center;margin-bottom:40px}.section-heading h2{font-size:30px}.service-grid,.experience-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:18px}.service-card{padding:25px;min-height:180px;border-radius:18px;background:linear-gradient(145deg,rgba(255,255,255,.07),rgba(255,255,255,.025));border:1px solid rgba(255,255,255,.1);transition:.35s}.service-card:hover,.experience:hover{transform:translateY(-7px);border-color:rgba(230,181,86,.42);background:rgba(230,181,86,.06)}.service-icon{font-size:28px;margin-bottom:15px}.service-card h3{font-family:Cinzel,serif;font-size:17px;color:#f4e4bc;margin-bottom:8px}.service-card p{font-size:11px;line-height:1.7;color:rgba(255,255,255,.53)}.experience{min-height:130px;padding:22px;border-radius:18px;border:1px solid rgba(229,181,91,.14);background:linear-gradient(135deg,rgba(12,44,50,.65),rgba(255,255,255,.025));transition:.3s}.experience span{color:#e5b75b;font-size:9px;letter-spacing:2px;font-weight:700}.experience h3{margin-top:8px;font-family:Cinzel,serif;color:#f5e7c4;font-size:18px}
 .chatbot-button{position:fixed;right:25px;bottom:25px;width:64px;height:64px;border-radius:50%;border:1px solid #e8b95c;background:linear-gradient(135deg,#d67b2c,#9d3f35);color:#fff;display:flex;align-items:center;justify-content:center;font-size:27px;cursor:pointer;z-index:999;box-shadow:0 12px 40px rgba(0,0,0,.5),0 0 25px rgba(227,154,50,.15);transition:.3s}.chatbot-button:hover{transform:scale(1.08)}.chatbot{position:fixed;right:25px;bottom:102px;width:350px;height:450px;background:#0b151d;border:1px solid rgba(229,181,84,.35);border-radius:20px;z-index:998;overflow:hidden;display:none;flex-direction:column;box-shadow:0 25px 80px rgba(0,0,0,.7)}.chatbot.active{display:flex}.chat-header{padding:17px;background:linear-gradient(135deg,#153b40,#13232c);border-bottom:1px solid rgba(255,255,255,.08)}.chat-header strong{font-family:Cinzel,serif;color:#f0d18b}.chat-header small{display:block;margin-top:4px;color:rgba(255,255,255,.5);font-size:10px}.chat-messages{flex:1;padding:15px;overflow-y:auto}.message{max-width:85%;padding:10px 12px;margin-bottom:10px;border-radius:12px;font-size:11px;line-height:1.55}.message.bot{background:rgba(255,255,255,.07);color:rgba(255,255,255,.78)}.message.user{margin-left:auto;background:rgba(222,157,54,.18);border:1px solid rgba(222,157,54,.25)}.chat-input{display:flex;gap:7px;padding:12px;border-top:1px solid rgba(255,255,255,.08)}.chat-input input{flex:1;padding:11px;border-radius:9px;border:1px solid rgba(255,255,255,.1);background:#101b22;color:#fff;outline:0}.chat-input button{width:42px;border:0;border-radius:9px;background:#e5a341;color:#071015;cursor:pointer;font-weight:700}footer{padding:35px 6%;text-align:center;border-top:1px solid rgba(255,255,255,.08);color:rgba(255,255,255,.38);font-size:10px;letter-spacing:1px}
-@media(max-width:1250px){.hero{grid-template-columns:minmax(190px,22%) minmax(430px,56%) minmax(190px,22%);gap:10px;padding-left:1.5%;padding-right:1.5%}.video-stack .video-card{height:min(62vh,540px)}.nav-links{gap:16px}}
-@media(max-width:1050px){.nav-links{display:none}.hero{grid-template-columns:1fr;padding:105px 5% 60px;gap:25px}.hero-center{order:1}.video-column:first-child{order:2}.video-column:last-child{order:3}.video-column{max-width:620px;margin:auto}.video-stack .video-card{height:520px}.service-grid,.experience-grid{grid-template-columns:repeat(2,1fr)}}
-@media(max-width:650px){.navbar{height:66px}.logo{font-size:19px}.hero{padding-top:78px}.brand{font-size:42px}.tagline{font-size:17px}.indian-tagline{font-size:15px}.description{font-size:12px}.planner-fields{grid-template-columns:1fr}.plan-btn{padding:13px}.video-stack .video-card{height:400px}.video-title{font-size:20px}.culture-grid{grid-template-columns:repeat(auto-fit,minmax(160px,1fr))}.culture-grid .video-card{height:400px}.service-grid,.experience-grid{grid-template-columns:1fr}.chatbot{width:calc(100vw - 30px);right:15px}.chatbot-button{right:18px;bottom:18px}}
+
+@media(max-width:1250px){.hero{grid-template-columns:minmax(190px,22%) minmax(430px,56%) minmax(190px,22%);gap:10px;padding-left:1.5%;padding-right:1.5%}.video-stack .video-card{height:min(62vh,540px)}.nav-links{gap:16px}.book-container{height:320px}}
+@media(max-width:1050px){.nav-links{display:none}.hero{grid-template-columns:1fr;padding:95px 5% 60px;gap:25px}.hero-center{order:1}.video-column:first-child{order:2}.video-column:last-child{order:3}.video-column{max-width:620px;margin:auto}.video-stack .video-card{height:520px}.service-grid,.experience-grid{grid-template-columns:repeat(2,1fr)}.spot-card{flex:0 0 100%}}
+@media(max-width:650px){.navbar{height:66px}.logo{font-size:19px}.hero{padding-top:78px}.brand{font-size:34px}.indian-tagline{font-size:13px}.book-container{height:310px}.video-stack .video-card{height:400px}.video-title{font-size:20px}.culture-grid{grid-template-columns:repeat(auto-fit,minmax(160px,1fr))}.culture-grid .video-card{height:400px}.service-grid,.experience-grid{grid-template-columns:1fr}.chatbot{width:calc(100vw - 30px);right:15px}.chatbot-button{right:18px;bottom:18px}}
 </style>
 </head>
 <body>
@@ -31,7 +328,19 @@
 <nav class="navbar">
     <div class="logo">BharatYatra</div>
     <ul class="nav-links">
-        <li><a href="destinations.html">DESTINATIONS</a></li><li><a href="hotels.html">HOTELS</a></li><li><a href="restaurants.html">RESTAURANTS</a></li><li><a href="transport.html">TRANSPORT</a></li><li><a href="states.html">STATES INFORMATION</a></li><li><a href="login.html" class="login-btn">LOGIN</a></li>
+        <li><a href="crafts.html" data-i18n="nav_crafts">Crafts</a></li>
+        <li><a href="gi_tag.html" data-i18n="nav_gi">GI Tag Products</a></li>
+        <li><a href="unesco_sites.html" data-i18n="nav_unesco">UNESCO Sites</a></li>
+        <li><a href="calendar.html" data-i18n="nav_calendar">Calendar</a></li>
+        <li><a href="destinations.html" data-i18n="nav_explore">Tourist Spots</a></li>
+        <li class="lang-selector">
+            <select id="languageSelect" onchange="changeLanguage(this.value)">
+                <option value="en">English</option>
+                <option value="hi">हिंदी (Hindi)</option>
+                <option value="mr">मराठी (Marathi)</option>
+            </select>
+        </li>
+        <li><a href="login.html" class="login-btn" data-i18n="nav_login">LOGIN</a></li>
     </ul>
 </nav>
 
@@ -40,26 +349,368 @@
     <div class="video-column"><div class="video-stack" id="leftStack"></div></div>
 
     <div class="hero-center">
-        <div class="eyebrow">AI-POWERED TRAVEL • DISCOVER BHARAT</div>
+        <div class="eyebrow" data-i18n="hero_eyebrow">AI-POWERED TRAVEL • DISCOVER BHARAT</div>
         <h1 class="brand">BharatYatra</h1>
         <div class="ornament"></div>
-        <div class="indian-tagline">“भारत केवल देखा नहीं जाता, भारत जिया जाता है।”</div>
-        <div class="planner">
-            <div class="planner-title">PLAN YOUR JOURNEY</div>
-            <div class="planner-fields">
-                <div class="field"><label>From</label><input id="source" type="text" placeholder="Mumbai"></div>
-                <div class="field"><label>Destination</label><input id="destination" type="text" placeholder="Jaipur"></div>
-                <button class="plan-btn" onclick="planJourney()">PLAN JOURNEY</button>
+        <div class="indian-tagline" data-i18n="hero_tagline">“भारत केवल देखा नहीं जाता, भारत जिया जाता है।”</div>
+
+        <!-- UNIQUE IMPORTANT FEATURES STRIP -->
+        <div class="feature-window">
+            <div class="feature-track">
+                <div class="feature-item">🔐 Govt ID Verified Travelers</div>
+                <div class="feature-item">🛡️ Licensed Stay & Food Authentication</div>
+                <div class="feature-item">🆘 Low-Network Offline SOS</div>
+                <div class="feature-item">🎫 One-Pass Digital QR Ticketing</div>
+                <div class="feature-item">🔄 Smart Alternate Stay Route AI</div>
+                <div class="feature-item">🗣️ Multilingual Native AI Guide</div>
+                <div class="feature-item">🧺 Rural Craft & Hidden Gem Boost</div>
+                <div class="feature-item">🔐 Govt ID Verified Travelers</div>
+                <div class="feature-item">🛡️ Licensed Stay & Food Authentication</div>
+                <div class="feature-item">🆘 Low-Network Offline SOS</div>
+                <div class="feature-item">🎫 One-Pass Digital QR Ticketing</div>
+                <div class="feature-item">🔄 Smart Alternate Stay Route AI</div>
+                <div class="feature-item">🗣️ Multilingual Native AI Guide</div>
+                <div class="feature-item">🧺 Rural Craft & Hidden Gem Boost</div>
             </div>
         </div>
 
-        <div class="feature-window">
-            <div class="feature-track">
-                <div class="feature-item">🏨 Hotels & Stays</div><div class="feature-item">🚆 Smart Transport</div><div class="feature-item">🥘 Local Food</div><div class="feature-item">🗺️ Specialized Itinerary</div><div class="feature-item">🍽️ Restaurants</div><div class="feature-item">💎 Hidden Gems</div><div class="feature-item">🕐 Best Visiting Time</div><div class="feature-item">💰 Smart Budget</div><div class="feature-item">📍 Explore Nearby</div><div class="feature-item">🏛️ Culture & Heritage</div>
-                <div class="feature-item">🏨 Hotels & Stays</div><div class="feature-item">🚆 Smart Transport</div><div class="feature-item">🥘 Local Food</div><div class="feature-item">🗺️ Specialized Itinerary</div><div class="feature-item">🍽️ Restaurants</div><div class="feature-item">💎 Hidden Gems</div><div class="feature-item">🕐 Best Visiting Time</div><div class="feature-item">💰 Smart Budget</div><div class="feature-item">📍 Explore Nearby</div><div class="feature-item">🏛️ Culture & Heritage</div>
+        <!-- ===================================================
+             ANCIENT ROYAL MANUSCRIPT BOOK (WITH REAL IMAGE COVER)
+        ==================================================== -->
+        <div class="book-section">
+            <div class="book-container" id="heritageBook">
+                
+                <!-- Real Book Cover Image -->
+                <div class="book-cover" id="bookCover">
+                    <img src="assets/image/granth_cover.png" alt="BharatYatra Heritage Granth" onerror="this.src='https://images.unsplash.com/photo-1544716278-ca5e3f4abd8c?auto=format&fit=crop&w=600&q=80'">
+                    <div class="cover-overlay-title">
+                     
+                   
+                    </div>
+                </div>
+
+                <!-- Page 1: Vintage Table of Contents -->
+                <div class="book-page" data-page="1">
+                    <div class="page-ornament-frame"></div>
+                    <div class="page-header-small">✦ BHARATYATRA GRANTH • ANCIENT CHRONICLES ✦</div>
+                    <div class="page-body">
+                        <div style="text-align:center; font-family:'Cinzel Decorative', serif; font-size:13px; color:#5c2408; font-weight:bold; margin-bottom:5px; letter-spacing:1px;" data-i18n="contents_title">C O N T E N T S</div>
+                        <ul class="index-list">
+                            <li class="index-item" onclick="jumpToPage(2)"><span data-i18n="ch_1">I. The Constitution of India (Preamble)</span><span>Pg. 02</span></li>
+                            <li class="index-item" onclick="jumpToPage(3)"><span data-i18n="ch_2">II. National Anthem (जन-गण-मन)</span><span>Pg. 03</span></li>
+                            <li class="index-item" onclick="jumpToPage(4)"><span data-i18n="ch_3">III. National Song (वन्दे मातरम्)</span><span>Pg. 04</span></li>
+                            <li class="index-item" onclick="jumpToPage(5)"><span data-i18n="ch_4">IV. Sacred Geography & Map of Bharat</span><span>Pg. 05</span></li>
+                            <li class="index-item" onclick="jumpToPage(6)"><span data-i18n="ch_5">V. 5000 Years of Indian History</span><span>Pg. 06</span></li>
+                            <li class="index-item" onclick="jumpToPage(7)"><span data-i18n="ch_6">VI. Living Festivals & Sacred Rhythms</span><span>Pg. 07</span></li>
+                            <li class="index-item" onclick="jumpToPage(8)"><span data-i18n="ch_7">VII. UNESCO World Heritage Marvels</span><span>Pg. 08</span></li>
+                            <li class="index-item" onclick="jumpToPage(9)"><span data-i18n="ch_8">VIII. Certified GI-Tagged Soil Treasures</span><span>Pg. 09</span></li>
+                            <li class="index-item" onclick="jumpToPage(10)"><span data-i18n="ch_9">IX. Master Crafts & Loom Heritage</span><span>Pg. 10</span></li>
+                            <li class="index-item" onclick="jumpToPage(11)"><span data-i18n="ch_10">X. Wildlife Corridors & Nature Sanctuaries</span><span>Pg. 11</span></li>
+                        </ul>
+                    </div>
+                    <div class="page-footer-num"><span data-i18n="index_label">Index</span><span>PAGE 01</span></div>
+                </div>
+
+                <!-- Page 2: Constitution of India Preamble -->
+                <div class="book-page" data-page="2">
+                    <div class="page-ornament-frame"></div>
+                    <div class="page-header-small">✦ FOUNDATIONS OF THE REPUBLIC ✦</div>
+                    <div class="page-body">
+                        <div class="preamble-frame">
+                            <div class="preamble-title" data-i18n="preamble_heading">THE CONSTITUTION OF INDIA</div>
+                            <div class="preamble-text" data-i18n="preamble_body">
+                                <strong>WE, THE PEOPLE OF INDIA</strong>, having solemnly resolved to constitute India into a <strong>SOVEREIGN SOCIALIST SECULAR DEMOCRATIC REPUBLIC</strong> and to secure to all its citizens:<br><br>
+                                <strong>JUSTICE</strong>, social, economic and political;<br>
+                                <strong>LIBERTY</strong> of thought, expression, belief, faith and worship;<br>
+                                <strong>EQUALITY</strong> of status and of opportunity; and to promote among them all<br>
+                                <strong>FRATERNITY</strong> assuring the dignity of the individual and the unity and integrity of the Nation;<br><br>
+                                <em>IN OUR CONSTITUENT ASSEMBLY this twenty-sixth day of November, 1949, do HEREBY ADOPT, ENACT AND GIVE TO OURSELVES THIS CONSTITUTION.</em>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="page-footer-num"><span>Preamble</span><span>PAGE 02</span></div>
+                </div>
+
+                <!-- Page 3: National Anthem (Devanagari) -->
+                <div class="book-page" data-page="3">
+                    <div class="page-ornament-frame"></div>
+                    <div class="page-header-small">✦ राष्ट्रगान • NATIONAL ANTHEM ✦</div>
+                    <div class="page-body">
+                        <div class="hindi-poem-box">
+                            <h3>जन-गण-मन</h3>
+                            <small>रवीन्द्रनाथ ठाकुर • Rabindranath Tagore</small>
+                            <p>
+जनगणमन-अधिनायक जय हे भारत-भाग्यविधाता !
+पंजाब सिंधु गुजरात मराठा द्राविड़ उत्कल बंग ।
+विन्ध्य हिमाचल यमुना गंगा उच्छल जलधितरंग ।
+तव शुभ नामे जागे, तव शुभ आशिष मागे,
+गाहे तव जय गाथा ॥
+
+जनगणमंगलदायक जय हे भारत-भाग्यविधाता !
+जय हे, जय हे, जय हे, जय जय जय जय हे ॥
+
+अहरह तव आह्वान प्रचारित सुनि तव उदार वाणी,
+हिंदु बौद्ध सिख जैन पारसिका मुसलमान ख्रिस्तानी ।
+पूरब पश्चिम आसे तव सिंहासन पासे,
+प्रेमहार हय गाथा ॥
+जनगणैक्यविधायक जय हे भारत-भाग्यविधाता !
+जय हे, जय हे, जय हे, जय जय जय जय हे ॥
+                            </p>
+                        </div>
+                    </div>
+                    <div class="page-footer-num"><span>Rashtragaan</span><span>PAGE 03</span></div>
+                </div>
+
+                <!-- Page 4: National Song (Vande Mataram) -->
+                <div class="book-page" data-page="4">
+                    <div class="page-ornament-frame"></div>
+                    <div class="page-header-small">✦ राष्ट्रीय गीत • NATIONAL SONG ✦</div>
+                    <div class="page-body">
+                        <div class="hindi-poem-box">
+                            <h3>वन्दे मातरम्</h3>
+                            <small>बंकिमचन्द्र चट्टोपाध्याय • Bankim Chandra Chatterjee</small>
+                            <p>
+वन्दे मातरम् !
+सुजलाम् सुफलाम् मलयजशीतलाम्,
+शस्यश्यामलाम् मातरम् । वन्दे मातरम् ॥
+
+शुभ्रज्योत्स्ना पुलकितयामिनीम्,
+फुल्लकुसुमित द्रुमदलशोभिनीम् ।
+सुहासिनीम् सुमधुरभाषिणीम्,
+सुखदाम् वरदाम् मातरम् । वन्दे मातरम् ॥
+
+कोटि-कोटि कण्ठ कल-कल निनाद कराइले,
+कोटि-कोटि भुजैधृत खरकरवाले,
+के बोले माँ तुमि अबले,
+बहुबलधारिणीं नमामि तारिणीं,
+रिपुदलवारिणीं मातरम् । वन्दे मातरम् ॥
+                            </p>
+                        </div>
+                    </div>
+                    <div class="page-footer-num"><span>Rashtrageet</span><span>PAGE 04</span></div>
+                </div>
+
+                <!-- Page 5: Map & Sacred Geography -->
+                <div class="book-page" data-page="5">
+                    <div class="page-ornament-frame"></div>
+                    <div class="page-header-small">✦ CHAPTER I • SACRED GEOGRAPHY ✦</div>
+                    <div class="page-body">
+                        <div class="topic-card">
+                            <div class="topic-title">The Sacred Contours of Bharat</div>
+                            <div class="topic-meta">From the Himalayas to the Indian Ocean</div>
+                            <div class="topic-desc">Bounded by the majestic snow peaks in the north and washed by three vast ocean bodies, Bharat encompasses 28 States and 8 Union Territories connected through sacred river basins, desert dunes, and Western Ghats rainforests.</div>
+                            <ul class="topic-bullets">
+                                <li><strong>Northern Crown:</strong> Ladakh, Kashmir & Himalayan Valleys.</li>
+                                <li><strong>Sacred Rivers:</strong> Ganga, Yamuna, Godavari, Krishna, Kaveri, Narmada.</li>
+                                <li><strong>Peninsular Coastline:</strong> 7,500+ km of maritime heritage.</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="page-footer-num"><span>Geography</span><span>PAGE 05</span></div>
+                </div>
+
+                <!-- Page 6: 5000 Years of Indian History -->
+                <div class="book-page" data-page="6">
+                    <div class="page-ornament-frame"></div>
+                    <div class="page-header-small">✦ CHAPTER II • CHRONICLES OF TIME ✦</div>
+                    <div class="page-body">
+                        <div class="topic-card">
+                            <div class="topic-title">5,000 Years of Civilizational Glory</div>
+                            <div class="topic-meta">From Indus Valley (Sindhu-Saraswati) to Modern Era</div>
+                            <div class="topic-desc">India’s timeless heritage began with advanced urban brick engineering in Dholavira and Harappa, flourishing into the Golden Age of astronomy, calculus, medicine, and philosophy under the Mauryas, Guptas, Cholas, and Marathas.</div>
+                            <ul class="topic-bullets">
+                                <li><strong>Vedic & Classical Epoch:</strong> Upanishads, Ayurveda, Yoga.</li>
+                                <li><strong>Imperial Capitals:</strong> Pataliputra, Thanjavur, Vijayanagara, Agra.</li>
+                                <li><strong>Spiritual Awakening:</strong> Birthplace of Buddhism, Jainism, Sikhism.</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="page-footer-num"><span>History</span><span>PAGE 06</span></div>
+                </div>
+
+                <!-- Page 7: Living Festivals -->
+                <div class="book-page" data-page="7">
+                    <div class="page-ornament-frame"></div>
+                    <div class="page-header-small">✦ CHAPTER III • LIVING CELEBRATIONS ✦</div>
+                    <div class="page-body">
+                        <div class="topic-card">
+                            <div class="topic-title">Festivals: The Pulse of India</div>
+                            <div class="topic-meta">Where Faith, Seasons & Folk Art Unite</div>
+                            <div class="topic-desc">Every month brings a vibrant celebration. From the sacred fire of Holika Dahan and vibrant dry gulal of Holi, to Varanasi Dev Deepawali and Mysore Dasara royal processions, India's calendar is an eternal festival.</div>
+                            <ul class="topic-bullets">
+                                <li><strong>Ganesh Utsav:</strong> 10-day devotional fanfare & dhol beats.</li>
+                                <li><strong>Durga Puja:</strong> Kolkata's UNESCO living art pandals.</li>
+                                <li><strong>Harvest Joy:</strong> Makar Sankranti, Pongal, Bihu & Onam.</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="page-footer-num"><span>Festivals</span><span>PAGE 07</span></div>
+                </div>
+
+                <!-- Page 8: UNESCO World Heritage -->
+                <div class="book-page" data-page="8">
+                    <div class="page-ornament-frame"></div>
+                    <div class="page-header-small">✦ CHAPTER IV • MONUMENTAL TREASURES ✦</div>
+                    <div class="page-body">
+                        <div class="topic-card">
+                            <div class="topic-title">43 UNESCO World Heritage Marvels</div>
+                            <div class="topic-meta">Architectural Milestones of Global Prominence</div>
+                            <div class="topic-desc">Home to 43 official UNESCO sites, India showcases the world's most intricate rock-cut temples, stone chariots, stepwells, and ancient universities preserved across millenniums.</div>
+                            <ul class="topic-bullets">
+                                <li><strong>Rock-Cut Temples:</strong> Kailasa at Ellora & Ajanta Frescoes.</li>
+                                <li><strong>Engineering Feats:</strong> Konark Sun Chariot & Thanjavur Brihadisvara.</li>
+                                <li><strong>Recent Additions:</strong> Sacred Hoysala Ensembles & Ahom Moidams.</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="page-footer-num"><span>UNESCO Sites</span><span>PAGE 08</span></div>
+                </div>
+
+                <!-- Page 9: GI Tag Products -->
+                <div class="book-page" data-page="9">
+                    <div class="page-ornament-frame"></div>
+                    <div class="page-header-small">✦ CHAPTER V • INDIGENOUS ROOTS ✦</div>
+                    <div class="page-body">
+                        <div class="topic-card">
+                            <div class="topic-title">Geographical Indications (GI Tags)</div>
+                            <div class="topic-meta">Certified Treasures Rooted in Indian Soil</div>
+                            <div class="topic-desc">Certified under the GI Act 1999, these products legally protect regional mastercraftsmen and traditional farming communities producing items found nowhere else on earth.</div>
+                            <ul class="topic-bullets">
+                                <li><strong>Iconic Teas & Spices:</strong> Darjeeling Muscatel & Kashmir Saffron.</li>
+                                <li><strong>Silks:</strong> Banarasi Brocades, Kanchipuram & Muga Silk.</li>
+                                <li><strong>Folk Goods:</strong> Blue Pottery, Bastar Dhokra, Kolhapuri Chappals.</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="page-footer-num"><span>GI Products</span><span>PAGE 09</span></div>
+                </div>
+
+                <!-- Page 10: Crafts of India -->
+                <div class="book-page" data-page="10">
+                    <div class="page-ornament-frame"></div>
+                    <div class="page-header-small">✦ CHAPTER VI • HANDS OF THE MASTERS ✦</div>
+                    <div class="page-body">
+                        <div class="topic-card">
+                            <div class="topic-title">Living Handicrafts & Looms</div>
+                            <div class="topic-meta">Generational Knowledge Preserved in Clay, Metal & Silk</div>
+                            <div class="topic-desc">Rural craft hubs empower India's cottage economy. Intricate wood carvings, bell-metal casting, terracotta horses, and natural vegetable-dye prints preserve sacred aesthetic geometry.</div>
+                            <ul class="topic-bullets">
+                                <li><strong>Metal Inlay:</strong> Bidriware silver wire carving on zinc alloys.</li>
+                                <li><strong>Textile Heritage:</strong> Bandhani, Kalamkari & Patola double-ikat.</li>
+                                <li><strong>Clay Sculptures:</strong> Molela plaques and Bankura Terracotta.</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="page-footer-num"><span>Crafts</span><span>PAGE 10</span></div>
+                </div>
+
+                <!-- Page 11: Wildlife & Sanctuaries -->
+                <div class="book-page" data-page="11">
+                    <div class="page-ornament-frame"></div>
+                    <div class="page-header-small">✦ CHAPTER VII • UNTAMED WILDERNESS ✦</div>
+                    <div class="page-body">
+                        <div class="topic-card">
+                            <div class="topic-title">National Parks & Natural Sanctuaries</div>
+                            <div class="topic-meta">Sheltering Rare Fauna from Himalayas to Mangroves</div>
+                            <div class="topic-desc">India sustains 75% of the world's wild tigers alongside one-horned rhinos, Asian elephants, snow leopards, and pristine biosphere wetlands.</div>
+                            <ul class="topic-bullets">
+                                <li><strong>Kaziranga:</strong> Greater One-Horned Rhinoceros floodplains.</li>
+                                <li><strong>Sundarbans:</strong> Mangrove kingdom of the swimming Royal Tiger.</li>
+                                <li><strong>Western Ghats:</strong> Top 8 Global Biodiversity Hotspots.</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="page-footer-num"><span>Nature</span><span>PAGE 11</span></div>
+                </div>
+
+            </div>
+
+            <!-- Book Interaction Controls -->
+            <div class="book-controls">
+                <button class="book-btn book-btn-secondary" id="prevPageBtn" onclick="prevBookPage()" style="display:none;" data-i18n="btn_prev">⬅ Previous</button>
+                <button class="book-btn" id="mainBookBtn" onclick="toggleBookAction()" data-i18n="btn_open">OPEN THE BOOK 📖</button>
             </div>
         </div>
-        <div class="ai-status"><span class="status-dot"></span>BHARATYATRA TRAVEL ASSISTANT</div>
+
+        <!-- CURRENT TRENDING TOURISM SPOTS SLIDER (LARGER CARDS, 2 VISIBLE + MANUAL SCROLL) -->
+        <div class="trending-container">
+            <div class="trending-header">
+                <span data-i18n="trending_header">✦ CURRENT TRENDING & SEASONAL SPOTS</span>
+                <div class="trending-nav-btns">
+                    <button class="nav-arrow-btn" onclick="manualSlide(-1)">❮</button>
+                    <button class="nav-arrow-btn" onclick="manualSlide(1)">❯</button>
+                </div>
+            </div>
+            <div class="slider-wrapper">
+                <div class="slider-track" id="spotsTrack">
+                    <!-- Spot 1 -->
+                    <div class="spot-card">
+                        <img src="assets/image/current/photo1.jpg" alt="Sarnath" onerror="this.src='https://images.unsplash.com/photo-1561361513-2d000a50f0dc?auto=format&fit=crop&w=500&q=80'">
+                        <div class="spot-overlay"></div>
+                        <div class="spot-badge">UNESCO Site</div>
+                        <div class="spot-info"><h4>Ancient Sarnath Inscribed as India's 45th UNESCO World Heritage Site</h4><p>Sarnath, Uttar Pradesh</p></div>
+                    </div>
+                    <!-- Spot 2 -->
+                    <div class="spot-card">
+                        <img src="assets/image/current/photo2.jpg" alt="GI Ecosystem" onerror="this.src='https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=500&q=80'">
+                        <div class="spot-overlay"></div>
+                        <div class="spot-badge">GI Milestone</div>
+                        <div class="spot-info"><h4>India's GI Tags Cross 822 Milestone with Record 125 New Registrations</h4><p>Nationwide Heritage</p></div>
+                    </div>
+                    <!-- Spot 3 -->
+                    <div class="spot-card">
+                        <img src="assets/image/current/photo3.jpg" alt="Munnar Hills" onerror="this.src='https://images.unsplash.com/photo-1600100397608-f010f443b2f5?auto=format&fit=crop&w=500&q=80'">
+                        <div class="spot-overlay"></div>
+                        <div class="spot-badge">TEA TRAILS</div>
+                        <div class="spot-info"><h4>Munnar Greens & Western Ghats Eco-Tourism Surge</h4><p>Kerala</p></div>
+                    </div>
+                    <!-- Spot 4 -->
+                    <div class="spot-card">
+                        <img src="assets/image/current/photo4.jpg" alt="Hampi Ruins" onerror="this.src='https://images.unsplash.com/photo-1590050752117-238cb0fb12b1?auto=format&fit=crop&w=500&q=80'">
+                        <div class="spot-overlay"></div>
+                        <div class="spot-badge">HERITAGE</div>
+                        <div class="spot-info"><h4>Vittala Temple & Hampi Circuit Upgrades</h4><p>Hampi, Karnataka</p></div>
+                    </div>
+                    <!-- Spot 5 -->
+                    <div class="spot-card">
+                        <img src="assets/image/current/photo5.jpg" alt="Jaisalmer Fort" onerror="this.src='https://images.unsplash.com/photo-1606293926075-69a00dbfde81?auto=format&fit=crop&w=500&q=80'">
+                        <div class="spot-overlay"></div>
+                        <div class="spot-badge">DESERT GOLD</div>
+                        <div class="spot-info"><h4>Sonar Qila Desert Tourism Expansion</h4><p>Jaisalmer, Rajasthan</p></div>
+                    </div>
+                    <!-- Spot 6 -->
+                    <div class="spot-card">
+                        <img src="assets/image/current/photo6.jpg" alt="Valley of Flowers" onerror="this.src='https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?auto=format&fit=crop&w=500&q=80'">
+                        <div class="spot-overlay"></div>
+                        <div class="spot-badge">BLOOM</div>
+                        <div class="spot-info"><h4>Valley of Flowers Seasonal Eco-Trail Openings</h4><p>Uttarakhand</p></div>
+                    </div>
+                    <!-- Spot 7 -->
+                    <div class="spot-card">
+                        <img src="assets/image/current/photo7.jpg" alt="Dudhsagar Falls" onerror="this.src='https://images.unsplash.com/photo-1534177616072-ef7dc120449d?auto=format&fit=crop&w=500&q=80'">
+                        <div class="spot-overlay"></div>
+                        <div class="spot-badge">WATERFALL</div>
+                        <div class="spot-info"><h4>Dudhsagar Monsoon Tourism Trails</h4><p>Goa</p></div>
+                    </div>
+                    <!-- Spot 8 -->
+                    <div class="spot-card">
+                        <img src="assets/image/current/photo8.jpg" alt="Kaziranga" onerror="this.src='https://images.unsplash.com/photo-1544735716-392fe2489ffa?auto=format&fit=crop&w=500&q=80'">
+                        <div class="spot-overlay"></div>
+                        <div class="spot-badge">WILDLIFE</div>
+                        <div class="spot-info"><h4>Kaziranga Wildlife Safari Season Highlights</h4><p>Assam</p></div>
+                    </div>
+                    <!-- Spot 9 -->
+                    <div class="spot-card">
+                        <img src="assets/image/current/photo9.jpg" alt="Tawang Monastery" onerror="this.src='https://images.unsplash.com/photo-1564507592333-c60657eea523?auto=format&fit=crop&w=500&q=80'">
+                        <div class="spot-overlay"></div>
+                        <div class="spot-badge">SACRED PEAKS</div>
+                        <div class="spot-info"><h4>Tawang Monastery Heritage Circuit Enhancement</h4><p>Arunachal Pradesh</p></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="ai-status"><span class="status-dot"></span><span data-i18n="ai_status">BHARATYATRA TRAVEL ASSISTANT</span></div>
     </div>
 
     <!-- RIGHT: two stacked carousels -->
@@ -67,57 +718,298 @@
 </section>
 
 <section class="culture-row" id="culture">
-    <div class="culture-heading"><small>LIVING CULTURE</small><h2>Festivals, Dances, Rituals & Heritage</h2><p>India's soul lives in its celebrations — from temple rituals and folk dances to royal forts and vibrant festivals across every state.</p></div>
+    <div class="culture-heading">
+        <small data-i18n="culture_small">LIVING CULTURE</small>
+        <h2 data-i18n="culture_title">Festivals, Dances, Rituals & Heritage</h2>
+        <p data-i18n="culture_desc">India's soul lives in its celebrations — from temple rituals and folk dances to royal forts and vibrant festivals across every state.</p>
+    </div>
     <div class="culture-grid" id="cultureGrid"></div>
 </section>
 
 <section class="cinematic" id="itinerary">
-    <div class="cinematic-heading"><small>EXPERIENCE THE JOURNEY</small><h2>India, In Every Frame</h2><p>From Himalayan landscapes and royal forts to sacred cities, tropical islands and coastal escapes — discover the many journeys that make Bharat unforgettable.</p></div>
+    <div class="cinematic-heading">
+        <small data-i18n="cine_small">EXPERIENCE THE JOURNEY</small>
+        <h2 data-i18n="cine_title">India, In Every Frame</h2>
+        <p data-i18n="cine_desc">From Himalayan landscapes and royal forts to sacred cities, tropical islands and coastal escapes — discover the many journeys that make Bharat unforgettable.</p>
+    </div>
     <div class="cinematic-video"><video id="cinematicVideo" autoplay muted loop playsinline preload="metadata"><source src="assets/cinematic/video2.mp4" type="video/mp4"></video></div>
 </section>
 
 <section class="services">
-    <div class="section-heading"><small>Your Complete India Travel Companion</small><h2>Features of BharatYatra</h2></div>
+    <div class="section-heading">
+        <small data-i18n="services_small">Your Complete India Travel Companion</small>
+        <h2 data-i18n="services_title">Features & Functions of BharatYatra </h2>
+    </div>
     <div class="service-grid">
-        <div class="service-card" id="hotels"><div class="service-icon">🏨</div><h3>Hotels & Stays</h3><p>Discover hotels, resorts, homestays, hostels and unique stays according to budget, rating and preferences.</p></div>
-        <div class="service-card" id="food"><div class="service-icon">🍽️</div><h3>Local Food & Restaurants</h3><p>From authentic street food and regional dishes to highly rated restaurants and fine dining near every destination.</p></div>
-        <div class="service-card" id="transport"><div class="service-icon">🚆</div><h3>Smart Transport</h3><p>Get intelligent recommendations for flights, trains, buses, taxis, rental vehicles and local transport.</p></div>
-        <div class="service-card" id="verification"><div class="service-icon">🔐</div><h3>User Verification</h3><p>Sign up securely using your Gmail, email and password, with one government-verified document checked to confirm every traveler's identity.</p></div>
-        <div class="service-card" id="admin-auth"><div class="service-icon">🛡️</div><h3>Admin Authentication</h3><p>Hotel, restaurant, homestay and PG owners are verified through their license and permit before they can list on BharatYatra.</p></div>
-        <div class="service-card" id="sos"><div class="service-icon">🆘</div><h3>SOS & Safety</h3><p>Get instant emergency assistance and safety alerts, designed to work reliably even in low-connectivity areas.</p></div>
-        <div class="service-card" id="qr-ticket"><div class="service-icon">🎫</div><h3>All-in-One Digital Ticket</h3><p>One single QR code and a one-time payment covers attractions, transport and more — no repeated queues or payments.</p></div>
-        <div class="service-card" id="alt-suggest"><div class="service-icon">🔄</div><h3>Smart Alternate Suggestions</h3><p>If your preferred hotel is full, get AI-suggested alternatives within 10-20 km that are still well-connected by transport.</p></div>
-        <div class="service-card" id="multilingual"><div class="service-icon">🗣️</div><h3>Multilingual Guide</h3><p>Explore history, culture and heritage explained in your own language — no need for a physical guide.</p></div>
-        <div class="service-card" id="ai-personalization"><div class="service-icon">🎯</div><h3>AI Personalization</h3><p>Get personalized recommendations based on your budget, source, destination and travel interests.</p></div>
-        <div class="service-card" id="boost-economy"><div class="service-icon">🧺</div><h3>Boost Local Economy</h3><p>Discover and support low-footfall destinations, local handicrafts and small businesses through special promotions.</p></div>
-        <div class="service-card"><div class="service-icon">🗺️</div><h3>Specialized Itinerary</h3><p>Build personalized day-by-day journeys based on time, interests, budget and destination.</p></div>
-        <div class="service-card"><div class="service-icon">🕐</div><h3>Best Visiting Time</h3><p>Understand busy timings, estimated crowd levels and suggested visiting hours for attractions.</p></div>
-        <div class="service-card"><div class="service-icon">💰</div><h3>Smart Budget Planning</h3><p>Organize your trip around your budget with intelligent suggestions for travel, stay, food and activities.</p></div>
-        <div class="service-card"><div class="service-icon">📅</div><h3>Yearly Travel Calendar</h3><p>Plan your trip by month — see the best season for each destination and the ideal time of day to visit, morning to evening.</p></div>
-        <div class="service-card"><div class="service-icon">📰</div><h3>News & Research Hub</h3><p>Stay updated with tourism department news, historical site research, GI-tagged local products and more.</p></div>
+        <div class="service-card" id="hotels"><div class="service-icon">🏨</div><h3 data-i18n="s1_h">Hotels & Stays</h3><p data-i18n="s1_p">Discover hotels, resorts, homestays, hostels and unique stays according to budget, rating and preferences.</p></div>
+        <div class="service-card" id="food"><div class="service-icon">🍽️</div><h3 data-i18n="s2_h">Local Food & Restaurants</h3><p data-i18n="s2_p">From authentic street food and regional dishes to highly rated restaurants and fine dining near every destination.</p></div>
+        <div class="service-card" id="transport"><div class="service-icon">🚆</div><h3 data-i18n="s3_h">Smart Transport</h3><p data-i18n="s3_p">Get intelligent recommendations for flights, trains, buses, taxis, rental vehicles and local transport.</p></div>
+        <div class="service-card" id="verification"><div class="service-icon">🔐</div><h3 data-i18n="s4_h">User Verification</h3><p data-i18n="s4_p">Sign up securely using your Gmail, email and password, with one government-verified document checked to confirm every traveler's identity.</p></div>
+        <div class="service-card" id="admin-auth"><div class="service-icon">🛡️</div><h3 data-i18n="s5_h">Admin Authentication</h3><p data-i18n="s5_p">Hotel, restaurant, homestay and PG owners are verified through their license and permit before they can list on BharatYatra.</p></div>
+        <div class="service-card" id="sos"><div class="service-icon">🆘</div><h3 data-i18n="s6_h">SOS & Safety</h3><p data-i18n="s6_p">Get instant emergency assistance and safety alerts, designed to work reliably even in low-connectivity areas.</p></div>
+        <div class="service-card" id="qr-ticket"><div class="service-icon">🎫</div><h3 data-i18n="s7_h">All-in-One Digital Ticket</h3><p data-i18n="s7_p">One single QR code and a one-time payment covers attractions, transport and more — no repeated queues or payments.</p></div>
+        <div class="service-card" id="alt-suggest"><div class="service-icon">🔄</div><h3 data-i18n="s8_h">Smart Alternate Suggestions</h3><p data-i18n="s8_p">If your preferred hotel is full, get AI-suggested alternatives within 10-20 km that are still well-connected by transport.</p></div>
+        <div class="service-card" id="multilingual"><div class="service-icon">🗣️</div><h3 data-i18n="s9_h">Multilingual Guide</h3><p data-i18n="s9_p">Explore history, culture and heritage explained in your own language — no need for a physical guide.</p></div>
+        <div class="service-card" id="ai-personalization"><div class="service-icon">🎯</div><h3 data-i18n="s10_h">AI Personalization</h3><p data-i18n="s10_p">Get personalized recommendations based on your budget, source, destination and travel interests.</p></div>
+        <div class="service-card" id="boost-economy"><div class="service-icon">🧺</div><h3 data-i18n="s11_h">Boost Local Economy</h3><p data-i18n="s11_p">Discover and support low-footfall destinations, local handicrafts and small businesses through special promotions.</p></div>
+        <div class="service-card"><div class="service-icon">🗺️</div><h3 data-i18n="s12_h">Specialized Itinerary</h3><p data-i18n="s12_p">Build personalized day-by-day journeys based on time, interests, budget and destination.</p></div>
+        <div class="service-card"><div class="service-icon">🕐</div><h3 data-i18n="s13_h">Best Visiting Time</h3><p data-i18n="s13_p">Understand busy timings, estimated crowd levels and suggested visiting hours for attractions.</p></div>
+        <div class="service-card"><div class="service-icon">💰</div><h3 data-i18n="s14_h">Smart Budget Planning</h3><p data-i18n="s14_p">Organize your trip around your budget with intelligent suggestions for travel, stay, food and activities.</p></div>
+        <div class="service-card"><div class="service-icon">📅</div><h3 data-i18n="s15_h">Yearly Travel Calendar</h3><p data-i18n="s15_p">Plan your trip by month — see the best season for each destination and the ideal time of day to visit, morning to evening.</p></div>
+        <div class="service-card"><div class="service-icon">📰</div><h3 data-i18n="s16_h">News & Research Hub</h3><p data-i18n="s16_p">Stay updated with tourism department news, historical site research, GI-tagged local products and more.</p></div>
     </div>
 </section>
 
 <section class="experiences">
-    <div class="section-heading"><small>EXPLORE INDIA BY EXPERIENCE</small><h2>One Country. Countless Journeys.</h2></div>
+    <div class="section-heading">
+        <small data-i18n="exp_small">EXPLORE INDIA BY EXPERIENCE</small>
+        <h2 data-i18n="exp_title">One Country. Countless Journeys.</h2>
+    </div>
     <div class="experience-grid">
-        <div class="experience"><span>01</span><h3>Himalayan Escapes</h3></div><div class="experience"><span>02</span><h3>Seashores & Beaches</h3></div><div class="experience"><span>03</span><h3>Island Adventures</h3></div><div class="experience"><span>04</span><h3>Forts & Palaces</h3></div><div class="experience"><span>05</span><h3>Temples & Heritage</h3></div><div class="experience"><span>06</span><h3>Culture & Festivals</h3></div><div class="experience"><span>07</span><h3>Wildlife & Nature</h3></div><div class="experience"><span>08</span><h3>Scared Cities & Local Life</h3></div>
+        <div class="experience"><span>01</span><h3 data-i18n="e1">Himalayan Escapes</h3></div>
+        <div class="experience"><span>02</span><h3 data-i18n="e2">Seashores & Beaches</h3></div>
+        <div class="experience"><span>03</span><h3 data-i18n="e3">Island Adventures</h3></div>
+        <div class="experience"><span>04</span><h3 data-i18n="e4">Forts & Palaces</h3></div>
+        <div class="experience"><span>05</span><h3 data-i18n="e5">Temples & Heritage</h3></div>
+        <div class="experience"><span>06</span><h3 data-i18n="e6">Culture & Festivals</h3></div>
+        <div class="experience"><span>07</span><h3 data-i18n="e7">Wildlife & Nature</h3></div>
+        <div class="experience"><span>08</span><h3 data-i18n="e8">Scared Cities & Local Life</h3></div>
     </div>
 </section>
 
 <div class="chatbot-button" onclick="toggleChat()" aria-label="Open BharatYatra travel assistant">🙏</div>
 <div class="chatbot" id="chatbot">
-    <div class="chat-header"><strong>BharatYatra Travel Assistant</strong><small>Your intelligent companion for exploring India</small></div>
-    <div class="chat-messages" id="chatMessages"><div class="message bot">Namaste! 🙏<br><br>Tell me where you want to travel and I'll help you discover destinations, hotels, transport, food, hidden gems and personalized experiences.</div></div>
-    <div class="chat-input"><input id="chatInput" type="text" placeholder="Ask about your journey..." onkeydown="handleChat(event)"><button onclick="sendMessage()">➤</button></div>
+    <div class="chat-header"><strong data-i18n="chat_title">BharatYatra Travel Assistant</strong><small data-i18n="chat_sub">Your intelligent companion for exploring India</small></div>
+    <div class="chat-messages" id="chatMessages"><div class="message bot" data-i18n="chat_welcome">Namaste! 🙏<br><br>Tell me where you want to travel and I'll help you discover destinations, hotels, transport, food, hidden gems and personalized experiences.</div></div>
+    <div class="chat-input"><input id="chatInput" type="text" placeholder="Ask about your journey..." data-i18n-placeholder="chat_placeholder" onkeydown="handleChat(event)"><button onclick="sendMessage()">➤</button></div>
 </div>
 <footer>BHARATYATRA • DISCOVER INDIA • EXPERIENCE BHARAT</footer>
 
 <script>
+/* ---- MULTILINGUAL DICTIONARY ---- */
+const translations = {
+    en: {
+        page_title: "BharatYatra | Discover India",
+        nav_crafts: "Crafts",
+        nav_gi: "GI Tag Products",
+        nav_unesco: "UNESCO Sites",
+        nav_calendar: "Calendar",
+        nav_explore: "Explore Location",
+        nav_login: "LOGIN",
+        hero_eyebrow: "AI-POWERED TRAVEL • DISCOVER BHARAT",
+        hero_tagline: "“भारत केवल देखा नहीं जाता, भारत जिया जाता है।”",
+        granth_subtitle: "HERITAGE GRANTH OF INDIA",
+        contents_title: "C O N T E N T S",
+        ch_1: "I. The Constitution of India (Preamble)",
+        ch_2: "II. National Anthem (जन-गण-मन)",
+        ch_3: "III. National Song (वन्दे मातरम्)",
+        ch_4: "IV. Sacred Geography & Map of Bharat",
+        ch_5: "V. 5000 Years of Indian History",
+        ch_6: "VI. Living Festivals & Sacred Rhythms",
+        ch_7: "VII. UNESCO World Heritage Marvels",
+        ch_8: "VIII. Certified GI-Tagged Soil Treasures",
+        ch_9: "IX. Master Crafts & Loom Heritage",
+        ch_10: "X. Wildlife Corridors & Nature Sanctuaries",
+        index_label: "Index",
+        preamble_heading: "THE CONSTITUTION OF INDIA",
+        preamble_body: "WE, THE PEOPLE OF INDIA, having solemnly resolved to constitute India into a SOVEREIGN SOCIALIST SECULAR DEMOCRATIC REPUBLIC and to secure to all its citizens:<br><br>JUSTICE, social, economic and political;<br>LIBERTY of thought, expression, belief, faith and worship;<br>EQUALITY of status and of opportunity; and to promote among them all<br>FRATERNITY assuring the dignity of the individual and the unity and integrity of the Nation;<br><br><em>IN OUR CONSTITUENT ASSEMBLY this twenty-sixth day of November, 1949, do HEREBY ADOPT, ENACT AND GIVE TO OURSELVES THIS CONSTITUTION.</em>",
+        btn_prev: "⬅ Previous",
+        btn_open: "OPEN THE BOOK 📖",
+        trending_header: "✦ CURRENT TRENDING & SEASONAL SPOTS",
+        ai_status: "BHARATYATRA TRAVEL ASSISTANT",
+        culture_small: "LIVING CULTURE",
+        culture_title: "Festivals, Dances, Rituals & Heritage",
+        culture_desc: "India's soul lives in its celebrations — from temple rituals and folk dances to royal forts and vibrant festivals across every state.",
+        cine_small: "EXPERIENCE THE JOURNEY",
+        cine_title: "India, In Every Frame",
+        cine_desc: "From Himalayan landscapes and royal forts to sacred cities, tropical islands and coastal escapes — discover the many journeys that make Bharat unforgettable.",
+        services_small: "Your Complete India Travel Companion",
+        services_title: "Features of BharatYatra",
+        s1_h: "Hotels & Stays", s1_p: "Discover hotels, resorts, homestays, hostels and unique stays according to budget, rating and preferences.",
+        s2_h: "Local Food & Restaurants", s2_p: "From authentic street food and regional dishes to highly rated restaurants and fine dining near every destination.",
+        s3_h: "Smart Transport", s3_p: "Get intelligent recommendations for flights, trains, buses, taxis, rental vehicles and local transport.",
+        s4_h: "User Verification", s4_p: "Sign up securely using your Gmail, email and password, with one government-verified document checked to confirm every traveler's identity.",
+        s5_h: "Admin Authentication", s5_p: "Hotel, restaurant, homestay and PG owners are verified through their license and permit before they can list on BharatYatra.",
+        s6_h: "SOS & Safety", s6_p: "Get instant emergency assistance and safety alerts, designed to work reliably even in low-connectivity areas.",
+        s7_h: "All-in-One Digital Ticket", s7_p: "One single QR code and a one-time payment covers attractions, transport and more — no repeated queues or payments.",
+        s8_h: "Smart Alternate Suggestions", s8_p: "If your preferred hotel is full, get AI-suggested alternatives within 10-20 km that are still well-connected by transport.",
+        s9_h: "Multilingual Guide", s9_p: "Explore history, culture and heritage explained in your own language — no need for a physical guide.",
+        s10_h: "AI Personalization", s10_p: "Get personalized recommendations based on your budget, source, destination and travel interests.",
+        s11_h: "Boost Local Economy", s11_p: "Discover and support low-footfall destinations, local handicrafts and small businesses through special promotions.",
+        s12_h: "Specialized Itinerary", s12_p: "Build personalized day-by-day journeys based on time, interests, budget and destination.",
+        s13_h: "Best Visiting Time", s13_p: "Understand busy timings, estimated crowd levels and suggested visiting hours for attractions.",
+        s14_h: "Smart Budget Planning", s14_p: "Organize your trip around your budget with intelligent suggestions for travel, stay, food and activities.",
+        s15_h: "Yearly Travel Calendar", s15_p: "Plan your trip by month — see the best season for each destination and the ideal time of day to visit, morning to evening.",
+        s16_h: "News & Research Hub", s16_p: "Stay updated with tourism department news, historical site research, GI-tagged local products and more.",
+        exp_small: "EXPLORE INDIA BY EXPERIENCE",
+        exp_title: "One Country. Countless Journeys.",
+        e1: "Himalayan Escapes", e2: "Seashores & Beaches", e3: "Island Adventures", e4: "Forts & Palaces",
+        e5: "Temples & Heritage", e6: "Culture & Festivals", e7: "Wildlife & Nature", e8: "Scared Cities & Local Life",
+        chat_title: "BharatYatra Travel Assistant",
+        chat_sub: "Your intelligent companion for exploring India",
+        chat_welcome: "Namaste! 🙏<br><br>Tell me where you want to travel and I'll help you discover destinations, hotels, transport, food, hidden gems and personalized experiences.",
+        chat_placeholder: "Ask about your journey..."
+    },
+    hi: {
+        page_title: "भारतयात्रा | भारत की खोज",
+        nav_crafts: "शिल्प",
+        nav_gi: "जीआई टैग उत्पाद",
+        nav_unesco: "यूनेस्को स्थल",
+        nav_calendar: "कैलेंडर",
+        nav_explore: "स्थान खोजें",
+        nav_login: "लॉगिन",
+        hero_eyebrow: "एआई-संचालित यात्रा • भारत को जानें",
+        hero_tagline: "“भारत केवल देखा नहीं जाता, भारत जिया जाता है।”",
+        granth_subtitle: "भारत का ऐतिहासिक ग्रंथ",
+        contents_title: "विषय सूची",
+        ch_1: "I. भारत का संविधान (प्रस्तावना)",
+        ch_2: "II. राष्ट्रगान (जन-गण-मन)",
+        ch_3: "III. राष्ट्रगीत (वन्दे मातरम्)",
+        ch_4: "IV. पवित्र भूगोल और भारत का मानचित्र",
+        ch_5: "V. भारतीय इतिहास के 5000 वर्ष",
+        ch_6: "VI. जीवंत उत्सव और पवित्र लय",
+        ch_7: "VII. यूनेस्को विश्व धरोहर चमत्कार",
+        ch_8: "VIII. प्रमाणित जीआई-टैग प्राप्त खजाने",
+        ch_9: "IX. प्रमुख शिल्प एवं हथकरघा विरासत",
+        ch_10: "X. वन्यजीव गलियारे और प्रकृति अभयारण्य",
+        index_label: "अनुक्रमणिका",
+        preamble_heading: "भारत का संविधान",
+        preamble_body: "हम, भारत के लोग, भारत को एक संपूर्ण प्रभुत्व-संपन्न समाजवादी पंथनिरपेक्ष लोकतंत्रात्मक गणराज्य बनाने के लिए तथा उसके समस्त नागरिकों को:<br><br>सामाजिक, आर्थिक और राजनैतिक न्याय;<br>विचार, अभिव्यक्ति, विश्वास, धर्म और उपासना की स्वतंत्रता;<br>प्रतिष्ठा और अवसर की समता प्राप्त कराने के लिए तथा उन सबमें व्यक्ति की गरिमा और राष्ट्र की एकता और अखंडता सुनिश्चित करने वाली बंधुता बढ़ाने के लिए;<br><br>दृढसंकल्प होकर अपनी इस संविधान सभा में आज तारीख 26 नवंबर, 1949 ई० को एतद्द्वारा इस संविधान को अंगीकृत, अधिनियमित और आत्मार्पित करते हैं।",
+        btn_prev: "⬅ पिछला",
+        btn_open: "ग्रंथ खोलें 📖",
+        trending_header: "✦ वर्तमान ट्रेंडिंग और मौसमी स्थल",
+        ai_status: "भारतयात्रा यात्रा सहायक",
+        culture_small: "जीवंत संस्कृति",
+        culture_title: "त्योहार, नृत्य, अनुष्ठान और विरासत",
+        culture_desc: "भारत की आत्मा उसके उत्सवों में बसती है — मंदिर के अनुष्ठानों और लोक नृत्यों से लेकर हर राज्य के शाही किलों और जीवंत त्योहारों तक।",
+        cine_small: "यात्रा का अनुभव करें",
+        cine_title: "हर फ्रेम में भारत",
+        cine_desc: "हिमालय के दृश्यों और शाही किलों से लेकर पवित्र शहरों, उष्णकटिबंधीय द्वीपों और तटीय नजारों तक — उन अनगिनत यात्राओं की खोज करें जो भारत को अविस्मरणीय बनाती हैं।",
+        services_small: "आपका संपूर्ण भारत यात्रा साथी",
+        services_title: "भारतयात्रा की विशेषताएँ",
+        s1_h: "होटल और विश्राम", s1_p: "बजट, रेटिंग और प्राथमिकताओं के अनुसार होटल, रिसॉर्ट, होमस्टे और अनूठे निवास स्थान खोजें।",
+        s2_h: "स्थानीय भोजन और रेस्तरां", s2_p: "हर गंतव्य के पास प्रामाणिक स्ट्रीट फूड से लेकर क्षेत्रीय व्यंजनों और उच्च श्रेणी के रेस्तरां तक का आनंद लें।",
+        s3_h: "स्मार्ट परिवहन", s3_p: "उड़ानों, ट्रेनों, बसों, टैक्सियों और स्थानीय परिवहन के लिए बुद्धिमान सिफारिशें प्राप्त करें।",
+        s4_h: "उपयोगकर्ता सत्यापन", s4_p: "अपने जीमेल, ईमेल और पासवर्ड से सुरक्षित रूप से साइन अप करें, प्रत्येक यात्री की पहचान की पुष्टि के लिए एक सरकारी सत्यापित दस्तावेज जांचा जाता है।",
+        s5_h: "एडमिन प्रमाणीकरण", s5_p: "होटल, रेस्तरां, होमस्टे और पीजी मालिकों को भारतयात्रा पर सूचीबद्ध होने से पहले उनके लाइसेंस और अनुमति के माध्यम से सत्यापित किया जाता है।",
+        s6_h: "एसओएस और सुरक्षा", s6_p: "कम कनेक्टिविटी वाले क्षेत्रों में भी मज़बूती से काम करने के लिए डिज़ाइन की गई त्वरित आपातकालीन सहायता और सुरक्षा चेतावनी प्राप्त करें।",
+        s7_h: "ऑल-इन-वन डिजिटल टिकट", s7_p: "एक ही क्यूआर कोड और एक बार भुगतान आकर्षण, परिवहन और बहुत कुछ कवर करता है — कोई बार-बार कतार या भुगतान नहीं।",
+        s8_h: "स्मार्ट वैकल्पिक सुझाव", s8_p: "यदि आपका पसंदीदा होटल भरा हुआ है, तो 10-20 किमी के भीतर एआई-सुझाए गए विकल्प प्राप्त करें जो परिवहन से अच्छी तरह जुड़े हुए हैं।",
+        s9_h: "बहुभाषी गाइड", s9_p: "अपनी ही भाषा में समझाए गए इतिहास, संस्कृति और विरासत का अन्वेषण करें — किसी भौतिक गाइड की आवश्यकता नहीं है।",
+        s10_h: "एआई वैयक्तिकरण", s10_p: "अपने बजट, स्रोत, गंतव्य और यात्रा रुचियों के आधार पर व्यक्तिगत सिफारिशें प्राप्त करें।",
+        s11_h: "स्थानीय अर्थव्यवस्था को बढ़ावा", s11_p: "विशेष प्रचारों के माध्यम से कम पदचाप वाले गंतव्यों, स्थानीय हस्तशिल्प और छोटे व्यवसायों की खोज करें और उनका समर्थन करें।",
+        s12_h: "विशिष्ट यात्रा कार्यक्रम", s12_p: "समय, रुचियों, बजट और गंतव्य के आधार पर व्यक्तिगत दिन-प्रतिदिन की यात्राएं बनाएं।",
+        s13_h: "सर्वोत्तम समय", s13_p: "आकर्षण के लिए व्यस्त समय, अनुमानित भीड़ के स्तर और सुझाए गएVisiting घंटों को समझें।",
+        s14_h: "स्मार्ट बजट योजना", s14_p: "यात्रा, ठहरने, भोजन और गतिविधियों के लिए बुद्धिमान सुझावों के साथ अपनी यात्रा को अपने बजट के अनुसार व्यवस्थित करें।",
+        s15_h: "वार्षिक यात्रा कैलेंडर", s15_p: "महीने के हिसाब से अपनी यात्रा की योजना बनाएं — प्रत्येक गंतव्य के लिए सबसे अच्छा मौसम और सुबह से शाम तक देखने का आदर्श समय देखें।",
+        s16_h: "समाचार और अनुसंधान केंद्र", s16_p: "पर्यटन विभाग के समाचारों, ऐतिहासिक स्थल अनुसंधान, जीआई-टैग किए गए स्थानीय उत्पादों और बहुत कुछ से अपडेट रहें।",
+        exp_small: "अनुभव के आधार पर भारत की खोज करें",
+        exp_title: "एक देश। अनगिनत यात्राएं।",
+        e1: "हिमालयन एस्केप्स", e2: "समुद्र तट और सागर", e3: "द्वीप रोमांच", e4: "किले और महल",
+        e5: "मंदिर और विरासत", e6: "संस्कृति और उत्सव", e7: "वन्यजीव और प्रकृति", e8: "पवित्र शहर और स्थानीय जीवन",
+        chat_title: "भारतयात्रा यात्रा सहायक",
+        chat_sub: "भारत की खोज के लिए आपका बुद्धिमान साथी",
+        chat_welcome: "नमस्ते! 🙏<br><br>मुझे बताएं कि आप कहां यात्रा करना चाहते हैं और मैं आपको गंतव्य, होटल, परिवहन, भोजन, छिपे हुए रत्नों और व्यक्तिगत अनुभवों को खोजने में मदद करूंगा।",
+        chat_placeholder: "अपनी यात्रा के बारे में पूछें..."
+    },
+    mr: {
+        page_title: "भारतयात्रा | भारताचा शोध",
+        nav_crafts: "हस्तकला",
+        nav_gi: "जीआय टॅग उत्पादने",
+        nav_unesco: "युनेस्को स्थळे",
+        nav_calendar: "कॅलेंडर",
+        nav_explore: "स्थान शोधा",
+        nav_login: "लॉगिन",
+        hero_eyebrow: "एआय-चालित प्रवास • भारत शोधा",
+        hero_tagline: "“भारत केवल देखा नहीं जाता, भारत जिया जाता है।”",
+        granth_subtitle: "भारताचा ऐतिहासिक ग्रंथ",
+        contents_title: "अनुक्रमणिका",
+        ch_1: "I. भारताचे संविधान (प्रस्तावना)",
+        ch_2: "II. राष्ट्रगीत (जन-गण-मन)",
+        ch_3: "III. राष्ट्रगीत (वन्दे मातरम्)",
+        ch_4: "IV. पवित्र भूगोल आणि भारताचा नकाशा",
+        ch_5: "V. भारतीय इतिहासाची ५००० वर्षे",
+        ch_6: "VI. जिवंत उत्सव आणि पवित्र ताल",
+        ch_7: "VII. युनेस्को जागतिक वारसा चमत्कार",
+        ch_8: "VIII. प्रमाणित जीआय-टैग केलेले मातीचे ठेवे",
+        ch_9: "IX. प्रमुख हस्तकला व हथकरघा वारसा",
+        ch_10: "X. वन्यजीव कॉरिडॉर आणि निसर्ग अभयारण्ये",
+        index_label: "सूची",
+        preamble_heading: "भारताचे संविधान",
+        preamble_body: "आम्ही, भारताचे लोक, भारताचे एक सार्वभौम समाजवादी धर्मनिरपेक्ष लोकशाही प्रजासत्ताक बनवण्याचा आणि त्याच्या सर्व नागरिकांना सुरक्षित ठेवण्याचा दृढसंकल्प करून:<br><br>न्याय, सामाजिक, आर्थिक आणि राजकीय;<br>विचार, अभिव्यक्ती, विश्वास, श्रद्धा आणि उपासना यांचे स्वातंत्र्य;<br>दर्जा आणि संधीची समानता; आणि त्या सर्वांमध्ये<br>व्यक्तीची प्रतिष्ठा आणि राष्ट्राची एकता आणि अखंडता सुनिश्चित करणारी बंधुता वाढवणे;<br><br>आमच्या संविधान सभेत आज, 26 नोव्हेंबर 1949 रोजी, याद्वारे हे संविधान स्वीकारतो, अधिनियमित करतो आणि स्वतःला अर्पण करतो.",
+        btn_prev: "⬅ मागील",
+        btn_open: "ग्रंथ उघडा 📖",
+        trending_header: "✦ सध्याचे ट्रेंडिंग आणि मौसमी ठिकाणे",
+        ai_status: "भारतयात्रा प्रवास सहाय्यक",
+        culture_small: "जिवंत संस्कृती",
+        culture_title: "सण, नृत्य, विधी आणि वारसा",
+        culture_desc: "भारताचा आत्मा त्याच्या उत्सवांमध्ये राहतो — मंदिरातील विधी आणि लोकनृत्यांपासून ते राजवाड्यांचे किल्ले आणि प्रत्येक राज्यातील चैतन्यमय सणांपर्यंत.",
+        cine_small: "प्रवासाचा अनुभव घ्या",
+        cine_title: "प्रत्येक फ्रेममध्ये भारत",
+        cine_desc: "हिमालयीन लँडस्केप्स आणि शाही किल्ल्यांपासून ते पवित्र शहरे, उष्णकटिबंधीय बेटे आणि किनारपट्टीच्या ठिकाणांपर्यंत — भारताला अविस्मरणीय बनवणारे अनेक प्रवास शोधा.",
+        services_small: "तुमचा संपूर्ण भारत प्रवास सोबती",
+        services_title: "भारतयात्राची वैशिष्ट्ये",
+        s1_h: "होटल आणि मुक्काम", s1_p: "बजेट, रेटिंग आणि पसंतीनुसार हॉटेल, रिसॉर्ट, होमस्टे आणि अनोखे मुक्काम शोधा.",
+        s2_h: "स्थानिक अन्न आणि रेस्टॉरंट्स", s2_p: "प्रत्येक ठिकाणाजवळील अस्सल स्ट्रीट फूड आणि प्रादेशिक पदार्थांपासून ते उच्च दर्जाच्या रेस्टॉरंट्सपर्यंत.",
+        s3_h: "स्मार्ट वाहतूक", s3_p: "विमाने, ट्रेन्स, बसेस, टॅक्सी, भाड्याची वाहने आणि स्थानिक वाहतुकीसाठी बुद्धिमान शिफारसी मिळवा.",
+        s4_h: "वापरकर्ता पडताळणी", s4_p: "तुमचा जीमेल, ईमेल आणि পাসওয়ার্ড वापरून सुरक्षितपणे साइन अप करा, प्रत्येक प्रवाशाची ओळख पुष्टी करण्यासाठी एक सरकारी सत्यापित कागदपत्र तपासले जाते.",
+        s5_h: "प्रशासन प्रमाणीकरण", s5_p: "होटल, रेस्टॉरंट, होमस्टे आणि पीजी मालक भारतयात्रेवर सूचीबद्ध होण्यापूर्वी त्यांच्या ಪರवाना आणि परवानगीद्वारे सत्यापित केले जातात.",
+        s6_h: "एसओएस आणि सुरक्षा", s6_p: "कमी कनेक्टिव्हिटी असलेल्या भागातही विश्वासार्हपणे कार्य करण्यासाठी डिझाइन केलेली त्वरित आपत्कालीन मदत आणि सुरक्षा सतर्कता मिळवा.",
+        s7_h: "सर्व-इन-वन डिजिटल तिकीट", s7_p: "एकच QR कोड आणि एकदाच केलेले पेमेंट आकर्षणे, वाहतूक आणि बरेच काही समाविष्ट करते — कोणतीही वारंवार रांग किंवा पेमेंट नाही.",
+        s8_h: "स्मार्ट पर्यायी सुचवणी", s8_p: "तुमचे पसंतीचे हॉटेल भरलेले असल्यास, 10-20 किमीच्या आत AI-सुचवलेले पर्याय मिळवा जे वाहतुकीशी चांगले जोडलेले आहेत.",
+        s9_h: "बहुभाषिक मार्गदर्शक", s9_p: "तुमच्या स्वतःच्या भाषेत स्पष्ट केलेला इतिहास, संस्कृती आणि वारसा एक्सप्लोर करा — भौतिक मार्गदर्शकाची गरज नाही.",
+        s10_h: "एआय वैयक्तिकरण", s10_p: "तुमचे बजेट, स्त्रोत, गंतव्यस्थान आणि प्रवासाच्या आवडीनिवडींवर आधारित वैयक्तिक शिफारसी मिळवा.",
+        s11_h: "स्थानिक अर्थव्यवस्थेला चालना", s11_p: "विशेष जाहिरातींद्वारे कमी रहदारीची गंतव्यस्थाने, स्थानिक हस्तकला आणि लहान व्यवसायांचा शोध घ्या आणि त्यांना पाठिंबा द्या.",
+        s12_h: "विशेष प्रवास कार्यक्रम", s12_p: "वेळ, आवडी, बजेट आणि गंतव्यस्थानावर आधारित वैयक्तिक दिवस-दर-दिवसाचे प्रवास तयार करा.",
+        s13_h: "सर्वोत्तम भेट देण्याची वेळ", s13_p: "आकर्षणांसाठी व्यस्त वेळा, अंदाजे गर्दीची पातळी आणि सुचवलेले भेट देण्याचे तास समजून घ्या.",
+        s14_h: "स्मार्ट बजेट नियोजन", s14_p: "प्रवास, मुक्काम, अन्न आणि उपक्रमांसाठी बुद्धिमान सुचवण्यांसह तुमच्या बजेटनुसार तुमची सहल आयोजित करा.",
+        s15_h: "वार्षिक प्रवास कॅलेंडर", s15_p: "महिन्यानुसार तुमच्या सहलीचे नियोजन करा — प्रत्येक गंतव्यस्थानासाठी सर्वोत्तम ऋतू आणि सकाळी ते संध्याकाळपर्यंत भेट देण्यासाठी आदर्श वेळ पहा.",
+        s16_h: "बातम्या आणि संशोधन केंद्र", s16_p: "पर्यटन विभागाच्या बातम्या, ऐतिहासिक स्थळ संशोधन, जीआय-टॅग केलेली स्थानिक उत्पादने आणि बरेच काही सह अद्यतनित रहा.",
+        exp_small: "अनुभवानुसार भारत शोधा",
+        exp_title: "एक देश. अमर्याद प्रवास.",
+        e1: "हिमालयीन सुटका", e2: "किनारे आणि समुद्रकिनारे", e3: "बेट साहस", e4: "किल्ले आणि वाडे",
+        e5: "मंदिरे आणि वारसा", e6: "संस्कृती आणि सण", e7: "वन्यजीव आणि निसर्ग", e8: "पवित्र शहरे आणि स्थानिक जीवन",
+        chat_title: "भारतयात्रा प्रवास सहाय्यक",
+        chat_sub: "भारत शोधण्यासाठी तुमचा बुद्धिमान सोबती",
+        chat_welcome: "नमस्ते! 🙏<br><br>मला सांगा तुम्हाला कुठे प्रवास करायचा आहे आणि मी तुम्हाला गंतव्यस्थाने, हॉटेल, वाहतूक, अन्न, लपलेले रत्‍ने आणि वैयक्तिक अनुभव शोधण्यात मदत करेन.",
+        chat_placeholder: "तुमच्या प्रवासाबद्दल विचारणा करा..."
+    }
+};
+
+function changeLanguage(lang) {
+    document.documentElement.lang = lang;
+    const elements = document.querySelectorAll('[data-i18n]');
+    elements.forEach(element => {
+        const key = element.getAttribute('data-i18n');
+        if (translations[lang] && translations[lang][key]) {
+            element.innerHTML = translations[lang][key];
+        }
+    });
+
+    // Handle placeholders
+    const placeholders = document.querySelectorAll('[data-i18n-placeholder]');
+    placeholders.forEach(element => {
+        const key = element.getAttribute('data-i18n-placeholder');
+        if (translations[lang] && translations[lang][key]) {
+            element.placeholder = translations[lang][key];
+        }
+    });
+
+    localStorage.setItem('preferred_language', lang);
+}
+
+window.addEventListener('DOMContentLoaded', () => {
+    const savedLang = localStorage.getItem('preferred_language') || 'en';
+    const langSelect = document.getElementById('languageSelect');
+    if(langSelect) {
+        langSelect.value = savedLang;
+        changeLanguage(savedLang);
+    }
+});
+
 /* ---- STATES & UNION TERRITORIES ---- */
 const leftTop=[
  {src:"assets/states/maharashtra.mp4",category:"STATE",title:"Maharashtra"},
- {src:"assets/states/rajasthan.mp4",category:"STATE",title:"Rajasthan"},
  {src:"assets/states/delhi.mp4",category:"UNION TERRITORY",title:"Delhi"},
  {src:"assets/states/uttar_pradesh.mp4",category:"STATE",title:"Uttar Pradesh"},
  {src:"assets/states/kerala.mp4",category:"STATE",title:"Kerala"},
@@ -193,7 +1085,7 @@ const heritage=[
  {src:"assets/heritage/unakoti.mp4",category:"HERITAGE",title:"Unakoti,Tripura"}
 ];
 
-/* Builds one carousel frame (video-card) inside a container, cycling to the next clip only after the current one ends */
+/* Builds one carousel frame */
 function buildVideoCard(container,videos){
  const card=document.createElement("div");
  card.className="video-card";
@@ -202,7 +1094,7 @@ function buildVideoCard(container,videos){
  const video=card.querySelector("video"),category=card.querySelector(".video-category"),title=card.querySelector(".video-title"),progress=card.querySelector(".video-progress span");
  let index=0;
  function load(i){const item=videos[i];video.pause();video.src=item.src;video.load();category.textContent=item.category;title.textContent=item.title;progress.style.width="0%";video.play().catch(err=>console.warn("[BharatYatra] play() blocked for",item.src,"-",err.message));}
- video.addEventListener("error",()=>{const err=video.error;console.error("[BharatYatra] FAILED TO LOAD:",video.src,"| code:",err&&err.code,"| check the file path/name/format.");});
+ video.addEventListener("error",()=>{const err=video.error;console.error("[BharatYatra] FAILED TO LOAD:",video.src,"| code:",err&&err.code);});
  video.addEventListener("ended",()=>{index=(index+1)%videos.length;load(index)});
  video.addEventListener("timeupdate",()=>{if(video.duration&&isFinite(video.duration))progress.style.width=(video.currentTime/video.duration*100)+"%"});
  video.addEventListener("loadedmetadata",()=>video.play().catch(()=>{}));
@@ -214,26 +1106,240 @@ const leftStack=document.getElementById("leftStack"),rightStack=document.getElem
 [rightTop,rightBottom].forEach(v=>buildVideoCard(rightStack,v));
 [festivals,dances,rituals,Traditions,heritage].forEach(v=>buildVideoCard(cultureGrid,v));
 
-/* Play the large cinematic video when it enters the viewport. */
+/* Play cinematic video when visible */
 const cinematicVideo=document.getElementById("cinematicVideo");
 const observer=new IntersectionObserver(entries=>entries.forEach(entry=>entry.isIntersecting?cinematicVideo.play().catch(()=>{}):cinematicVideo.pause()),{threshold:.35});
 observer.observe(cinematicVideo);
 
-/* Continuous background music. Browsers block unmuted autoplay without a user gesture, so we try immediately on load and also retry on the first click/scroll/keypress/touch. */
+/* Continuous background music */
 const bgMusic=document.getElementById("bgMusic");
 function startBgMusic(){bgMusic.play().catch(()=>{});}
 startBgMusic();
 ["click","scroll","keydown","touchstart"].forEach(evt=>document.addEventListener(evt,startBgMusic,{once:true}));
 
-function planJourney(){
- const source=document.getElementById("source").value.trim(),destination=document.getElementById("destination").value.trim();
- if(!source||!destination){alert("Please enter both your source and destination.");return}
- alert("Planning your BharatYatra...\n\n"+source+" → "+destination+"\n\nYour journey can include:\n• Smart transportation\n• Hotels & stays\n• Restaurants\n• Local food\n• Hidden gems\n• Best visiting time\n• Personalized itinerary\n• Nearby experiences");
+/* ===================================================
+   ANCIENT DIGITAL BOOK SCRIPT ENGINE
+=================================================== */
+let isBookOpen = false;
+let currentBookPage = 0; // 0 is cover, 1..11 are pages
+const totalBookPages = 11;
+const bookCover = document.getElementById("bookCover");
+const mainBookBtn = document.getElementById("mainBookBtn");
+const prevPageBtn = document.getElementById("prevPageBtn");
+const pages = document.querySelectorAll(".book-page");
+
+function showBookPage(pageNum) {
+    pages.forEach(p => p.classList.remove("active"));
+    if(pageNum > 0 && pageNum <= totalBookPages) {
+        const targetPage = document.querySelector(`.book-page[data-page="${pageNum}"]`);
+        if(targetPage) targetPage.classList.add("active");
+    }
 }
-function toggleChat(){const c=document.getElementById("chatbot");c.classList.toggle("active");if(c.classList.contains("active"))setTimeout(()=>document.getElementById("chatInput").focus(),100)}
-function handleChat(e){if(e.key==="Enter")sendMessage()}
-function sendMessage(){const input=document.getElementById("chatInput"),messages=document.getElementById("chatMessages"),text=input.value.trim();if(!text)return;const user=document.createElement("div");user.className="message user";user.textContent=text;messages.appendChild(user);input.value="";setTimeout(()=>{const bot=document.createElement("div");bot.className="message bot";bot.textContent="I'd love to help you with that! In the complete BharatYatra system, this assistant will connect to your AI travel recommendation engine for destinations, transport, hotels, food, hidden gems and itineraries.";messages.appendChild(bot);messages.scrollTop=messages.scrollHeight},600)}
-document.addEventListener("keydown",e=>{if(e.key==="Escape")document.getElementById("chatbot").classList.remove("active")});
+
+function toggleBookAction() {
+    if(!isBookOpen) {
+        // Open Book to Page 1 (Index)
+        isBookOpen = true;
+        currentBookPage = 1;
+        bookCover.classList.add("opened");
+        showBookPage(1);
+        mainBookBtn.setAttribute("data-i18n", "btn_next");
+        mainBookBtn.textContent = localStorage.getItem('preferred_language') === 'hi' ? "अगला ➔" : (localStorage.getItem('preferred_language') === 'mr' ? "पुढील ➔" : "Turn Page ➔");
+        prevPageBtn.style.display = "inline-block";
+    } else {
+        // Turn to Next Page
+        currentBookPage++;
+        if(currentBookPage > totalBookPages) {
+            // Close Book and Return to Cover
+            closeGranth();
+        } else {
+            showBookPage(currentBookPage);
+            if(currentBookPage === totalBookPages) {
+                mainBookBtn.setAttribute("data-i18n", "btn_close");
+                mainBookBtn.textContent = localStorage.getItem('preferred_language') === 'hi' ? "ग्रंथ बंद करें 📕" : (localStorage.getItem('preferred_language') === 'mr' ? "ग्रंथ बंद करा 📕" : "Close Book 📕");
+            } else {
+                mainBookBtn.setAttribute("data-i18n", "btn_next");
+                mainBookBtn.textContent = localStorage.getItem('preferred_language') === 'hi' ? "अगला ➔" : (localStorage.getItem('preferred_language') === 'mr' ? "पुढील ➔" : "Turn Page ➔");
+            }
+        }
+    }
+}
+
+function prevBookPage() {
+    if(!isBookOpen) return;
+    currentBookPage--;
+    if(currentBookPage < 1) {
+        closeGranth();
+    } else {
+        showBookPage(currentBookPage);
+        mainBookBtn.setAttribute("data-i18n", "btn_next");
+        mainBookBtn.textContent = localStorage.getItem('preferred_language') === 'hi' ? "अगला ➔" : (localStorage.getItem('preferred_language') === 'mr' ? "पुढील ➔" : "Turn Page ➔");
+        prevPageBtn.style.display = currentBookPage > 1 ? "inline-block" : "none";
+    }
+}
+
+function jumpToPage(targetPageNum) {
+    if(!isBookOpen) {
+        isBookOpen = true;
+        bookCover.classList.add("opened");
+        prevPageBtn.style.display = "inline-block";
+    }
+    currentBookPage = targetPageNum;
+    showBookPage(targetPageNum);
+    const lang = localStorage.getItem('preferred_language') || 'en';
+    if (currentBookPage === totalBookPages) {
+        mainBookBtn.textContent = lang === 'hi' ? "ग्रंथ बंद करें 📕" : (lang === 'mr' ? "ग्रंथ बंद करा 📕" : "Close Book 📕");
+    } else {
+        mainBookBtn.textContent = lang === 'hi' ? "अगला ➔" : (lang === 'mr' ? "पुढील ➔" : "Turn Page ➔");
+    }
+}
+
+function closeGranth() {
+    isBookOpen = false;
+    currentBookPage = 0;
+    bookCover.classList.remove("opened");
+    pages.forEach(p => p.classList.remove("active"));
+    mainBookBtn.setAttribute("data-i18n", "btn_open");
+    const lang = localStorage.getItem('preferred_language') || 'en';
+    mainBookBtn.textContent = lang === 'hi' ? "ग्रंथ खोलें 📖" : (lang === 'mr' ? "ग्रंथ उघडा 📖" : "OPEN THE BOOK 📖");
+    prevPageBtn.style.display = "none";
+}
+
+/* ---- MANUAL & AUTO TOURISM SLIDER ENGINE (2 CARDS VISIBLE) ---- */
+const spotsTrack=document.getElementById("spotsTrack");
+const totalCards=document.querySelectorAll(".spot-card").length;
+let currentSlide=0;
+const maxSlideSteps=Math.max(1, totalCards - 1);
+
+function manualSlide(direction) {
+    currentSlide += direction;
+    if(currentSlide < 0) currentSlide = maxSlideSteps - 1;
+    if(currentSlide >= maxSlideSteps) currentSlide = 0;
+    updateSliderTransform();
+}
+
+function updateSliderTransform() {
+    const cardWidth = spotsTrack.querySelector(".spot-card").offsetWidth;
+    const gap = 12;
+    spotsTrack.style.transform = `translateX(-${currentSlide * (cardWidth + gap)}px)`;
+}
+
+// Auto slide every 6 seconds unless user interacts
+let autoSlideTimer = setInterval(() => {
+    currentSlide++;
+    if(currentSlide >= maxSlideSteps) currentSlide = 0;
+    updateSliderTransform();
+}, 6000);
+
+/* ---- CHATBOT ---- */
+/* ---- LIVE GROQ CHATBOT ENGINE FOR INDEX.HTML ---- */
+const GROQ_API_KEY = ""; // Replace with your actual API key
+const GROQ_URL = "https://api.groq.com/openai/v1/chat/completions";
+const ACTIVE_MODELS = ["openai/gpt-oss-120b", "openai/gpt-oss-20b", "qwen/qwen3.6-27b"];
+const SYSTEM_INSTRUCTION =`You are 'Bharat AI', the official interactive guide for the BharatYatra website. 
+Your primary goal is to guide users smoothly across the website modules and provide rich cultural information about India.
+
+Website Navigation Guide:
+- **Home / Destinations:** Hero carousel, active booking indicators, and the ancient digital Grantha book.
+- **Crafts:** Click 'Crafts' in the navbar to explore traditional handicrafts, looms, and rural cottage industries state-wise.
+- **GI Tag Products:** Click 'GI Tag Products' in the navbar to view government-certified regional products and artifacts with their registration years.
+- **UNESCO Sites:** Click 'UNESCO Sites' in the navbar to discover India's 43 official world heritage architectural marvels.
+- **Yearly Calendar:** Click 'Calendar' in the navbar to see festival dates, seasonal highlights, and best visiting hours.
+- **Explore Location / Tourist Spots:** Click 'Explore Location' to look up specific states, Union Territories, and hidden gems.
+- **One-Ticket Pass / AI Itinerary:** Use the AI Itinerary page or the One-Ticket Pass generator to bundle transport, stays, and entry QR codes.
+
+Rules:
+1. Whenever a user asks about a feature, page, or topic (e.g., "Where are UNESCO sites?", "Show me crafts"), tell them clearly which navbar button to click, and then provide helpful information or a summary right inside the chat!
+2. Format comparisons, itineraries, and lists as clean Markdown tables when appropriate.`;
+
+let conversationHistory = [
+    { role: "system", content: SYSTEM_INSTRUCTION }
+];
+
+function toggleChat() {
+    const c = document.getElementById("chatbot");
+    c.classList.toggle("active");
+    if(c.classList.contains("active")) setTimeout(() => document.getElementById("chatInput").focus(), 100);
+}
+
+function handleChat(e) { if(e.key === "Enter") sendMessage(); }
+
+async function sendMessage() {
+    const input = document.getElementById("chatInput");
+    const messages = document.getElementById("chatMessages");
+    const text = input.value.trim();
+    if(!text) return;
+
+    // Append User Message
+    const userDiv = document.createElement("div");
+    userDiv.className = "message user";
+    userDiv.textContent = text;
+    messages.appendChild(userDiv);
+    input.value = "";
+    messages.scrollTop = messages.scrollHeight;
+
+    // Append Bot Loading Bubble
+    const botDiv = document.createElement("div");
+    botDiv.className = "message bot";
+    botDiv.innerHTML = "Thinking...";
+    messages.appendChild(botDiv);
+    messages.scrollTop = messages.scrollHeight;
+
+    conversationHistory.push({ role: "user", content: text });
+
+    try {
+        const liveAnswer = await callGroqAPI(conversationHistory);
+        conversationHistory.push({ role: "assistant", content: liveAnswer });
+        botDiv.innerHTML = parseMarkdownWithTables(liveAnswer);
+    } catch (err) {
+        botDiv.innerHTML = `<span style="color: #ff7b72;">⚠️ ${err.message}</span>`;
+    } finally {
+        messages.scrollTop = messages.scrollHeight;
+    }
+}
+
+async function callGroqAPI(messages) {
+    let lastError = null;
+    for (const model of ACTIVE_MODELS) {
+        try {
+            const res = await fetch(GROQ_URL, {
+                method: "POST",
+                headers: { "Authorization": `Bearer ${GROQ_API_KEY}`, "Content-Type": "application/json" },
+                body: JSON.stringify({ model: model, messages: messages, temperature: 0.65, max_tokens: 1200 })
+            });
+            if (!res.ok) {
+                const errJson = await res.json().catch(() => ({}));
+                lastError = errJson.error?.message || `HTTP ${res.status}`;
+                continue;
+            }
+            const data = await res.json();
+            const reply = data.choices[0]?.message?.content;
+            if (reply) return reply;
+        } catch (netErr) {
+            lastError = netErr.message;
+        }
+    }
+    throw new Error(lastError || "Could not connect to live model.");
+}
+
+function parseMarkdownWithTables(text) {
+    const tableRegex = /((?:\|[^\n]+\|\r?\n)((?:\|[ \-\:\!\|\.]+\|)\r?\n)(?:\|[^\n]+\|\r?\n?)+)/g;
+    text = text.replace(tableRegex, (match) => {
+        const rows = match.trim().split('\n').map(r => r.trim());
+        if (rows.length < 2) return match;
+        const headers = rows[0].split('|').slice(1, -1).map(h => `<th>${h.trim()}</th>`).join('');
+        const bodyRows = rows.slice(2).map(r => {
+            const cells = r.split('|').slice(1, -1).map(c => `<td>${c.trim()}</td>`).join('');
+            return `<tr>${cells}</tr>`;
+        }).join('');
+        return `<div class="table-wrapper"><table><thead><tr>${headers}</tr></thead><tbody>${bodyRows}</tbody></table></div>`;
+    });
+    text = text.replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>');
+    text = text.replace(/\*(.*?)\*/g, '<em>$1</em>');
+    text = text.replace(/^\s*[\*\-]\s+(.*)$/gim, '• $1<br>');
+    text = text.replace(/\n\n/g, '<br><br>');
+    return text;
+}
 </script>
 </body>
 </html>
