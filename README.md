@@ -1,323 +1,220 @@
-# BharatYatra AI
+# 🇮🇳 BharatYatra AI
 
-### **भारत केवल देखा नहीं जाता, भारत जिया जाता है।**
+### **Discover India. Your Way.**
 
-> **Discover India. Your Way.**
+> **“भारत केवल देखा नहीं जाता, भारत जिया जाता है।”**
+> *India is not merely seen — India is experienced.*
 
-> An integrated AI-powered tourism ecosystem designed to bring **destination discovery, cultural heritage, hidden gems, GIS-based crowd intelligence, transportation planning, digital travel passes, local crafts, GI-tagged products, festivals, and conversational travel assistance** into a unified platform.
+BharatYatra AI is an integrated **smart tourism ecosystem** designed to bring India's destinations, heritage, culture, transportation, accommodation, food, hidden gems, crowd intelligence, digital passes, artisans, and personalized travel planning into one platform.
 
-<p align="center">
-
-[![Smart India Hackathon](https://img.shields.io/badge/SIH-2026-orange.svg?style=for-the-badge)](https://www.sih.gov.in/)
-[![Problem Statement](https://img.shields.io/badge/SIH26204-Student%20Innovation-blue.svg?style=for-the-badge)](https://www.sih.gov.in/)
-[![HTML5](https://img.shields.io/badge/HTML5-E34F26.svg?style=for-the-badge\&logo=html5\&logoColor=white)](https://developer.mozilla.org/en-US/docs/Web/HTML)
-[![JavaScript](https://img.shields.io/badge/Vanilla%20JavaScript-F7DF1E.svg?style=for-the-badge\&logo=javascript\&logoColor=black)](https://developer.mozilla.org/en-US/docs/Web/JavaScript)
-[![Leaflet](https://img.shields.io/badge/Leaflet-GIS-199900.svg?style=for-the-badge\&logo=leaflet\&logoColor=white)](https://leafletjs.com/)
-[![GitHub](https://img.shields.io/badge/GitHub-Repository-181717.svg?style=for-the-badge\&logo=github)](https://github.com/shivkoli07/BharatYatra)
-
-</p>
+The project combines **Web Development + Artificial Intelligence + GIS + Data Analytics + Computer Vision + Cloud-ready APIs** to create a unified digital tourism experience.
 
 ---
 
-# 🌏 1. Project Overview
+<div align="center">
 
-**BharatYatra AI** is a technology-driven tourism platform created with the vision of making India's enormous cultural, historical, geographical, and culinary diversity easier to discover and experience.
+![Smart India Hackathon](https://img.shields.io/badge/Smart%20India%20Hackathon-2026-orange?style=for-the-badge)
+![Problem Statement](https://img.shields.io/badge/SIH26204-Student%20Innovation-2563EB?style=for-the-badge)
+![Theme](https://img.shields.io/badge/Theme-Indian%20Heritage-D4AF37?style=for-the-badge)
+![Platform](https://img.shields.io/badge/Platform-Web%20Application-22C55E?style=for-the-badge)
 
-Traditional tourism platforms often focus on only one part of the travel journey — such as hotel booking, transportation, maps, or destination listings.
+</div>
 
-BharatYatra takes a broader approach.
+---
 
-It attempts to connect the complete tourism journey:
+## 🌏 1. Project Vision
 
-```text
-DISCOVER
-   ↓
-EXPLORE
-   ↓
-PLAN
-   ↓
-BOOK
-   ↓
-VERIFY
-   ↓
-EXPERIENCE
-```
+India has an enormous diversity of:
 
-The platform combines:
+* 🏛️ Historical monuments
+* 🏰 Forts and palaces
+* 🛕 Temples and pilgrimage destinations
+* 🌊 Beaches, islands and coastal regions
+* 🏔️ Mountains, valleys and hill stations
+* 🐅 Wildlife destinations
+* 🎭 Festivals and performing arts
+* 🧵 Traditional crafts and textiles
+* 🍛 Regional cuisines
+* 🏘️ Rural and lesser-known destinations
+* 🗺️ UNESCO heritage locations
+* 🧑‍🎨 GI-tagged products and artisan communities
 
-* 🇮🇳 Indian destination discovery
-* 🏛️ Historical and UNESCO heritage
-* 💎 Hidden-gem discovery
-* 🗺️ GIS-based spatial visualization
-* 👥 Crowd-density intelligence
-* 🚆 Multimodal transportation planning
-* 🏨 Hotel and stay discovery
-* 🍽️ Restaurant and local-food discovery
-* 🎨 Traditional crafts
-* 🏺 GI-tagged products
-* 🗓️ Cultural and festival calendar
-* 🎟️ Unified digital travel passes
-* 🔐 Pass verification
-* 🤖 AI-powered travel assistance
-* 🧭 Personalized itinerary generation
-* 🌐 Multilingual interface
+However, travelers often have to use multiple disconnected platforms to plan a single trip.
 
-The long-term vision is to transform BharatYatra into a **unified digital tourism ecosystem for India**.
+### 🟨 BharatYatra brings these experiences together.
+
+| 🟨 DISCOVER  | 🟩 PLAN     | 🟦 EXPERIENCE | 🟥 BALANCE          |
+| ------------ | ----------- | ------------- | ------------------- |
+| Destinations | Transport   | Local culture | Crowd intelligence  |
+| Heritage     | Hotels      | Food          | Hidden gems         |
+| Festivals    | Restaurants | Crafts        | Sustainable tourism |
+| UNESCO       | Itinerary   | GI products   | Rural tourism       |
 
 ---
 
 # 🎯 2. Problem Statement
 
-### Smart India Hackathon 2026
+### 🟥 Problem 1 — Platform Fragmentation
 
-**Problem Statement ID:** `SIH26204`
+Travelers commonly switch between different applications for:
 
-**Theme:** Travel & Tourism
+* Destination discovery
+* Maps
+* Transportation
+* Hotels
+* Restaurants
+* Tickets
+* Travel planning
 
-**Category:** Student Innovation
-
-### Problem Context
-
-India has a vast tourism ecosystem covering:
-
-* Historical monuments
-* Forts and palaces
-* Temples
-* Beaches
-* Islands
-* Mountains
-* Wildlife
-* UNESCO heritage sites
-* Traditional crafts
-* GI-tagged products
-* Regional cuisines
-* Festivals
-* Local markets
-* Rural tourism
-* Cultural communities
-
-However, travelers still face several problems.
-
-<div align="center">
-
-<table>
-<tr>
-<th>🚧 Challenge</th>
-<th>📌 Problem</th>
-<th>💡 BharatYatra Approach</th>
-</tr>
-<tr>
-<td><b>Platform Fragmentation</b></td>
-<td>Travelers use different applications for destinations, hotels, food, maps and transport.</td>
-<td>Unified tourism ecosystem</td>
-</tr>
-<tr>
-<td><b>Over-Tourism</b></td>
-<td>Popular attractions can experience excessive crowding.</td>
-<td>Hidden-gem discovery + crowd intelligence</td>
-</tr>
-<tr>
-<td><b>Hidden Destinations</b></td>
-<td>Lesser-known destinations receive less visibility.</td>
-<td>Alternative destination discovery</td>
-</tr>
-<tr>
-<td><b>Artisan Marginalization</b></td>
-<td>Traditional artisans and local communities may receive limited digital exposure.</td>
-<td>Craft and GI ecosystem</td>
-</tr>
-<tr>
-<td><b>Travel Complexity</b></td>
-<td>Transportation, stays and attractions require separate planning.</td>
-<td>Integrated travel planning</td>
-</tr>
-<tr>
-<td><b>Cultural Discovery</b></td>
-<td>Tourists may not know about regional traditions, festivals and cuisine.</td>
-<td>Cultural calendar + local experiences</td>
-</tr>
-</table>
-
-</div>
+**BharatYatra:** 🟩 Integrates these journeys into one ecosystem.
 
 ---
 
-# 💡 3. Our Solution
+### 🟥 Problem 2 — Over-Tourism
 
-BharatYatra addresses these problems through a centralized tourism platform.
+Popular destinations can experience:
 
-The system connects:
+* Excessive crowding
+* Long queues
+* Traffic congestion
+* Environmental pressure
+* Monument deterioration
+* Poor visitor experience
+
+**BharatYatra:** 🟩 Uses spatial mapping and crowd intelligence to encourage alternative destinations.
+
+---
+
+### 🟥 Problem 3 — Local Economic Marginalization
+
+Traditional artisans and rural communities may not receive sufficient visibility from mainstream tourism.
+
+**BharatYatra:** 🟩 Connects travelers with:
+
+* Local artisans
+* GI products
+* Traditional crafts
+* Local markets
+* Rural destinations
+* Cultural experiences
+
+---
+
+### 🟥 Problem 4 — Lack of Cultural Context
+
+Travelers may visit monuments without understanding their:
+
+* History
+* Architecture
+* Cultural significance
+* Local traditions
+* Festivals
+* Stories
+
+**BharatYatra:** 🟨 Converts tourism from simply *visiting places* into *understanding places*.
+
+---
+
+# 🚀 3. Our Solution
 
 ```text
                     🇮🇳 BHARATYATRA
-                          │
-       ┌──────────────────┼──────────────────┐
-       │                  │                  │
-       ▼                  ▼                  ▼
-  DESTINATION          CULTURE           PLANNING
-       │                  │                  │
-       ▼                  ▼                  ▼
-   Heritage            Festivals        Transport
-   Hidden Gems         Crafts           Hotels
-   UNESCO              GI Products      Restaurants
-   Attractions         Local Food       Itinerary
-       │                  │                  │
-       └──────────────────┼──────────────────┘
-                          │
-                          ▼
-                  TRAVEL EXPERIENCE
-```
-
-Instead of treating tourism as a simple destination directory, BharatYatra connects **places, people, culture, mobility, information and technology**.
-
----
-
-# 🏗️ 4. Core System Concept
-
-The complete BharatYatra ecosystem is divided into several major layers.
-
-```text
-┌───────────────────────────────────────────────────────────────┐
-│                         USER EXPERIENCE                       │
-│       Discover • Explore • Plan • Book • Verify              │
-└───────────────────────────────┬───────────────────────────────┘
-                                │
-                                ▼
-┌───────────────────────────────────────────────────────────────┐
-│                       BHARATYATRA MODULES                     │
-│                                                               │
-│ Destinations | UNESCO | Hidden Gems | Crafts | GI | Calendar │
-│ Tickets | Verification | Chatbot | Authentication            │
-└───────────────────────────────┬───────────────────────────────┘
-                                │
-                                ▼
-┌───────────────────────────────────────────────────────────────┐
-│                    INTELLIGENCE LAYER                         │
-│                                                               │
-│ AI Assistant | Itinerary | Crowd Intelligence | GIS          │
-│ Recommendations | Route Planning                              │
-└───────────────────────────────┬───────────────────────────────┘
-                                │
-                                ▼
-┌───────────────────────────────────────────────────────────────┐
-│                    EXTERNAL SERVICES                          │
-│                                                               │
-│ Groq API | Leaflet | OpenStreetMap | GeoJSON | GIS           │
-│ Google Identity Services | Future OpenCV / FastAPI           │
-└───────────────────────────────────────────────────────────────┘
+                         │
+        ┌────────────────┼────────────────┐
+        │                │                │
+     DISCOVER          PLAN           EXPERIENCE
+        │                │                │
+ Destinations       Transport        Heritage
+ UNESCO Sites       Hotels           Culture
+ Hidden Gems        Restaurants      Food
+ Crafts             Itinerary        Festivals
+ GI Products        Digital Pass     Local Markets
+        │                │                │
+        └────────────────┼────────────────┘
+                         │
+                🧠 INTELLIGENT LAYER
+                         │
+          AI + GIS + DATA + COMPUTER VISION
+                         │
+                         ▼
+             🌏 SMART & SUSTAINABLE
+                    TOURISM
 ```
 
 ---
 
-# 🎨 5. Design System
-
-BharatYatra uses a **royal Indian cinematic design language** combined with modern dark-mode interfaces.
-
-## 🎨 Color Palette
+# ✨ 4. Core Features
 
 <div align="center">
 
-<table>
-<tr>
-<th>Color</th>
-<th>Token</th>
-<th>Hex</th>
-<th>Purpose</th>
-</tr>
-
-<tr>
-<td style="background:#D4AF37;color:#000000;padding:15px;">🟨</td>
-<td><code>--gold-primary</code></td>
-<td><code>#D4AF37</code></td>
-<td>Primary actions, active links, borders and CTA elements</td>
-</tr>
-
-<tr>
-<td style="background:#F5E6A3;color:#000000;padding:15px;">🟨</td>
-<td><code>--gold-light</code></td>
-<td><code>#F5E6A3</code></td>
-<td>Headlines, highlights, hover effects and active tags</td>
-</tr>
-
-<tr>
-<td style="background:#997A15;color:#FFFFFF;padding:15px;">🟫</td>
-<td><code>--gold-dark</code></td>
-<td><code>#997A15</code></td>
-<td>Dividers, subtle borders and secondary accents</td>
-</tr>
-
-<tr>
-<td style="background:#0B0B0C;color:#FFFFFF;padding:15px;">⬛</td>
-<td><code>--bg-dark</code></td>
-<td><code>#0B0B0C</code></td>
-<td>Main application background</td>
-</tr>
-
-<tr>
-<td style="background:#151518;color:#FFFFFF;padding:15px;">⬛</td>
-<td><code>--bg-card</code></td>
-<td><code>#151518</code></td>
-<td>Cards, modals and glassmorphic surfaces</td>
-</tr>
-
-<tr>
-<td style="background:#FFFFFF;color:#000000;padding:15px;">⬜</td>
-<td><code>--text-primary</code></td>
-<td><code>#FFFFFF</code></td>
-<td>Main headings and important information</td>
-</tr>
-
-<tr>
-<td style="background:#9BA1A6;color:#000000;padding:15px;">◽</td>
-<td><code>--text-muted</code></td>
-<td><code>#9BA1A6</code></td>
-<td>Secondary text, descriptions and metadata</td>
-</tr>
-
-<tr>
-<td style="background:#22C55E;color:#FFFFFF;padding:15px;">🟢</td>
-<td><code>--crowd-low</code></td>
-<td><code>#22C55E</code></td>
-<td>Low crowd level: &lt; 35%</td>
-</tr>
-
-<tr>
-<td style="background:#EAB308;color:#000000;padding:15px;">🟡</td>
-<td><code>--crowd-mid</code></td>
-<td><code>#EAB308</code></td>
-<td>Moderate crowd level: 35–70%</td>
-</tr>
-
-<tr>
-<td style="background:#EF4444;color:#FFFFFF;padding:15px;">🔴</td>
-<td><code>--crowd-high</code></td>
-<td><code>#EF4444</code></td>
-<td>High crowd level: &gt; 70%</td>
-</tr>
-
-</table>
+| 🟨  | Feature               | Purpose                            |
+| --- | --------------------- | ---------------------------------- |
+| 🗺️ | Destination Discovery | Explore Indian destinations        |
+| 🏛️ | UNESCO Explorer       | Heritage discovery                 |
+| 💎  | Hidden Gems           | Redistribute tourism               |
+| 🧵  | Artisan & Crafts Hub  | Promote local crafts               |
+| 🏷️ | GI Registry           | Discover GI-tagged products        |
+| 🎉  | Cultural Calendar     | Plan around festivals              |
+| 🚆  | Smart Transport       | Compare travel modes               |
+| 🏨  | Hotels & Stays        | Discover accommodation             |
+| 🍛  | Restaurants           | Discover regional food             |
+| 🎫  | Digital Pass          | Unified travel pass                |
+| 🤖  | AI Travel Companion   | Personalized itinerary             |
+| 📍  | GIS Mapping           | Spatial tourism intelligence       |
+| 👁️ | Crowd Intelligence    | Future computer-vision integration |
+| 🌐  | Multilingual UI       | English / Hindi / Marathi          |
 
 </div>
 
-## Typography
+---
 
-### Headings
+# 🧭 5. Complete Platform Architecture
 
-* **Cinzel**
-* **Cinzel Decorative**
-
-Used to create a royal, historical and Indian heritage-inspired identity.
-
-### Information & UI
-
-* **Plus Jakarta Sans**
-* **DM Sans**
-
-Used for readable navigation, descriptions, forms, cards and technical information.
+```text
+┌─────────────────────────────────────────────────────────┐
+│                    🇮🇳 BHARATYATRA                      │
+│              Discover India. Your Way.                  │
+└─────────────────────────┬───────────────────────────────┘
+                          │
+             ┌────────────┴────────────┐
+             │                         │
+       🧑‍💻 TRAVELER                🛂 ADMIN
+             │                         │
+             ▼                         ▼
+       Authentication             Pass Verification
+             │
+             ▼
+┌─────────────────────────────────────────────────────────┐
+│                    DISCOVERY LAYER                       │
+├─────────────────────────────────────────────────────────┤
+│ Destinations │ UNESCO │ Hidden Gems │ Crafts │ GI │ Food│
+└─────────────────────────┬───────────────────────────────┘
+                          │
+                          ▼
+┌─────────────────────────────────────────────────────────┐
+│                    PLANNING LAYER                        │
+├─────────────────────────────────────────────────────────┤
+│ Transport │ Hotels │ Restaurants │ Itinerary │ Calendar │
+└─────────────────────────┬───────────────────────────────┘
+                          │
+                          ▼
+┌─────────────────────────────────────────────────────────┐
+│                  INTELLIGENCE LAYER                      │
+├─────────────────────────────────────────────────────────┤
+│ AI │ LLM │ GIS │ Crowd Analytics │ Computer Vision      │
+└─────────────────────────┬───────────────────────────────┘
+                          │
+                          ▼
+┌─────────────────────────────────────────────────────────┐
+│                 DIGITAL EXPERIENCE                       │
+├─────────────────────────────────────────────────────────┤
+│ Digital Pass │ QR │ Booking │ Verification │ Navigation │
+└─────────────────────────────────────────────────────────┘
+```
 
 ---
 
-# 🖥️ 6. Platform Architecture
+# 🗂️ 6. Page Architecture
 
 ```text
 BharatYatra/
@@ -338,351 +235,249 @@ BharatYatra/
 │   ├── images/
 │   ├── videos/
 │   ├── music/
-│   ├── css/
-│   └── js/
+│   └── icons/
 │
-├── .gitattributes
-├── .gitignore
 └── README.md
 ```
 
 ---
 
-# 🏠 7. `index.html` — Central Gateway
+# 🏠 7. Central Gateway — `index.html`
 
-The homepage is the primary entry point into BharatYatra.
+The central gateway acts as the primary cultural entry point.
 
-## Major Features
+### 🟨 Heritage Granth
 
-### 📖 3D Heritage Granth
+A digital heritage book presenting:
 
-An interactive digital-book experience designed to introduce users to India's civilization and heritage.
+* 🇮🇳 Constitution Preamble
+* 🎵 Jana Gana Mana
+* 🇮🇳 Vande Mataram
+* 🛕 Sacred geography
+* 🏛️ Indian civilization
+* 📜 Historical narratives
 
-It can present content related to:
+### 🎭 Heritage Reels
 
-* Preamble of the Constitution
-* Jana Gana Mana
-* Vande Mataram
-* Indian geography
-* Indian civilization
-* Historical heritage
-* Cultural identity
-
-### 🎬 Cultural Video Reels
-
-The homepage uses cinematic visual media representing:
+Cinematic cultural reels featuring:
 
 * Bharatanatyam
 * Kathakali
 * Lavani
 * Ganga Aarti
 * Rath Yatra
-* Indian festivals
-* Traditional cultural experiences
+* Traditional festivals
+* Regional performances
 
-### 🌐 Language Switcher
+### 🌐 Languages
 
-The interface supports dynamic language switching using `data-i18n` based localization.
-
-Current interface languages include:
+Dynamic localization:
 
 * English
-* Hindi
-* Marathi
-
-### 📢 Feature Ticker
-
-The homepage contains a scrolling information ticker highlighting major BharatYatra capabilities.
+* हिंदी
+* मराठी
 
 ---
 
-# 🗺️ 8. `destinations.html` — Destination Explorer
+# 🗺️ 8. Destination Discovery — `destinations.html`
 
-The destination module provides a structured way to explore India's geography.
+Explore India's:
 
-## 🇮🇳 Coverage
+### 🟨 28 States + 🟨 8 Union Territories
 
-The interface organizes destinations across:
-
-* 28 States
-* 8 Union Territories
-
-## Regional Zones
+Organized into six geographical zones:
 
 ```text
-North
-North East
-East
-Central
-West
-South
+🇮🇳 INDIA
+│
+├── North
+├── North East
+├── East
+├── Central
+├── West
+└── South
 ```
 
-## Features
+### Filters
 
-* Region filters
-* State filtering
-* Union Territory filtering
-* Search functionality
-* Destination cards
-* Regional guides
-* Local cuisine information
-* Transportation information
-* Stay recommendations
+🟨 All Regions
+🟩 States
+🟦 Union Territories
 
-### Objective
+### Search
 
-To reduce destination-discovery fragmentation by providing a centralized geographic directory.
+Travelers can search destinations dynamically.
 
 ---
 
-# 💎 9. `hidden_gems.html` — Hidden Gems & Crowd Intelligence
+# 💎 9. Hidden Gems & Crowd Intelligence
 
-This is one of the most important innovation-oriented modules of BharatYatra.
+### `hidden_gems.html`
 
-The objective is to reduce **over-tourism** by promoting alternative destinations.
+One of the major sustainability-focused components.
 
-## 🔄 Popular Spot vs Hidden Gem
+The system divides destinations into:
 
-The interface compares:
+🟩 **LOW CROWD** — below 35%
+
+🟨 **MODERATE** — 35–70%
+
+🟥 **HIGH CROWD** — above 70%
+
+### Core Concept
 
 ```text
 Popular Destination
-        ↓
-Crowd Level
-        ↓
-Nearby Alternative
-        ↓
-Hidden Gem
+        │
+        ▼
+   Crowd Analysis
+        │
+        ▼
+ ┌──────┴───────┐
+ │              │
+High Crowd    Low Crowd
+ │              │
+ ▼              ▼
+Alternative   Hidden Gem
+Destination   Recommendation
+ │              │
+ └──────┬───────┘
+        ▼
+Tourism Redistribution
 ```
 
-Instead of sending every traveler toward the same popular landmark, the system can suggest less crowded alternatives.
+### Future Computer Vision Integration
 
----
-
-# 🗺️ GIS Integration
-
-The platform uses **Leaflet GIS** for spatial visualization.
-
-Potential mapping stack:
-
-```text
-Leaflet
-   +
-OpenStreetMap
-   +
-GeoJSON
-   ↓
-Interactive Tourism Map
-```
-
-The map can display:
-
-* Tourist destinations
-* Hidden gems
-* Crowd indicators
-* Geographic boundaries
-* Spatial relationships
-
----
-
-# 👥 Crowd Intelligence
-
-The platform uses three crowd states:
-
-```text
-🟢 LOW
-< 35%
-
-🟡 MODERATE
-35% – 70%
-
-🔴 HIGH
-> 70%
-```
-
-The frontend architecture is designed so that future versions can consume real crowd-count data from:
-
-* CCTV cameras
-* OpenCV
-* Drone telemetry
-* Computer-vision pipelines
-* Backend APIs
-
-### Future Architecture
+The architecture can later connect:
 
 ```text
 CCTV / Drone
-     ↓
+     │
+     ▼
 OpenCV
-     ↓
-Crowd Detection
-     ↓
-FastAPI
-     ↓
-BharatYatra
-     ↓
-Live Crowd Map
-     ↓
-Alternative Destination
+     │
+     ▼
+Person Detection
+     │
+     ▼
+Crowd Density
+     │
+     ▼
+Python / FastAPI
+     │
+     ▼
+BharatYatra GIS
 ```
 
-This makes the module suitable for future real-time deployment.
+This can support real-time tourism load balancing.
 
 ---
 
-# 🏛️ 10. `unesco_sites.html` — UNESCO Heritage Explorer
+# 🏛️ 10. UNESCO Heritage Explorer
 
-The UNESCO module provides a dedicated heritage discovery experience.
+### `unesco_sites.html`
 
-## Features
+Interactive heritage directory powered by **Leaflet GIS**.
 
-### 🗺️ Interactive Map
+### Categories
 
-Leaflet is used to display heritage locations geographically.
-
-### 🏛️ Heritage Categories
-
-The interface organizes sites into:
-
-* Cultural
-* Natural
-* Mixed
+🟨 Cultural
+🟩 Natural
+🟦 Mixed
 
 Examples include:
-
-**Cultural**
 
 * Ajanta Caves
 * Taj Mahal
 * Hampi
-
-**Natural**
-
 * Kaziranga
 * Sundarbans
+* Khangchendzonga
 
-**Mixed**
+### Heritage Information
 
-* Khangchendzonga National Park
-
-### 📚 Heritage Information
-
-Each location can provide information such as:
+Each heritage location can provide:
 
 * Historical period
 * Construction era
 * Architectural significance
 * Cultural importance
 * Location
-* Navigation information
+* Navigation
+* Heritage category
 
 ---
 
-# 🎨 11. `crafts.html` — Indian Crafts & Artisan Hub
+# 🧵 11. Artisan & Craft Hub
 
-BharatYatra treats India's traditional crafts as an important part of tourism.
+### `crafts.html`
 
-## Coverage
+A dedicated digital showcase for India's indigenous crafts.
 
-The platform provides a state/UT-oriented craft directory covering India's regional traditions.
+### Examples
 
-Examples include:
-
-* Pashmina weaving
-* Madhubani painting
-* Bastar Dhokra
-* Warli art
-* Bidriware
-* Traditional textiles
-* Handloom traditions
-* Regional handicrafts
-
-## Features
-
-* State/UT filtering
-* Craft profiles
-* Cultural descriptions
-* Artisan traditions
-* Visual media
-* Craft-process videos
+🧶 Pashmina
+🎨 Madhubani Painting
+⚒️ Bastar Dhokra
+🎨 Warli Art
+🥣 Bidriware
+🧵 Traditional Looms
 
 ### Objective
 
-The module aims to connect tourism with:
-
 ```text
-Tourists
-   ↓
-Craft Discovery
-   ↓
-Local Artisan
-   ↓
-Cultural Preservation
-   ↓
-Local Economic Opportunity
+Traveler
+   │
+   ▼
+Discover Craft
+   │
+   ▼
+Understand Cultural Story
+   │
+   ▼
+Find Artisan / Cooperative
+   │
+   ▼
+Local Economic Support
 ```
 
 ---
 
-# 🏺 12. `gi_tag.html` — GI-Tagged Products
+# 🏷️ 12. GI-Tagged Product Registry
 
-Geographical Indication products represent the unique identity of specific regions.
+### `gi_tag.html`
 
-The GI module creates a digital discovery layer for such products.
+A dedicated Geographical Indication discovery system.
 
-## Product Categories
+### Categories
 
-* Agricultural products
-* Handicrafts
-* Textiles
-* Food products
-* Traditional products
+🌾 Agriculture
+🧵 Textiles
+🎨 Handicrafts
+🍛 Traditional Food
 
-## Example
+### Features
 
-```text
-Region
-   ↓
-GI Product
-   ↓
-Origin
-   ↓
-Traditional Process
-   ↓
-Traveler Discovery
-```
+* GI product information
+* Origin location
+* Registration history
+* Cultural significance
+* Verified outlet information
+* Artisan/cooperative discovery
 
-## Features
+### Goal
 
-* GI product catalog
-* Registration information
-* Historical registration tracking
-* Regional origin
-* Product descriptions
-* Traveler advisory information
-
-### Objective
-
-The module connects **tourism + cultural heritage + local economic ecosystems**.
+> **Protect intellectual heritage while promoting cultural and culinary tourism.**
 
 ---
 
-# 🗓️ 13. `calendar.html` — Indian Cultural Calendar
+# 🎉 13. Cultural Calendar
 
-The tourism calendar connects travel planning with India's festivals and cultural events.
+### `calendar.html`
 
-## Features
+A dynamic **12-month Indian cultural calendar**.
 
-* 12-month calendar
-* Date navigation
-* Festival highlighting
-* Cultural information
-* Seasonal planning
-* Festival media
-* Festival-specific descriptions
-
-Examples:
+Includes:
 
 * Diwali
 * Holi
@@ -690,1068 +485,1281 @@ Examples:
 * Pushkar Fair
 * Rath Yatra
 * Regional festivals
+* Traditional celebrations
 
-The objective is to help travelers plan journeys around authentic cultural experiences.
+Users can explore:
+
+* Festival significance
+* Rituals
+* Cultural practices
+* Celebration locations
+* Seasonal travel opportunities
 
 ---
 
-# 🎟️ 14. `ticket_generator.html` — One-Ticket Digital Pass
+# 🎫 14. One-Ticket Digital Pass
 
-BharatYatra introduces a unified digital-pass concept.
+### `ticket_generator.html`
 
-Instead of managing multiple pieces of travel information separately, the platform can generate a consolidated digital travel pass.
+A unified digital travel-pass concept.
 
-## Booking Flow
+### Booking Flow
 
 ```text
-SOURCE
-   ↓
-DESTINATION
-   ↓
-TRAVEL DATE
-   ↓
-TRANSPORT
-   ↓
-HOTEL
-   ↓
-ATTRACTION
-   ↓
-PAYMENT
-   ↓
-DIGITAL PASS
+Select Route
+     ↓
+Choose Transport
+     ↓
+Select Stay
+     ↓
+Confirm Booking
+     ↓
+UPI Simulation
+     ↓
+Transaction Verification
+     ↓
+Generate Digital Pass
+     ↓
+QR / PNR
 ```
-
-## Features
-
-### 🚆 Transport Selection
-
-Examples of supported travel concepts:
-
-* Express Flight
-* Vande Bharat
-* Volvo Sleeper
-* Other multimodal options
-
-### 🏨 Stay Selection
-
-Hotel/stay information can be associated with the journey.
-
-### 💳 Payment Interface
-
-The prototype includes a simulated UPI-style checkout experience.
-
-### 🎫 Digital Pass
 
 The generated pass can contain:
 
 * PNR
 * Passenger details
-* Booking details
+* Route
+* Transport
+* Stay
 * Price breakdown
-* Travel information
-* Verification information
-* Brand identity
+* QR code
+* Booking status
 
-### 🖨️ Print Support
-
-Print-specific CSS allows the digital pass to be formatted for:
-
-* Printing
-* PDF saving
-* Physical verification
+> 🟨 **Prototype Note:** Payment and transaction verification are simulated in the current concept. Production deployment would require secure payment and backend integrations.
 
 ---
 
-# 🔐 15. `verify_pass.html` — Pass Verification
+# 🛂 15. Pass Verification Portal
 
-The verification module closes the loop between:
+### `verify_pass.html`
 
-```text
-PASS GENERATION
-       ↓
-PASS STORAGE
-       ↓
-PASS VERIFICATION
-       ↓
-ENTRY / CHECK-IN
-```
+Administrative verification interface.
 
-## Features
+### Pass States
 
-### PNR Verification
+🟩 **VALID**
 
-The operator can enter the generated PNR.
+🟨 **ALREADY CHECKED-IN**
 
-### Status
+🟥 **EXPIRED**
 
-The system can show statuses such as:
+The prototype uses browser-side booking data for validation.
 
-```text
-🟢 VALID
-🟡 ALREADY CHECKED-IN
-🔴 EXPIRED
-```
-
-### Capacity Tracking
-
-Check-in information can also be used to track venue capacity.
-
-This can eventually help heritage sites manage visitor limits.
+Future implementation can connect the verification portal to a secure backend database.
 
 ---
 
-# 🤖 16. `chatbot.html` — AI Travel Companion
+# 🤖 16. AI Travel Companion
 
-The chatbot is the conversational intelligence layer of BharatYatra.
+### `chatbot.html`
 
-The project is designed to use the **Groq API** for high-speed LLM inference.
+The AI Travel Companion acts as a conversational travel planner.
 
-## Travel Setup
+### User Inputs
 
-The assistant can collect:
+* 📍 Origin
+* 📍 Destination
+* 📅 Duration
+* 💰 Budget
+* 👨‍👩‍👧 Travel group
+* 🎯 Interests
+* 🚆 Transport preference
+* 🍛 Food preferences
 
-```text
-Origin
-Destination
-Trip Duration
-Travel Preferences
-```
-
-## AI-Generated Output
-
-The assistant can generate:
-
-* Day-by-day itinerary
-* Transportation comparison
-* Budget suggestions
-* Destination recommendations
-* Travel suggestions
-* Activity planning
-
-## Structured Responses
-
-Instead of returning only plain paragraphs, the assistant can organize information into structured Markdown tables.
-
-Example:
+### AI Output
 
 ```text
-| Day | Location | Activity | Transport |
-|-----|----------|----------|-----------|
-| 1   | Jaipur   | Fort Tour | Cab       |
-| 2   | Jaipur   | Heritage | Local     |
-| 3   | Pushkar  | Culture  | Bus       |
+DAY 1
+├── Morning
+├── Afternoon
+├── Evening
+└── Food Recommendation
+
+DAY 2
+├── Morning
+├── Afternoon
+├── Evening
+└── Local Experience
+
+DAY 3
+├── Heritage
+├── Food
+├── Shopping
+└── Departure
 ```
 
-## Budget Modes
+### Budget Tiers
 
-Potential itinerary categories include:
-
-* 🎒 Backpacker
-* 🏨 Mid-Range
-* 👑 Luxury
+🎒 Backpacker
+🏨 Mid-Range
+👑 Luxury
 
 ---
 
-# 🔗 17. Chatbot → Booking Integration
+# 🧠 17. AI / LLM Technology
 
-One of the important concepts is connecting conversational planning with booking.
+The platform can use modern LLM infrastructure for conversational tourism intelligence.
 
-```text
-USER
- ↓
-AI CHATBOT
- ↓
-PERSONALIZED ITINERARY
- ↓
-TRANSPORT
- ↓
-HOTEL
- ↓
-ATTRACTIONS
- ↓
-ONE-TICKET GENERATOR
-```
+### 🟪 LLM Layer
 
-This avoids forcing the traveler to manually re-enter all itinerary information.
+* Groq API
+* Llama-family models
+* Qwen-family models
+* OpenAI APIs
+* Prompt engineering
+* Structured output generation
+* Markdown itinerary generation
 
----
-
-# 🔑 18. `login.html` — Authentication & User State
-
-The authentication module provides account and session functionality.
-
-## Authentication Concepts
-
-* Email/password login
-* Registration
-* Google Identity Services
-* Client-side session state
-* User profile
-* Booking history
-* Saved information
-
-## Navigation Personalization
-
-After login, the navigation can dynamically display the traveler's name.
-
----
-
-# 💾 19. Browser Data Architecture
-
-The current prototype uses browser-side persistence for several functions.
-
-## Local Storage
-
-### `bharatUser`
-
-Stores current user/session information.
+### 🔵 Future RAG Architecture
 
 ```text
-bharatUser
-   ↓
-Current User
-Display Name
-Authentication State
+Tourism Knowledge Base
+        │
+        ▼
+Document Processing
+        │
+        ▼
+Embeddings
+        │
+        ▼
+Vector Database
+        │
+        ▼
+Retriever
+        │
+        ▼
+LLM
+        │
+        ▼
+Grounded Travel Assistant
 ```
 
-### `bharat_bookings`
+Potential future RAG sources:
 
-Stores generated booking/pass information.
-
-```text
-bharat_bookings
-   ↓
-PNR
-Passenger
-Booking
-Transaction
-Pass Information
-```
-
-### `bharat_users_table`
-
-Acts as a client-side mock user registry for the prototype.
-
----
-
-# 🎵 20. Session Continuity
-
-BharatYatra uses `sessionStorage` for maintaining certain states between page transitions.
-
-### `bharat_audio_time`
-
-Stores the current background-audio playback position.
-
-### `bharat_audio_playing`
-
-Stores whether the audio is currently playing.
-
-This allows the cinematic background-music experience to continue more smoothly while navigating through pages.
-
----
-
-# ⚙️ 21. Technical Architecture
-
-```text
-┌───────────────────────────────────────────────────────────────┐
-│                    PRESENTATION LAYER                         │
-│                                                               │
-│ HTML5 │ CSS3 │ JavaScript │ Bootstrap │ Responsive UI        │
-│                                                               │
-│ Cinzel │ DM Sans │ Jakarta Sans │ Video │ Audio              │
-└───────────────────────────────┬───────────────────────────────┘
-                                │
-                                ▼
-┌───────────────────────────────────────────────────────────────┐
-│                    APPLICATION LOGIC                          │
-│                                                               │
-│ Filters │ Search │ Authentication │ Booking │ Passes         │
-│ Calendar │ Itinerary │ Crowd UI │ GIS Interaction            │
-└───────────────────────────────┬───────────────────────────────┘
-                                │
-                                ▼
-┌───────────────────────────────────────────────────────────────┐
-│                    BROWSER STORAGE                            │
-│                                                               │
-│ localStorage │ sessionStorage                                │
-│                                                               │
-│ Users │ Bookings │ Authentication │ Audio State              │
-└───────────────────────────────┬───────────────────────────────┘
-                                │
-                                ▼
-┌───────────────────────────────────────────────────────────────┐
-│                  EXTERNAL SERVICES                            │
-│                                                               │
-│ Groq API │ Google Identity │ Leaflet │ OpenStreetMap         │
-│ GeoJSON │ Future FastAPI │ Future OpenCV                     │
-└───────────────────────────────────────────────────────────────┘
-```
-
----
-
-# 🗺️ 22. GIS Architecture
-
-The spatial layer uses Leaflet-based mapping.
-
-```text
-                    BHARATYATRA GIS
-                          │
-              ┌───────────┴───────────┐
-              │                       │
-              ▼                       ▼
-        OpenStreetMap              GeoJSON
-              │                       │
-              └───────────┬───────────┘
-                          ▼
-                   Leaflet Map
-                          │
-             ┌────────────┼────────────┐
-             ▼            ▼            ▼
-         Destinations  Hidden Gems   Heritage
-             │            │            │
-             └────────────┼────────────┘
-                          ▼
-                    User Decision
-```
-
----
-
-# 👥 23. Future Real-Time Crowd Intelligence
-
-The crowd-balancing system is designed to become a real-time tourism management solution.
-
-## Production Architecture
-
-```text
-CCTV / Drone / Sensor
-          ↓
-     Video Stream
-          ↓
-       OpenCV
-          ↓
-   Person Detection
-          ↓
-    Crowd Estimation
-          ↓
-       FastAPI
-          ↓
-    BharatYatra API
-          ↓
-      Leaflet GIS
-          ↓
-   Crowd Visualization
-          ↓
-Alternative Destination
-Recommendation
-```
-
-### Example
-
-```text
-Taj Mahal
-   ↓
-Crowd: 87%
-   ↓
-HIGH CONGESTION
-   ↓
-Nearby alternative recommended
-   ↓
-Traveler redistributed
-```
-
-This can help:
-
-* Reduce congestion
-* Protect monuments
-* Improve visitor experience
-* Promote lesser-known destinations
-* Spread tourism spending
-* Support sustainable tourism
-
----
-
-# 🔄 24. Complete User Journey
-
-```text
-                         START
-                           │
-                           ▼
-                    BharatYatra Home
-                           │
-                           ▼
-                    Explore India
-                           │
-            ┌──────────────┼──────────────┐
-            ▼              ▼              ▼
-       Destinations     Heritage       Culture
-            │              │              │
-            └──────────────┼──────────────┘
-                           ▼
-                    Select Destination
-                           │
-                           ▼
-                  Check Crowd / Gems
-                           │
-                           ▼
-                   Plan Your Journey
-                           │
-              ┌────────────┼────────────┐
-              ▼            ▼            ▼
-          Transport      Hotel       Restaurant
-              │            │            │
-              └────────────┼────────────┘
-                           ▼
-                     AI Assistant
-                           │
-                           ▼
-                 Personalized Itinerary
-                           │
-                           ▼
-                  One-Ticket Generator
-                           │
-                           ▼
-                     Digital Pass
-                           │
-                           ▼
-                   Pass Verification
-                           │
-                           ▼
-                   Travel Experience
-                           │
-                           ▼
-                         🇮🇳
-```
-
----
-
-# 🧠 25. AI Architecture
-
-The AI component is designed around conversational travel intelligence.
-
-```text
-USER
- │
- ▼
-Travel Query
- │
- ▼
-BharatYatra Chatbot
- │
- ▼
-Groq API
- │
- ▼
-LLM Inference
- │
- ├── Destination Recommendations
- ├── Itinerary Generation
- ├── Transport Suggestions
- ├── Budget Planning
- └── Travel Information
- │
- ▼
-Structured Response
- │
- ▼
-Booking Integration
-```
-
-### Future AI Enhancements
-
-The platform can evolve toward:
-
-* RAG-based tourism knowledge
-* Personalized recommendation models
-* Semantic destination search
-* Travel preference learning
-* Budget optimization
-* Crowd-aware itinerary generation
-* Multilingual conversational AI
-* Context-aware travel assistance
-
----
-
-# 🧠 26. Future RAG Architecture
-
-A Retrieval-Augmented Generation layer can be added in future versions.
-
-```text
-                  USER QUERY
-                      │
-                      ▼
-               Query Processing
-                      │
-                      ▼
-              Vector Retrieval
-                      │
-        ┌─────────────┼─────────────┐
-        ▼             ▼             ▼
-   Heritage DB     Food DB      Tourism DB
-        │             │             │
-        └─────────────┼─────────────┘
-                      ▼
-                 Retrieved Data
-                      │
-                      ▼
-                    LLM
-                      │
-                      ▼
-            Verified Travel Answer
-```
-
-Potential knowledge sources:
-
-* Tourism information
-* Heritage databases
-* Destination information
-* Cultural resources
-* Food databases
-* GI records
-* Craft information
+* UNESCO information
 * Government tourism data
+* GI registry data
+* Festival information
+* Destination information
+* Transport information
+* Local food knowledge
+* Hotel/restaurant data
 
 ---
 
-# 🌐 27. Multilingual Tourism
+# 🧑‍💻 18. COMPLETE TECHNOLOGY STACK
 
-India has a highly diverse linguistic landscape.
-
-Future versions can expand the current multilingual interface to include:
-
-* English
-* Hindi
-* Marathi
-* Gujarati
-* Bengali
-* Tamil
-* Telugu
-* Kannada
-* Malayalam
-* Punjabi
-* Other regional languages
-
-The objective is to make tourism information accessible to both domestic and international travelers.
-
----
-
-# 💰 28. Smart Budget Planning
-
-Future itinerary generation can consider:
-
-```text
-Total Budget
-+
-Number of Travelers
-+
-Number of Days
-+
-Travel Preferences
-```
-
-and estimate:
-
-```text
-Transportation
-       +
-Accommodation
-       +
-Food
-       +
-Activities
-       +
-Local Travel
-       ↓
-Estimated Trip Budget
-```
-
-This can allow the user to choose between:
-
-```text
-🎒 Budget
-🏨 Standard
-👑 Premium
-```
-
----
-
-# 🌦️ 29. Weather-Aware Travel Planning
-
-Future versions can integrate weather APIs to provide:
-
-* Weather-based recommendations
-* Best visiting dates
-* Seasonal destination suggestions
-* Outdoor activity recommendations
-* Weather warnings
-* Monsoon-aware planning
-
----
-
-# 📍 30. Location-Based Recommendations
-
-With future geolocation support, BharatYatra can provide:
-
-```text
-Nearby Attractions
-Nearby Restaurants
-Nearby Hotels
-Nearby Hidden Gems
-Nearby Crafts
-Nearby Heritage Sites
-Nearby Cultural Experiences
-```
-
-This can transform BharatYatra into a contextual travel assistant rather than only a static tourism website.
-
----
-
-# 🛠️ 31. Technology Stack
-
-## Current / Core Technologies
-
-| Layer           | Technology                                            |
-| --------------- | ----------------------------------------------------- |
-| Structure       | HTML5                                                 |
-| Styling         | CSS3                                                  |
-| Client Logic    | Vanilla JavaScript                                    |
-| UI Components   | Bootstrap                                             |
-| Maps            | Leaflet                                               |
-| Map Data        | OpenStreetMap                                         |
-| Spatial Data    | GeoJSON                                               |
-| Typography      | Cinzel, Cinzel Decorative, DM Sans, Plus Jakarta Sans |
-| Browser Storage | LocalStorage                                          |
-| Session State   | SessionStorage                                        |
-| AI              | Groq API                                              |
-| Authentication  | Google Identity Services                              |
-| Media           | HTML5 Video / Audio                                   |
-| Version Control | Git                                                   |
-| Repository      | GitHub                                                |
-| Large Media     | Git LFS                                               |
-
-## Planned / Integration-Ready Technologies
-
-| Area            | Technology                  |
-| --------------- | --------------------------- |
-| Backend         | FastAPI / Node.js           |
-| Database        | PostgreSQL / MongoDB        |
-| Crowd Detection | OpenCV                      |
-| AI Knowledge    | RAG                         |
-| Vector Database | FAISS / Chroma / pgvector   |
-| AI Models       | LLM / Recommendation Models |
-| Weather         | Weather APIs                |
-| Location        | Geolocation APIs            |
-| Transport       | Live transport APIs         |
-| Hotels          | Hotel APIs                  |
-| Restaurants     | Restaurant APIs             |
-
----
-
-# 📦 32. Installation
-
-## Prerequisites
-
-Install:
-
-* Git
-* Python 3
-* VS Code
-* Modern web browser
-
-Optional:
-
-* Node.js
-* VS Code Live Server
-
----
-
-## Clone Repository
-
-```bash
-git clone https://github.com/shivkoli07/BharatYatra.git
-```
-
-## Enter Project
-
-```bash
-cd BharatYatra
-```
-
----
-
-# ▶️ 33. Run Locally
-
-## Option 1 — Python HTTP Server
-
-```bash
-python -m http.server 8000
-```
-
-Open:
-
-```text
-http://localhost:8000
-```
-
----
-
-## Option 2 — VS Code Live Server
-
-1. Open the project in VS Code.
-2. Install **Live Server**.
-3. Right-click `index.html`.
-4. Select **Open with Live Server**.
-
----
-
-## Option 3 — Node.js
-
-```bash
-npx serve .
-```
-
-Then open the URL displayed by the server.
-
----
-
-# 🔐 34. Environment & API Security
-
-If external APIs are used, **never commit private API keys directly into GitHub**.
-
-Do not upload:
-
-```text
-API Keys
-Passwords
-OAuth Secrets
-Private Tokens
-Credentials
-.env files containing secrets
-```
-
-For a production architecture, API calls should be routed through a secure backend rather than exposing sensitive credentials in client-side JavaScript.
-
----
-
-# ⚠️ 35. Prototype vs Production
-
-BharatYatra currently combines implemented frontend functionality with integration-ready architecture.
-
-### Current Prototype Layer
-
-* Tourism UI
-* Destination exploration
-* Heritage discovery
-* Cultural content
-* Crafts
-* GI products
-* Festival calendar
-* GIS visualization
-* Client-side authentication state
-* Digital-pass prototype
-* Pass verification prototype
-* AI travel-assistant interface
-* Browser-based persistence
-
-### Production Expansion
-
-* Secure backend authentication
-* Real database
-* Live transport APIs
-* Real hotel APIs
-* Real restaurant APIs
-* Real payment gateway
-* Real-time crowd feeds
-* OpenCV crowd detection
-* Cloud infrastructure
-* RAG knowledge system
-* Production LLM integration
-* Real-time notifications
-
-This distinction is important because BharatYatra is currently a **working tourism prototype with a production-oriented architecture and expansion roadmap**, rather than claiming that every external service is already connected to live production infrastructure.
-
----
-
-# 📊 36. Expected Impact
-
-BharatYatra is designed to create impact across multiple tourism stakeholders.
+## 🟨 Frontend
 
 <div align="center">
 
-| Stakeholder              | Potential Benefit                  |
-| ------------------------ | ---------------------------------- |
-| 🧳 Travelers             | Easier trip discovery and planning |
-| 🏛️ Heritage Sites       | Better visitor management          |
-| 💎 Hidden Destinations   | Increased visibility               |
-| 🎨 Artisans              | Greater digital exposure           |
-| 🏺 GI Communities        | Product and cultural discovery     |
-| 🍛 Local Food Businesses | Culinary tourism exposure          |
-| 🏨 Hospitality           | Better destination connectivity    |
-| 🚆 Transport Providers   | Integrated travel planning         |
-| 🇮🇳 Tourism Ecosystem   | More distributed tourism activity  |
+![HTML5](https://img.shields.io/badge/HTML5-E34F26?style=for-the-badge\&logo=html5\&logoColor=white)
+![CSS3](https://img.shields.io/badge/CSS3-1572B6?style=for-the-badge\&logo=css3\&logoColor=white)
+![JavaScript](https://img.shields.io/badge/JavaScript-F7DF1E?style=for-the-badge\&logo=javascript\&logoColor=black)
+![React](https://img.shields.io/badge/React-20232A?style=for-the-badge\&logo=react\&logoColor=61DAFB)
+![Tailwind CSS](https://img.shields.io/badge/Tailwind_CSS-06B6D4?style=for-the-badge\&logo=tailwindcss\&logoColor=white)
+![Bootstrap](https://img.shields.io/badge/Bootstrap-7952B3?style=for-the-badge\&logo=bootstrap\&logoColor=white)
+
+</div>
+
+### Technologies
+
+* HTML5
+* CSS3
+* JavaScript ES6+
+* React.js
+* Tailwind CSS
+* Bootstrap
+* Responsive Web Design
+* DOM Manipulation
+* Local Storage
+* Session Storage
+* HTML5 Video
+* HTML5 Audio
+
+---
+
+# 🟦 Backend
+
+<div align="center">
+
+![Java](https://img.shields.io/badge/Java-ED8B00?style=for-the-badge\&logo=openjdk\&logoColor=white)
+![Spring Boot](https://img.shields.io/badge/Spring_Boot-6DB33F?style=for-the-badge\&logo=springboot\&logoColor=white)
+![Python](https://img.shields.io/badge/Python-3776AB?style=for-the-badge\&logo=python\&logoColor=white)
+![FastAPI](https://img.shields.io/badge/FastAPI-009688?style=for-the-badge\&logo=fastapi\&logoColor=white)
+
+</div>
+
+### Technologies
+
+* Java
+* Spring Boot
+* Spring Web
+* REST APIs
+* Python
+* FastAPI
+* Backend services
+* API integration
+* Authentication services
+
+### Future Backend Architecture
+
+```text
+React Frontend
+      │
+      ▼
+Spring Boot API
+      │
+ ┌────┼───────────────┐
+ ▼    ▼               ▼
+SQL  AI Services   GIS Services
+DB   Python API    Maps API
+```
+
+---
+
+# 🟩 Programming Languages
+
+<div align="center">
+
+![Java](https://img.shields.io/badge/Java-ED8B00?style=for-the-badge\&logo=openjdk\&logoColor=white)
+![Python](https://img.shields.io/badge/Python-3776AB?style=for-the-badge\&logo=python\&logoColor=white)
+![JavaScript](https://img.shields.io/badge/JavaScript-F7DF1E?style=for-the-badge\&logo=javascript\&logoColor=black)
+![SQL](https://img.shields.io/badge/SQL-336791?style=for-the-badge\&logo=postgresql\&logoColor=white)
+![C++](https://img.shields.io/badge/C%2B%2B-00599C?style=for-the-badge\&logo=cplusplus\&logoColor=white)
+
+</div>
+
+### Core Languages
+
+* ☕ Java
+* 🐍 Python
+* 🟨 JavaScript
+* 🗄️ SQL
+* ⚡ C++
+
+---
+
+# 🟪 Artificial Intelligence & Machine Learning
+
+<div align="center">
+
+![OpenAI](https://img.shields.io/badge/OpenAI-412991?style=for-the-badge\&logo=openai\&logoColor=white)
+![Python](https://img.shields.io/badge/Python_AI-3776AB?style=for-the-badge\&logo=python\&logoColor=white)
+![OpenCV](https://img.shields.io/badge/OpenCV-5C3EE8?style=for-the-badge\&logo=opencv\&logoColor=white)
+
+</div>
+
+### AI Technologies
+
+* OpenAI API
+* Groq API
+* LLMs
+* Prompt Engineering
+* RAG
+* Embeddings
+* Vector Search
+* Recommendation Systems
+* Generative AI
+* Conversational AI
+* AI-powered itinerary generation
+* AI-assisted tourism recommendations
+
+### Machine Learning
+
+Potential ML components:
+
+* Recommendation systems
+* Destination ranking
+* Crowd prediction
+* Travel preference modeling
+* Demand forecasting
+* Classification
+* Clustering
+
+---
+
+# 👁️ Computer Vision
+
+### OpenCV
+
+OpenCV can be integrated into the future crowd-intelligence pipeline.
+
+```text
+Camera / CCTV
+      │
+      ▼
+Video Stream
+      │
+      ▼
+OpenCV
+      │
+      ▼
+Object / Person Detection
+      │
+      ▼
+People Count
+      │
+      ▼
+Crowd Density
+      │
+      ▼
+Tourism Dashboard
+```
+
+### Future Extensions
+
+* Person detection
+* Crowd counting
+* Density estimation
+* Restricted-zone monitoring
+* Queue-length estimation
+* CCTV analytics
+* Drone-based crowd telemetry
+
+---
+
+# 🗺️ GIS & Mapping
+
+<div align="center">
+
+![Leaflet](https://img.shields.io/badge/Leaflet-199900?style=for-the-badge\&logo=leaflet\&logoColor=white)
+![OpenStreetMap](https://img.shields.io/badge/OpenStreetMap-7EBC6F?style=for-the-badge\&logo=openstreetmap\&logoColor=white)
+![Google Maps](https://img.shields.io/badge/Google_Maps-4285F4?style=for-the-badge\&logo=googlemaps\&logoColor=white)
+
+</div>
+
+### Technologies
+
+* Leaflet.js
+* OpenStreetMap
+* Google Maps APIs
+* GeoJSON
+* DataMeet GeoJSON
+* Spatial coordinates
+* Interactive markers
+* Route navigation
+* Geographic boundaries
+
+### GIS Architecture
+
+```text
+Destination Database
+        │
+        ▼
+Latitude + Longitude
+        │
+        ▼
+Leaflet GIS
+        │
+ ┌──────┼─────────┐
+ ▼      ▼         ▼
+Map   Marker    Crowd
+      Cluster   Layer
+        │
+        ▼
+Alternative Destination
+```
+
+---
+
+# 🟦 Maps & Location APIs
+
+Potential integrations:
+
+* Google Maps API
+* Google Geocoding API
+* Google Places API
+* Google Directions API
+* OpenStreetMap
+* Leaflet
+* GeoJSON
+
+Possible capabilities:
+
+📍 Geolocation
+🧭 Navigation
+🚗 Route calculation
+🏨 Nearby hotels
+🍛 Nearby restaurants
+🏛️ Nearby attractions
+🗺️ Distance calculation
+
+---
+
+# 🟧 Database & Data Storage
+
+<div align="center">
+
+![PostgreSQL](https://img.shields.io/badge/PostgreSQL-336791?style=for-the-badge\&logo=postgresql\&logoColor=white)
+![MySQL](https://img.shields.io/badge/MySQL-4479A1?style=for-the-badge\&logo=mysql\&logoColor=white)
+
+</div>
+
+### Technologies
+
+* PostgreSQL
+* SQL
+* Relational Database Design
+* JSON
+* LocalStorage
+* SessionStorage
+
+### Current Prototype Storage
+
+```text
+localStorage
+│
+├── bharatUser
+├── bharat_bookings
+└── bharat_users_table
+
+sessionStorage
+│
+├── bharat_audio_time
+└── bharat_audio_playing
+```
+
+> 🟨 **Production:** Browser storage should be replaced with a secure backend database for authentication, bookings and payment records.
+
+---
+
+# 🟩 Data Analytics
+
+Potential analytics layer:
+
+* Python
+* Pandas
+* NumPy
+* Matplotlib
+* Power BI
+* Microsoft Fabric
+* SQL
+* Data visualization
+
+### Tourism Analytics
+
+Possible dashboards:
+
+📊 Tourist arrivals
+📊 Destination popularity
+📊 Crowd trends
+📊 Seasonal demand
+📊 Regional tourism
+📊 Hotel demand
+📊 Transport usage
+📊 Hidden-gem adoption
+
+---
+
+# ☁️ Cloud & Deployment
+
+Potential cloud ecosystem:
+
+* Microsoft Azure
+* Azure App Service
+* Azure Functions
+* Azure Database
+* Azure Storage
+* Cloud APIs
+* REST services
+
+### Future Deployment
+
+```text
+Frontend
+   │
+   ▼
+Cloud Hosting
+   │
+   ▼
+Spring Boot Backend
+   │
+ ┌─┼──────────────┐
+ ▼ ▼              ▼
+SQL AI          GIS
+DB  Services    Services
+```
+
+---
+
+# 🔐 Authentication & Security
+
+### Authentication
+
+* Email/password
+* Google Identity Services
+* Session management
+* Client-side prototype authentication
+
+### Security Improvements
+
+Production deployment should implement:
+
+* HTTPS
+* JWT authentication
+* Password hashing
+* Server-side token validation
+* Role-based access control
+* API rate limiting
+* Input validation
+* Secure CORS
+* Environment variables
+* Backend API proxy
+* Database access controls
+
+### ⚠️ API Key Security
+
+API keys for:
+
+* OpenAI
+* Groq
+* Google Maps
+* Other external services
+
+**must never be permanently exposed inside frontend JavaScript.**
+
+Production architecture:
+
+```text
+Frontend
+   │
+   ▼
+Backend API
+   │
+   ▼
+Secret API Key
+   │
+   ▼
+External AI / Maps API
+```
+
+---
+
+# 🧰 Development Tools
+
+<div align="center">
+
+![Git](https://img.shields.io/badge/Git-F05032?style=for-the-badge\&logo=git\&logoColor=white)
+![GitHub](https://img.shields.io/badge/GitHub-181717?style=for-the-badge\&logo=github\&logoColor=white)
+![VS Code](https://img.shields.io/badge/VS_Code-007ACC?style=for-the-badge\&logo=visualstudiocode\&logoColor=white)
+![IntelliJ IDEA](https://img.shields.io/badge/IntelliJ_IDEA-000000?style=for-the-badge\&logo=intellijidea\&logoColor=white)
+![Postman](https://img.shields.io/badge/Postman-FF6C37?style=for-the-badge\&logo=postman\&logoColor=white)
+
+</div>
+
+### Tools
+
+* Git
+* GitHub
+* Git LFS
+* Visual Studio Code
+* IntelliJ IDEA
+* Postman
+* PostgreSQL / pgAdmin
+* Chrome DevTools
+* PowerShell
+* npm
+* Maven
+
+---
+
+# 📦 19. Technology Stack — Quick View
+
+| Layer                 | Technologies                    |
+| --------------------- | ------------------------------- |
+| 🎨 Frontend           | HTML5, CSS3, JavaScript         |
+| ⚛️ Frontend Framework | React.js                        |
+| 🎨 UI Framework       | Tailwind CSS, Bootstrap         |
+| ☕ Backend             | Java, Spring Boot               |
+| 🐍 AI Backend         | Python, FastAPI                 |
+| 🤖 AI                 | OpenAI, Groq, LLMs, RAG         |
+| 👁️ Computer Vision   | OpenCV                          |
+| 🗺️ GIS               | Leaflet, OpenStreetMap, GeoJSON |
+| 📍 Maps               | Google Maps APIs                |
+| 🗄️ Database          | PostgreSQL, SQL                 |
+| 📊 Analytics          | Python, Pandas, NumPy, Power BI |
+| ☁️ Cloud              | Azure / Cloud APIs              |
+| 🔐 Authentication     | Google Identity Services, JWT   |
+| 🔧 Version Control    | Git, GitHub, Git LFS            |
+| 🧪 API Testing        | Postman                         |
+| 💻 IDE                | VS Code, IntelliJ IDEA          |
+
+---
+
+# 🎨 20. Design System
+
+BharatYatra uses a premium Indian heritage-inspired visual language.
+
+## 🟨 Royal Gold
+
+![Gold](https://img.shields.io/badge/-%20-D4AF37?style=flat-square) `#D4AF37`
+
+Primary interactive elements.
+
+Used for:
+
+* CTA buttons
+* Active links
+* Focus borders
+* Highlights
+* Primary gradients
+
+---
+
+## 🟨 Light Gold
+
+![Light Gold](https://img.shields.io/badge/-%20-F5E6A3?style=flat-square) `#F5E6A3`
+
+Used for:
+
+* Headline highlights
+* Hover effects
+* Tags
+* Glow effects
+
+---
+
+## 🟫 Dark Gold
+
+![Dark Gold](https://img.shields.io/badge/-%20-997A15?style=flat-square) `#997A15`
+
+Used for:
+
+* Borders
+* Dividers
+* Barcode elements
+* Secondary accents
+
+---
+
+## ⬛ Background
+
+![Background](https://img.shields.io/badge/-%20-0B0B0C?style=flat-square) `#0B0B0C`
+
+Primary application background.
+
+---
+
+## 🩶 Card Background
+
+![Card](https://img.shields.io/badge/-%20-151518?style=flat-square) `#151518`
+
+Used for:
+
+* Cards
+* Modals
+* Glassmorphic panels
+
+---
+
+## 🟢 Crowd — Low
+
+![Low](https://img.shields.io/badge/-%20-22C55E?style=flat-square) `#22C55E`
+
+Below 35%.
+
+---
+
+## 🟡 Crowd — Moderate
+
+![Moderate](https://img.shields.io/badge/-%20-EAB308?style=flat-square) `#EAB308`
+
+35–70%.
+
+---
+
+## 🔴 Crowd — High
+
+![High](https://img.shields.io/badge/-%20-EF4444?style=flat-square) `#EF4444`
+
+Above 70%.
+
+---
+
+# ✍️ 21. Typography
+
+### Headings
+
+**Cinzel / Cinzel Decorative**
+
+Used to create a royal, historical and heritage-inspired identity.
+
+### Information
+
+**Plus Jakarta Sans / DM Sans**
+
+Used for:
+
+* Navigation
+* Cards
+* Descriptions
+* Forms
+* Data-heavy content
+
+---
+
+# 🎬 22. Visual Experience
+
+The interface uses cinematic storytelling rather than a conventional tourism dashboard.
+
+### Visual Elements
+
+🎥 Full-width cinematic videos
+🎭 Cultural performance reels
+🏛️ Heritage imagery
+🗺️ Interactive maps
+🧵 Artisan videos
+🎉 Festival media
+🎵 Traditional Indian background music
+
+The visual direction is designed around:
+
+> **Luxury + Heritage + Technology + Indian Identity**
+
+---
+
+# 🎵 23. Cultural Audio
+
+The platform can maintain continuous audio playback between pages.
+
+Session state:
+
+```text
+sessionStorage['bharat_audio_time']
+sessionStorage['bharat_audio_playing']
+```
+
+This enables the cultural atmosphere to continue while users navigate the platform.
+
+---
+
+# 📱 24. Responsive Design
+
+BharatYatra is designed for:
+
+* 💻 Desktop
+* 📱 Mobile
+* 📲 Tablet
+* 🖥️ Large screens
+
+Responsive elements include:
+
+* Navigation
+* Cards
+* Maps
+* Filters
+* Modals
+* Video sections
+* Booking forms
+* Chat interface
+
+---
+
+# 🔄 25. Complete User Journey
+
+```text
+                    🇮🇳 START
+                       │
+                       ▼
+                BharatYatra Home
+                       │
+              ┌────────┴────────┐
+              │                 │
+         Explore India      Login
+              │                 │
+              ▼                 ▼
+       Destinations        User Profile
+              │
+      ┌───────┼────────┐
+      ▼       ▼        ▼
+   UNESCO   Hidden    Crafts
+    Sites    Gems
+      │       │        │
+      └───────┼────────┘
+              ▼
+        Select Destination
+              │
+      ┌───────┼────────────┐
+      ▼       ▼            ▼
+ Transport  Hotels     Restaurants
+      │       │            │
+      └───────┼────────────┘
+              ▼
+        AI Travel Assistant
+              │
+              ▼
+       Personalized Itinerary
+              │
+              ▼
+        Digital Travel Pass
+              │
+              ▼
+         QR / PNR Pass
+              │
+              ▼
+       Pass Verification
+              │
+              ▼
+        🇮🇳 TRAVEL INDIA
+```
+
+---
+
+# 🌱 26. Sustainable Tourism
+
+BharatYatra is designed around the principle of **tourism redistribution**.
+
+Instead of continuously directing travelers toward already overcrowded destinations:
+
+```text
+High-Demand Location
+        │
+        ▼
+Crowd Detection
+        │
+        ▼
+Alternative Recommendation
+        │
+        ▼
+Hidden Gem
+        │
+        ▼
+Local Community
+        │
+        ▼
+Distributed Tourism Economy
+```
+
+### Expected Benefits
+
+🟩 Reduced congestion
+🟩 Reduced pressure on heritage sites
+🟩 More rural tourism
+🟩 Better local economic participation
+🟩 Greater visibility for artisans
+🟩 Improved visitor experience
+
+---
+
+# 🧑‍🎨 27. Cultural & Economic Impact
+
+### For Travelers
+
+* One-stop tourism discovery
+* Personalized itineraries
+* Local experiences
+* Hidden destinations
+* Heritage education
+* Food discovery
+
+### For Local Communities
+
+* Artisan visibility
+* GI product discovery
+* Rural tourism
+* Local restaurant exposure
+* Local transport opportunities
+* Cultural preservation
+
+### For Tourism Authorities
+
+* Crowd monitoring
+* Tourism analytics
+* Visitor distribution
+* Capacity monitoring
+* Heritage protection insights
+
+---
+
+# 🔮 28. Future Scope
+
+## 🟪 AI
+
+* Advanced RAG travel assistant
+* Personalized recommendation engine
+* Predictive tourism analytics
+* AI destination ranking
+* Multilingual conversational AI
+* Voice travel assistant
+
+## 🟦 GIS
+
+* Real-time crowd heatmaps
+* Route optimization
+* Tourism density maps
+* Geofencing
+* Disaster-aware routing
+
+## 🟥 Computer Vision
+
+* CCTV crowd counting
+* Queue detection
+* Drone crowd monitoring
+* Monument capacity monitoring
+* Real-time density prediction
+
+## 🟩 Data Science
+
+* Tourist demand forecasting
+* Seasonal prediction
+* Destination recommendation
+* Tourism sentiment analysis
+* Visitor segmentation
+
+## 🟨 Digital Tourism
+
+* Real payment gateways
+* Real hotel booking
+* Real transport APIs
+* Government tourism integration
+* Secure digital identity
+* Official heritage databases
+
+---
+
+# 🧠 29. Future Advanced Architecture
+
+```text
+                    BHARATYATRA
+                         │
+        ┌────────────────┼────────────────┐
+        │                │                │
+      React           Spring Boot       Python
+        │                │                │
+        │                │          ┌─────┴─────┐
+        │                │          │           │
+        │                │        OpenCV       ML
+        │                │          │           │
+        └────────┬───────┴──────────┴───────────┘
+                 │
+                 ▼
+            API Gateway
+                 │
+      ┌──────────┼───────────┐
+      ▼          ▼           ▼
+ PostgreSQL     GIS          AI
+      │          │           │
+      │       Leaflet      OpenAI
+      │       Maps API     Groq
+      │       GeoJSON      RAG
+      │
+      ▼
+ Tourism Data Platform
+      │
+      ▼
+ Analytics / Power BI
+      │
+      ▼
+ Smart Tourism Insights
+```
+
+---
+
+# 📊 30. Data & Analytics Vision
+
+A future tourism analytics dashboard could monitor:
+
+| Metric               | Example                |
+| -------------------- | ---------------------- |
+| 👥 Tourist Volume    | Visitors/day           |
+| 🗺️ Destination Load | Crowd percentage       |
+| 🏨 Accommodation     | Occupancy              |
+| 🚆 Transport         | Mode usage             |
+| 🍛 Food              | Cuisine popularity     |
+| 💎 Hidden Gems       | Discovery rate         |
+| 🧵 Crafts            | Artisan engagement     |
+| 🎉 Festivals         | Seasonal demand        |
+| 💰 Economy           | Local tourism spending |
+
+---
+
+# 🧪 31. Prototype vs Production
+
+| Component         | Current / Prototype | Production Direction |
+| ----------------- | ------------------- | -------------------- |
+| Authentication    | Client-side         | Secure backend auth  |
+| Booking           | Browser storage     | PostgreSQL           |
+| Payment           | Simulated UPI       | Real payment gateway |
+| Pass verification | LocalStorage        | Secure API           |
+| AI                | API integration     | Backend AI gateway   |
+| Crowd data        | Demo / simulated    | OpenCV + CCTV        |
+| Maps              | Leaflet / map APIs  | GIS backend          |
+| Users             | Local JSON store    | Database             |
+| Security          | Frontend prototype  | JWT + RBAC           |
+| API keys          | Development setup   | Server-side secrets  |
+
+This distinction keeps the project technically honest while providing a clear path toward deployment.
+
+---
+
+# 🛠️ 32. Installation
+
+Clone the repository:
+
+```bash
+git clone https://github.com/shivkoli07/BharatYatra.git
+cd BharatYatra
+```
+
+For the current static prototype, open:
+
+```text
+index.html
+```
+
+For development, a local web server is recommended.
+
+Example:
+
+```bash
+python -m http.server 5500
+```
+
+Then open:
+
+```text
+http://localhost:5500
+```
+
+---
+
+# 🔑 33. API Configuration
+
+Never commit API keys.
+
+Use environment variables in the backend:
+
+```env
+OPENAI_API_KEY=your_key
+GROQ_API_KEY=your_key
+GOOGLE_MAPS_API_KEY=your_key
+```
+
+For a production architecture:
+
+```text
+Browser
+   │
+   ▼
+Backend
+   │
+   ├── OpenAI
+   ├── Groq
+   ├── Google Maps
+   └── Other APIs
+```
+
+---
+
+# 📁 34. Project Modules
+
+| Module           | File                    | Role                     |
+| ---------------- | ----------------------- | ------------------------ |
+| 🏠 Gateway       | `index.html`            | Main experience          |
+| 🗺️ Destinations | `destinations.html`     | State/UT discovery       |
+| 💎 Hidden Gems   | `hidden_gems.html`      | GIS + crowd intelligence |
+| 🏛️ UNESCO       | `unesco_sites.html`     | Heritage explorer        |
+| 🧵 Crafts        | `crafts.html`           | Artisan ecosystem        |
+| 🏷️ GI Registry  | `gi_tag.html`           | GI products              |
+| 🎉 Calendar      | `calendar.html`         | Festivals                |
+| 🎫 Ticket        | `ticket_generator.html` | Digital pass             |
+| 🛂 Verification  | `verify_pass.html`      | Pass validation          |
+| 🤖 Chatbot       | `chatbot.html`          | AI travel companion      |
+| 🔐 Login         | `login.html`            | Authentication           |
+
+---
+
+# 🏆 35. Innovation Highlights
+
+### 🟨 1. Unified Tourism Ecosystem
+
+Discovery + planning + travel + culture in one platform.
+
+### 🟩 2. Tourism Redistribution
+
+Hidden gems are used to reduce concentration around overcrowded destinations.
+
+### 🟦 3. Spatial Intelligence
+
+GIS provides a geographical understanding of tourism activity.
+
+### 🟪 4. Generative Travel Planning
+
+LLM-powered conversational itinerary generation.
+
+### 🟥 5. Computer Vision Ready
+
+Future integration with CCTV and drone crowd analysis.
+
+### 🟧 6. Digital Heritage Preservation
+
+UNESCO, GI, crafts and cultural knowledge become digitally discoverable.
+
+### 🟫 7. Local Economic Inclusion
+
+Tourism discovery extends beyond mainstream commercial destinations.
+
+---
+
+# 🎯 36. Long-Term Vision
+
+BharatYatra aims to evolve from a tourism website into a **national digital tourism intelligence ecosystem**.
+
+```text
+Tourist
+   │
+   ▼
+Discover
+   │
+   ▼
+Understand
+   │
+   ▼
+Plan
+   │
+   ▼
+Travel
+   │
+   ▼
+Experience
+   │
+   ▼
+Support Local Communities
+   │
+   ▼
+Preserve Heritage
+   │
+   ▼
+Build Sustainable Tourism
+```
+
+---
+
+# 🇮🇳 37. Why BharatYatra?
+
+Because India is more than a list of tourist attractions.
+
+It is:
+
+> 🏛️ History
+> 🎭 Culture
+> 🧵 Craft
+> 🍛 Food
+> 🛕 Faith
+> 🎉 Festivals
+> 🏔️ Landscapes
+> 🧑‍🎨 People
+> 📜 Heritage
+> ❤️ Experiences
+
+BharatYatra brings these dimensions together through technology.
+
+---
+
+# 👨‍💻 38. Developer
+
+### **Shiv Koli**
+
+B.E. Information Technology
+Bharati Vidyapeeth College of Engineering, Navi Mumbai
+
+### Areas of Interest
+
+* Software Development
+* Artificial Intelligence
+* Data Science
+* Web Development
+* GIS
+* Database Systems
+* Computer Vision
+* Data Analytics
+
+### GitHub
+
+`github.com/shivkoli07`
+
+### LinkedIn
+
+`linkedin.com/in/shiv-koli07`
+
+---
+
+# 📜 39. Project Status
+
+🟢 **Active Development**
+
+BharatYatra is being developed as an innovative tourism ecosystem with a focus on:
+
+**AI + Web + GIS + Heritage + Data + Sustainable Tourism**
+
+The current implementation contains prototype components, while several backend, AI, computer-vision and production integrations are designed as future-ready extensions.
+
+---
+
+# ❤️ 40. Final Vision
+
+<div align="center">
+
+## 🇮🇳 BHARATYATRA
+
+### **Discover India. Your Way.**
+
+**Explore. Experience. Preserve.**
+
+🏛️ Heritage
+🗺️ Destinations
+🎭 Culture
+🍛 Food
+🧵 Crafts
+💎 Hidden Gems
+🤖 Intelligence
+🌱 Sustainable Tourism
+
+### भारत केवल देखा नहीं जाता — भारत जिया जाता है।
 
 </div>
 
 ---
 
-# 🌱 37. Sustainable Tourism Vision
-
-A major long-term objective of BharatYatra is **balanced tourism**.
-
-Instead of:
+## ⭐ Technology Philosophy
 
 ```text
-Millions of visitors
-        ↓
-Few popular locations
-        ↓
-Overcrowding
-        ↓
-Environmental & cultural pressure
-```
-
-BharatYatra aims for:
-
-```text
-Visitors
-   ↓
-Multiple destinations
-   ↓
-Hidden Gems
-   ↓
-Local Communities
-   ↓
-Distributed Tourism
-   ↓
-Sustainable Growth
-```
-
-This can help distribute both **visitor footfall and economic opportunity**.
-
----
-
-# 🏆 38. Key Innovation Areas
-
-The project's major innovation areas are:
-
-### 1. 🗺️ GIS-Based Tourism Intelligence
-
-Spatially representing destinations and crowd conditions.
-
-### 2. 💎 Hidden-Gem Redistribution
-
-Using alternative destinations to reduce concentration at popular attractions.
-
-### 3. 👥 Crowd-Load Balancing
-
-Designing the platform to eventually consume real-time crowd data.
-
-### 4. 🎟️ Unified Digital Pass
-
-Connecting multiple travel components into one digital travel-pass concept.
-
-### 5. 🤖 Conversational Travel AI
-
-Generating personalized travel plans through an AI assistant.
-
-### 6. 🎨 Cultural Preservation
-
-Connecting tourism with Indian crafts, traditions and local communities.
-
-### 7. 🏺 GI Tourism
-
-Promoting geographically unique Indian products through tourism.
-
-### 8. 🗓️ Festival-Based Travel
-
-Helping tourists plan journeys around India's cultural calendar.
-
----
-
-# 🚀 39. Future Roadmap
-
-```text
-PHASE 1
-───────
-Tourism Discovery
-       ↓
-Heritage + Culture
-       ↓
-Crafts + GI + Festivals
-
-
-PHASE 2
-───────
-GIS
-       ↓
-Hidden Gems
-       ↓
-Crowd Visualization
-
-
-PHASE 3
-───────
-AI Assistant
-       ↓
-Personalized Itinerary
-       ↓
-Budget Planning
-
-
-PHASE 4
-───────
-Live Transport
-       ↓
-Hotels
-       ↓
-Restaurants
-       ↓
-Digital Booking
-
-
-PHASE 5
-───────
-OpenCV Crowd Detection
-       ↓
-Real-Time GIS
-       ↓
-Crowd Redistribution
-
-
-PHASE 6
-───────
-RAG Tourism Knowledge
-       ↓
-Multilingual AI
-       ↓
-Fully Personalized
-National Tourism Ecosystem
+                         🇮🇳 INDIA
+                            │
+                 ┌──────────┴──────────┐
+                 │                     │
+             HERITAGE              TECHNOLOGY
+                 │                     │
+       ┌─────────┼─────────┐     ┌─────┼─────┐
+       │         │         │     │     │     │
+     Culture   Crafts    Food    AI   GIS   Data
+       │         │         │     │     │     │
+       └─────────┴─────────┴─────┴─────┴─────┘
+                            │
+                            ▼
+                    🇮🇳 BHARATYATRA
+                            │
+                            ▼
+                 SMART & SUSTAINABLE
+                      TOURISM
 ```
 
 ---
 
-# 📌 40. Project Status
+<div align="center">
 
-**Status:** 🚧 Active Development
+**Made with ❤️ for India 🇮🇳**
 
-BharatYatra is currently being developed as an SIH-oriented tourism technology prototype.
+**BharatYatra — Discover India. Your Way.**
 
-The project establishes the core tourism interface and several specialized modules while providing an architecture that can be expanded into a full-stack, API-driven, AI-powered national tourism ecosystem.
-
----
-
-# 🧪 41. Testing Strategy
-
-Future testing can cover:
-
-### Functional Testing
-
-* Navigation
-* Search
-* Filters
-* Login
-* Ticket generation
-* Pass verification
-* Calendar
-* Chatbot
-
-### GIS Testing
-
-* Marker accuracy
-* Map loading
-* GeoJSON boundaries
-* Destination coordinates
-
-### AI Testing
-
-* Itinerary relevance
-* Travel recommendations
-* Response consistency
-* Budget generation
-* Prompt handling
-
-### Security Testing
-
-* Authentication
-* API key protection
-* Input validation
-* Session handling
-* Authorization
-
-### Performance Testing
-
-* Large media loading
-* Map performance
-* Mobile responsiveness
-* API response time
-
----
-
-# 👨‍💻 42. Developer
-
-## Shiv Koli
-
-**B.E. Information Technology**
-
-Bharati Vidyapeeth College of Engineering, Navi Mumbai
-
-### GitHub
-
-[github.com/shivkoli07](https://github.com/shivkoli07)
-
-### Project Repository
-
-[github.com/shivkoli07/BharatYatra](https://github.com/shivkoli07/BharatYatra)
-
----
-
-# 🏆 43. Hackathon Information
-
-| Field             | Details                                |
-| ----------------- | -------------------------------------- |
-| Project           | **BharatYatra AI**                     |
-| Hackathon         | **Smart India Hackathon 2026**         |
-| Problem Statement | **SIH26204**                           |
-| Theme             | **Travel & Tourism**                   |
-| Category          | **Student Innovation**                 |
-| Domain            | **Tourism Technology**                 |
-| Core Focus        | **Indian Tourism & Cultural Heritage** |
-
----
-
-# 📜 44. Disclaimer
-
-BharatYatra is currently an **educational and hackathon-oriented prototype**.
-
-Information, booking flows, payment interfaces, crowd indicators, transportation recommendations and other services should be connected to verified official or commercial APIs before being used for real-world commercial travel operations.
-
-The prototype should not be considered an official ticketing, payment, transportation, hotel or government tourism service.
-
----
-
-# 🇮🇳 45. Vision
-
-> ## **BharatYatra is not just about finding a destination.**
->
-> ## **It is about discovering the story, culture, people, food, crafts and experiences behind that destination.**
-
-The long-term vision is to build a digital ecosystem where technology helps travelers:
-
-```text
-DISCOVER INDIA
-      ↓
-UNDERSTAND INDIA
-      ↓
-EXPERIENCE INDIA
-      ↓
-SUPPORT LOCAL INDIA
-      ↓
-TRAVEL RESPONSIBLY
-```
-
----
-
-# BharatYatra AI
-
-### **Discover India. Explore Its Heritage. Experience Its Culture.**
-
-### **भारत केवल देखा नहीं जाता, भारत जिया जाता है। 🇮🇳**
+</div>
