@@ -1,4 +1,4 @@
-# 🇮🇳 BharatYatra AI
+# BharatYatra AI
 
 ### **Discover India. Your Way.**
 
