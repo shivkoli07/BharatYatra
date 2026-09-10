@@ -1096,176 +1096,7 @@ External AI / Maps API
 
 ---
 
-# 🎨 20. Design System
-
-BharatYatra uses a premium Indian heritage-inspired visual language.
-
-## 🟨 Royal Gold
-
-![Gold](https://img.shields.io/badge/-%20-D4AF37?style=flat-square) `#D4AF37`
-
-Primary interactive elements.
-
-Used for:
-
-* CTA buttons
-* Active links
-* Focus borders
-* Highlights
-* Primary gradients
-
----
-
-## 🟨 Light Gold
-
-![Light Gold](https://img.shields.io/badge/-%20-F5E6A3?style=flat-square) `#F5E6A3`
-
-Used for:
-
-* Headline highlights
-* Hover effects
-* Tags
-* Glow effects
-
----
-
-## 🟫 Dark Gold
-
-![Dark Gold](https://img.shields.io/badge/-%20-997A15?style=flat-square) `#997A15`
-
-Used for:
-
-* Borders
-* Dividers
-* Barcode elements
-* Secondary accents
-
----
-
-## ⬛ Background
-
-![Background](https://img.shields.io/badge/-%20-0B0B0C?style=flat-square) `#0B0B0C`
-
-Primary application background.
-
----
-
-## 🩶 Card Background
-
-![Card](https://img.shields.io/badge/-%20-151518?style=flat-square) `#151518`
-
-Used for:
-
-* Cards
-* Modals
-* Glassmorphic panels
-
----
-
-## 🟢 Crowd — Low
-
-![Low](https://img.shields.io/badge/-%20-22C55E?style=flat-square) `#22C55E`
-
-Below 35%.
-
----
-
-## 🟡 Crowd — Moderate
-
-![Moderate](https://img.shields.io/badge/-%20-EAB308?style=flat-square) `#EAB308`
-
-35–70%.
-
----
-
-## 🔴 Crowd — High
-
-![High](https://img.shields.io/badge/-%20-EF4444?style=flat-square) `#EF4444`
-
-Above 70%.
-
----
-
-# ✍️ 21. Typography
-
-### Headings
-
-**Cinzel / Cinzel Decorative**
-
-Used to create a royal, historical and heritage-inspired identity.
-
-### Information
-
-**Plus Jakarta Sans / DM Sans**
-
-Used for:
-
-* Navigation
-* Cards
-* Descriptions
-* Forms
-* Data-heavy content
-
----
-
-# 🎬 22. Visual Experience
-
-The interface uses cinematic storytelling rather than a conventional tourism dashboard.
-
-### Visual Elements
-
-🎥 Full-width cinematic videos
-🎭 Cultural performance reels
-🏛️ Heritage imagery
-🗺️ Interactive maps
-🧵 Artisan videos
-🎉 Festival media
-🎵 Traditional Indian background music
-
-The visual direction is designed around:
-
-> **Luxury + Heritage + Technology + Indian Identity**
-
----
-
-# 🎵 23. Cultural Audio
-
-The platform can maintain continuous audio playback between pages.
-
-Session state:
-
-```text
-sessionStorage['bharat_audio_time']
-sessionStorage['bharat_audio_playing']
-```
-
-This enables the cultural atmosphere to continue while users navigate the platform.
-
----
-
-# 📱 24. Responsive Design
-
-BharatYatra is designed for:
-
-* 💻 Desktop
-* 📱 Mobile
-* 📲 Tablet
-* 🖥️ Large screens
-
-Responsive elements include:
-
-* Navigation
-* Cards
-* Maps
-* Filters
-* Modals
-* Video sections
-* Booking forms
-* Chat interface
-
----
-
-# 🔄 25. Complete User Journey
+# 🔄 20. Complete User Journey
 
 ```text
                     🇮🇳 START
@@ -1315,7 +1146,7 @@ Responsive elements include:
 
 ---
 
-# 🌱 26. Sustainable Tourism
+# 🌱 21. Sustainable Tourism
 
 BharatYatra is designed around the principle of **tourism redistribution**.
 
@@ -1351,7 +1182,7 @@ Distributed Tourism Economy
 
 ---
 
-# 🧑‍🎨 27. Cultural & Economic Impact
+# 🧑‍🎨 22. Cultural & Economic Impact
 
 ### For Travelers
 
@@ -1381,7 +1212,7 @@ Distributed Tourism Economy
 
 ---
 
-# 🔮 28. Future Scope
+# 🔮 23. Future Scope
 
 ## 🟪 AI
 
@@ -1427,7 +1258,7 @@ Distributed Tourism Economy
 
 ---
 
-# 🧠 29. Future Advanced Architecture
+# 🧠 24. Future Advanced Architecture
 
 ```text
                     BHARATYATRA
@@ -1465,7 +1296,7 @@ Distributed Tourism Economy
 
 ---
 
-# 📊 30. Data & Analytics Vision
+# 📊 25. Data & Analytics Vision
 
 A future tourism analytics dashboard could monitor:
 
@@ -1483,7 +1314,7 @@ A future tourism analytics dashboard could monitor:
 
 ---
 
-# 🧪 31. Prototype vs Production
+# 🧪 26. Prototype vs Production
 
 | Component         | Current / Prototype | Production Direction |
 | ----------------- | ------------------- | -------------------- |
@@ -1502,7 +1333,7 @@ This distinction keeps the project technically honest while providing a clear pa
 
 ---
 
-# 🛠️ 32. Installation
+# 🛠️ 27. Installation
 
 Clone the repository:
 
@@ -1533,7 +1364,7 @@ http://localhost:5500
 
 ---
 
-# 🔑 33. API Configuration
+# 🔑 28. API Configuration
 
 Never commit API keys.
 
@@ -1561,7 +1392,7 @@ Backend
 
 ---
 
-# 📁 34. Project Modules
+# 📁 29. Project Modules
 
 | Module           | File                    | Role                     |
 | ---------------- | ----------------------- | ------------------------ |
@@ -1579,7 +1410,7 @@ Backend
 
 ---
 
-# 🏆 35. Innovation Highlights
+# 🏆 30. Innovation Highlights
 
 ### 🟨 1. Unified Tourism Ecosystem
 
@@ -1611,7 +1442,7 @@ Tourism discovery extends beyond mainstream commercial destinations.
 
 ---
 
-# 🎯 36. Long-Term Vision
+# 🎯 31. Long-Term Vision
 
 BharatYatra aims to evolve from a tourism website into a **national digital tourism intelligence ecosystem**.
 
@@ -1645,7 +1476,7 @@ Build Sustainable Tourism
 
 ---
 
-# 🇮🇳 37. Why BharatYatra?
+# 🇮🇳 32. Why BharatYatra?
 
 Because India is more than a list of tourist attractions.
 
@@ -1666,7 +1497,7 @@ BharatYatra brings these dimensions together through technology.
 
 ---
 
-# 👨‍💻 38. Developer
+# 👨‍💻 33. Developer
 
 ### **Shiv Koli**
 
@@ -1694,7 +1525,7 @@ Bharati Vidyapeeth College of Engineering, Navi Mumbai
 
 ---
 
-# 📜 39. Project Status
+# 📜 34. Project Status
 
 🟢 **Active Development**
 
@@ -1706,7 +1537,7 @@ The current implementation contains prototype components, while several backend,
 
 ---
 
-# ❤️ 40. Final Vision
+# ❤️ 35. Final Vision
 
 <div align="center">
 
