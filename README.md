@@ -1589,7 +1589,7 @@ The current implementation contains prototype components, while several backend,
 
 <div align="center">
 
-**Made with ❤️ for India 🇮🇳**
+**Made with for India**
 
 **BharatYatra — Discover India. Your Way.**
 
