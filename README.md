@@ -1,4 +1,4 @@
-# 🇮🇳 BharatYatra AI — Discover India. Your Way.
+# BharatYatra AI — Discover India. Your Way.
 
 > **An AI-powered unified tourism and heritage platform built to revolutionize Indian travel by combining hyper-local discovery, live crowd intelligence, GI-tagged crafts, and multimodal transit planning into a single ecosystem.**
 
