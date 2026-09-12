@@ -15,7 +15,7 @@ The project combines **Web Development + Artificial Intelligence + GIS + Data An
 
 ![Smart India Hackathon](https://img.shields.io/badge/Smart%20India%20Hackathon-2026-orange?style=for-the-badge)
 ![Problem Statement](https://img.shields.io/badge/SIH26204-Student%20Innovation-2563EB?style=for-the-badge)
-![Theme](https://img.shields.io/badge/Theme-Travel%20Heritage-D4AF37?style=for-the-badge)
+![Theme](https://img.shields.io/badge/Theme-Travel%20& Tourism-D4AF37?style=for-the-badge)
 ![Platform](https://img.shields.io/badge/Platform-Web%20Application-22C55E?style=for-the-badge)
 
 </div>
